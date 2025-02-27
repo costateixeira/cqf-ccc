@@ -117,6 +117,14 @@
       <value value="CI Build"/>
     </parameter>
     <parameter>
+      <code value="path-test"/>
+      <value value="bundles/measure/ColorectalCancerScreeningCQM"/>
+    </parameter>    
+    <parameter>
+      <code value="path-test"/>
+      <value value="bundles/plandefinition/ColorectalCancerScreeningCDS"/>
+    </parameter>    
+    <parameter>
       <code value="find-other-resources"/>
       <value value="true"/>
     </parameter>
