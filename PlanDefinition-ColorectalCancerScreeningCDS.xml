@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="ColorectalCancerScreeningCDS"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-recommendationdefinition"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml">
+    <table class="grid dict">
+        
+        <tr>
+            <th scope="row"><b>Id: </b></th>
+            <td style="padding-left: 4px;">ColorectalCancerScreeningCDS</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Url: </b></th>
+            <td style="padding-left: 4px;"><a href="PlanDefinition-ColorectalCancerScreeningCDS.html">Colorectal Cancer Screening CDS</a></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Version: </b></th>
+            <td style="padding-left: 4px;">0.1.0</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Title: </b></th>
+            <td style="padding-left: 4px;">Colorectal Cancer Screening CDS</td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Status: </b></th>
+            <td style="padding-left: 4px;">draft</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Experimental: </b></th>
+            <td style="padding-left: 4px;">true</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Type: </b></th>
+            <td style="padding-left: 4px;">
+                
+                    
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>system: </b> <span><a href="http://terminology.hl7.org/6.2.0/CodeSystem-plan-definition-type.html">http://terminology.hl7.org/CodeSystem/plan-definition-type</a></span>
+                        </p>
+                        
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>code: </b> <span>eca-rule</span>
+                        </p>
+                        
+                        
+                        <p style="margin-bottom: 5px;">
+                            <b>display: </b> <span>ECA Rule</span>
+                        </p>
+                        
+                    
+                
+                
+            </td>
+        </tr>
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Date: </b></th>
+            <td style="padding-left: 4px;">2019-05-15</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Publisher: </b></th>
+            <td style="padding-left: 4px;">Clinical Quality Framework</td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Description: </b></th>
+            <td style="padding-left: 4px;"><div><p>Colorectal Cancer Screening CDS</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Knowledge Capability: </b></th>
+            <td style="padding-left: 4px;">
+                
+                shareable 
+                computable 
+                executable 
+                publishable 
+            </td>
+        </tr>
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Jurisdiction: </b></th>
+            <td style="padding-left: 4px;">001</td>
+        </tr>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Libraries: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td><a href="Library-ColorectalCancerScreeningCDS.html">Colorectal Cancer Screening CDS</a></td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Actions: </b></th>
+            <td style="padding-left: 4px;">
+                <table class="grid-dict">
+                    
+                    <tr>
+                        <td>
+                            
+                            <b> Colorectal Cancer Screening:</b> The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016).
+                            
+                            <br/>
+                            
+                            <b>When:</b>
+                            
+                            <i>Named Event:</i> patient-view
+                            <br/>
+                            
+                            
+                            
+                            <b>If:</b>
+                            
+                            <i>Applicability:</i>
+                            
+                            <i>(Is Recommendation Applicable)</i>
+                            <br/>
+                            
+                            
+                            
+                            
+                            
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+        
+    </table>
+</div>
+  </text>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="shareable"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="computable"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="executable"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability">
+    <valueCode value="publishable"/>
+  </extension>
+  <url value="http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS"/>
+  <version value="0.1.0"/>
+  <name value="ColorectalCancerScreeningCDS"/>
+  <title value="Colorectal Cancer Screening CDS"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+      <display value="ECA Rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2019-05-15"/>
+  <publisher value="Clinical Quality Framework"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://github.com/cqframework"/>
+    </telecom>
+  </contact>
+  <description value="Colorectal Cancer Screening CDS"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <library value="http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS"/>
+  <action>
+    <title value="Colorectal Cancer Screening"/>
+    <description value="The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016)."/>
+    <documentation>
+      <type value="documentation"/>
+      <display value="U.S. Preventive Services Task Force Final Recommendation Statement Colorectal Cancer: Screening"/>
+      <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      <document>
+        <url value="https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/colorectal-cancer-screening"/>
+      </document>
+    </documentation>
+    <trigger>
+      <type value="named-event"/>
+      <name value="patient-view"/>
+    </trigger>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="Is Recommendation Applicable"/>
+      </expression>
+    </condition>
+    <dynamicValue>
+      <path value="action.description"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="Get Card Detail"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="action.title"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="Get Card Summary"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="action.priority"/>
+      <expression>
+        <language value="text/cql-identifier"/>
+        <expression value="Get Card Indicator"/>
+      </expression>
+    </dynamicValue>
+  </action>
+</PlanDefinition>

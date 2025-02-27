@@ -1,0 +1,36 @@
+CCC : Validation Results
+=========================================
+
+err = 0, warn = 0, info = 3
+$--
+Generated $--. FHIR version $-- for fhir.cqf.ccc#$-- (canonical = http://fhir.org/guides/cqf/ccc)
+ Build Errors : 0 / 0 / 0
+ /github/workspace/input/cqf-ccc : 0 / 0 / 1
+ /github/workspace/input/resources/device/cqf-tooling : 0 / 0 / 1
+ /github/workspace/input/resources/library/ColorectalCancerConcepts : 0 / 0 / 1
+ /github/workspace/input/resources/library/ColorectalCancerElements : 0 / 0 / 20
+ /github/workspace/input/resources/library/ColorectalCancerScreeningCDS : 0 / 0 / 20
+ /github/workspace/input/resources/library/ColorectalCancerScreeningCQM : 0 / 0 / 20
+ /github/workspace/input/resources/library/ColorectalCancerScreeningHEDIS : 0 / 0 / 1
+ /github/workspace/input/resources/library/FHIR-ModelInfo : 0 / 0 / 9
+ /github/workspace/input/resources/library/FHIRCommon : 0 / 0 / 20
+ /github/workspace/input/resources/library/FHIRHelpers : 0 / 0 / 22
+ /github/workspace/input/resources/measure/ColorectalCancerScreeningCQM : 0 / 3 / 7
+ /github/workspace/input/resources/plandefinition/ColorectalCancerScreeningCDS : 0 / 0 / 5
+</table>
+== n/a ==
+== input/cqf-ccc.xml ==
+== input/resources/device/cqf-tooling.json ==
+== input/resources/library/ColorectalCancerConcepts.json ==
+== input/resources/library/ColorectalCancerElements.json ==
+== input/resources/library/ColorectalCancerScreeningCDS.json ==
+== input/resources/library/ColorectalCancerScreeningCQM.json ==
+== input/resources/library/ColorectalCancerScreeningHEDIS.json ==
+== input/resources/library/FHIR-ModelInfo.json ==
+INFORMATION: Library/FHIR-ModelInfo: Library.extension[0].value.ofType(code): Reference to draft CodeSystem http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-knowledge-capability|1.0.0
+INFORMATION: Library/FHIR-ModelInfo: Library.extension[1].value.ofType(code): Reference to draft CodeSystem http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-knowledge-capability|1.0.0
+INFORMATION: Library/FHIR-ModelInfo: Library.extension[2].value.ofType(code): Reference to draft CodeSystem http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-knowledge-representation-level|1.0.0
+== input/resources/library/FHIRCommon.json ==
+== input/resources/library/FHIRHelpers.json ==
+== input/resources/measure/ColorectalCancerScreeningCQM.json ==
+== input/resources/plandefinition/ColorectalCancerScreeningCDS.xml ==

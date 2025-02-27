@@ -1,0 +1,552 @@
+{
+   "library" : {
+      "annotation" : [ {
+         "translatorVersion" : "2.7.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "34",
+            "s" : [ {
+               "value" : [ "","library ColorectalCancerScreeningHEDIS version '0.1.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "ColorectalCancerScreeningHEDIS",
+         "system" : "http://fhir.org/guides/cqf/ccc",
+         "version" : "0.1.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "1",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "2",
+            "locator" : "5:1-5:54",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://fhir.org/guides/cqf/ccc/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "2",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'"," called ","FHIRHelpers" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "3",
+            "locator" : "7:1-7:43",
+            "localIdentifier" : "CCE",
+            "path" : "http://fhir.org/guides/cqf/ccc/ColorectalCancerElements",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "3",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ColorectalCancerElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " called ","CCE" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "parameters" : {
+         "def" : [ {
+            "localId" : "9",
+            "locator" : "9:1-10:78",
+            "name" : "Measurement Period",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "9",
+                  "s" : [ {
+                     "value" : [ "","parameter ","\"Measurement Period\""," " ]
+                  }, {
+                     "r" : "8",
+                     "s" : [ {
+                        "value" : [ "Interval<" ]
+                     }, {
+                        "r" : "7",
+                        "s" : [ {
+                           "value" : [ "DateTime" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ "\n  default " ]
+                  }, {
+                     "r" : "6",
+                     "s" : [ {
+                        "r" : "4",
+                        "value" : [ "Interval[","@2022-01-01T00:00:00.0-06:00",", ","@2023-01-01T00:00:00.0-06:00",")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "default" : {
+               "localId" : "6",
+               "locator" : "10:11-10:78",
+               "lowClosed" : true,
+               "highClosed" : false,
+               "type" : "Interval",
+               "low" : {
+                  "localId" : "4",
+                  "locator" : "10:20-10:47",
+                  "type" : "DateTime",
+                  "year" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "2022",
+                     "type" : "Literal"
+                  },
+                  "month" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "1",
+                     "type" : "Literal"
+                  },
+                  "day" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "1",
+                     "type" : "Literal"
+                  },
+                  "hour" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "minute" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "second" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "millisecond" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "timezoneOffset" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                     "value" : "-6.0",
+                     "type" : "Literal"
+                  }
+               },
+               "high" : {
+                  "localId" : "5",
+                  "locator" : "10:50-10:77",
+                  "type" : "DateTime",
+                  "year" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "2023",
+                     "type" : "Literal"
+                  },
+                  "month" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "1",
+                     "type" : "Literal"
+                  },
+                  "day" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "1",
+                     "type" : "Literal"
+                  },
+                  "hour" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "minute" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "second" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "millisecond" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  },
+                  "timezoneOffset" : {
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Decimal",
+                     "value" : "-6.0",
+                     "type" : "Literal"
+                  }
+               }
+            },
+            "parameterTypeSpecifier" : {
+               "localId" : "8",
+               "locator" : "9:32-9:49",
+               "type" : "IntervalTypeSpecifier",
+               "pointType" : {
+                  "localId" : "7",
+                  "locator" : "9:41-9:48",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "locator" : "12:1-12:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "12:1-12:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "12:1-12:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "17",
+            "locator" : "18:1-19:63",
+            "name" : "Initial Population",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "17",
+                  "s" : [ {
+                     "value" : [ "/*\nNOTE: Removed Health Plan Enrollment criteria to simplify for demonstration purposes\nNOTE: Age for HEDIS is based on the end of the MP, adjustment reflected below\n*/\n","define ","\"Initial Population\"",":\n  " ]
+                  }, {
+                     "r" : "16",
+                     "s" : [ {
+                        "r" : "12",
+                        "s" : [ {
+                           "value" : [ "AgeInYearsAt","(" ]
+                        }, {
+                           "r" : "11",
+                           "s" : [ {
+                              "value" : [ "end of " ]
+                           }, {
+                              "r" : "10",
+                              "s" : [ {
+                                 "value" : [ "\"Measurement Period\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ")" ]
+                        } ]
+                     }, {
+                        "value" : [ " in " ]
+                     }, {
+                        "r" : "15",
+                        "s" : [ {
+                           "r" : "13",
+                           "value" : [ "Interval[","51",", ","75","]" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "16",
+               "locator" : "19:3-19:63",
+               "type" : "In",
+               "operand" : [ {
+                  "localId" : "12",
+                  "locator" : "19:3-19:43",
+                  "precision" : "Year",
+                  "type" : "CalculateAgeAt",
+                  "operand" : [ {
+                     "type" : "ToDateTime",
+                     "operand" : {
+                        "path" : "birthDate.value",
+                        "type" : "Property",
+                        "source" : {
+                           "name" : "Patient",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  }, {
+                     "localId" : "11",
+                     "locator" : "19:16-19:42",
+                     "type" : "End",
+                     "operand" : {
+                        "localId" : "10",
+                        "locator" : "19:23-19:42",
+                        "name" : "Measurement Period",
+                        "type" : "ParameterRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "15",
+                  "locator" : "19:48-19:63",
+                  "lowClosed" : true,
+                  "highClosed" : true,
+                  "type" : "Interval",
+                  "low" : {
+                     "localId" : "13",
+                     "locator" : "19:57-19:58",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "51",
+                     "type" : "Literal"
+                  },
+                  "high" : {
+                     "localId" : "14",
+                     "locator" : "19:61-19:62",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "75",
+                     "type" : "Literal"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "19",
+            "locator" : "21:1-22:22",
+            "name" : "Denominator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "19",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Denominator\"",":\n  " ]
+                  }, {
+                     "r" : "18",
+                     "s" : [ {
+                        "value" : [ "\"Initial Population\"" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "18",
+               "locator" : "22:3-22:22",
+               "name" : "Initial Population",
+               "type" : "ExpressionRef"
+            }
+         }, {
+            "localId" : "25",
+            "locator" : "24:1-26:67",
+            "name" : "Numerator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "25",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Numerator\"",":\n  " ]
+                  }, {
+                     "r" : "24",
+                     "s" : [ {
+                        "r" : "21",
+                        "s" : [ {
+                           "r" : "20",
+                           "s" : [ {
+                              "value" : [ "CCE" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "21",
+                           "s" : [ {
+                              "value" : [ "\"Has Appropriate Colorectal Cancer Screening\"" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    or " ]
+                     }, {
+                        "r" : "23",
+                        "s" : [ {
+                           "r" : "22",
+                           "s" : [ {
+                              "value" : [ "CCE" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "23",
+                           "s" : [ {
+                              "value" : [ "\"Has History of Appropriate Colorectal Cancer Screening\"" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "24",
+               "locator" : "25:3-26:67",
+               "type" : "Or",
+               "operand" : [ {
+                  "localId" : "21",
+                  "locator" : "25:3-25:51",
+                  "name" : "Has Appropriate Colorectal Cancer Screening",
+                  "libraryName" : "CCE",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "23",
+                  "locator" : "26:8-26:67",
+                  "name" : "Has History of Appropriate Colorectal Cancer Screening",
+                  "libraryName" : "CCE",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "34",
+            "locator" : "31:1-34:43",
+            "name" : "Denominator Exclusion",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "34",
+                  "s" : [ {
+                     "value" : [ "/*\nNOTE: Removed hospice, advanced illness, and frailty exclusions to simplify for demonstration purposes\n*/\n","define ","\"Denominator Exclusion\"",":\n  " ]
+                  }, {
+                     "r" : "33",
+                     "s" : [ {
+                        "r" : "30",
+                        "s" : [ {
+                           "r" : "27",
+                           "s" : [ {
+                              "r" : "26",
+                              "s" : [ {
+                                 "value" : [ "CCE" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "27",
+                              "s" : [ {
+                                 "value" : [ "\"Has Active Malignant Neoplasm\"" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " \n    or " ]
+                        }, {
+                           "r" : "29",
+                           "s" : [ {
+                              "r" : "28",
+                              "s" : [ {
+                                 "value" : [ "CCE" ]
+                              } ]
+                           }, {
+                              "value" : [ "." ]
+                           }, {
+                              "r" : "29",
+                              "s" : [ {
+                                 "value" : [ "\"Has Total Colectomy Performed\"" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ " \n    or " ]
+                     }, {
+                        "r" : "32",
+                        "s" : [ {
+                           "r" : "31",
+                           "s" : [ {
+                              "value" : [ "CCE" ]
+                           } ]
+                        }, {
+                           "value" : [ "." ]
+                        }, {
+                           "r" : "32",
+                           "s" : [ {
+                              "value" : [ "\"Has History of Total Colectomy\"" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "33",
+               "locator" : "32:3-34:43",
+               "type" : "Or",
+               "operand" : [ {
+                  "localId" : "30",
+                  "locator" : "32:3-33:42",
+                  "type" : "Or",
+                  "operand" : [ {
+                     "localId" : "27",
+                     "locator" : "32:3-32:37",
+                     "name" : "Has Active Malignant Neoplasm",
+                     "libraryName" : "CCE",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "29",
+                     "locator" : "33:8-33:42",
+                     "name" : "Has Total Colectomy Performed",
+                     "libraryName" : "CCE",
+                     "type" : "ExpressionRef"
+                  } ]
+               }, {
+                  "localId" : "32",
+                  "locator" : "34:8-34:43",
+                  "name" : "Has History of Total Colectomy",
+                  "libraryName" : "CCE",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         } ]
+      }
+   }
+}

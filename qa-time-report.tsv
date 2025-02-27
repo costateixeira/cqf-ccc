@@ -1,0 +1,13 @@
+Source File	Size	loadResources	load	generateSnapshots	load-configure	scan	loadDepInfo	loadInfo	checkR4R4B	generateNarratives	validate	loadLists	checkConformanceResources	checkConformanceResources2	checkConformanceResources3	generateLogicalMaps	validateExpressions	scanForUsageStats	checkURLsUnique	processProvenanceDetails	generate1	generate2	generateLogicals	makeDependencies	generateExampleZip	generateValidationPack	scanProfilesForR5	scanExamplesForR5
+/input/cqf-ccc.xml	6506	-	0	0	0	0	0	0	4	401	0	0	0	0	0	0	0	1	0	0	83	109	0	0	0	3	0	1
+input/resources/library/ColorectalCancerConcepts.json	15732	31	0	0	0	0	0	0	1	348	0	0	0	0	0	0	0	0	0	0	56	27	0	0	0	1	0	0
+input/resources/library/ColorectalCancerElements.json	405147	40	0	0	1	0	0	0	2	51	0	0	0	0	0	0	0	1	0	0	589	155	0	0	0	26	0	0
+input/resources/library/ColorectalCancerScreeningCDS.json	129288	30	0	0	0	0	0	0	1	22	0	0	0	0	0	0	0	0	0	0	204	63	0	0	0	9	0	0
+input/resources/library/ColorectalCancerScreeningCQM.json	46380	18	0	0	0	0	0	0	1	25	0	0	0	0	0	0	0	0	0	0	108	43	0	0	0	4	0	0
+input/resources/library/ColorectalCancerScreeningHEDIS.json	50437	20	0	0	0	0	0	0	1	19	0	0	0	0	0	0	0	0	0	0	95	43	0	0	0	3	0	0
+input/resources/library/FHIR-ModelInfo.json	1016615	31	0	0	1	0	0	0	1	81	0	0	0	0	0	0	0	0	0	0	1237	235	0	0	0	38	0	0
+input/resources/library/FHIRCommon.json	853361	27	0	0	0	0	0	0	0	74	0	0	0	0	0	0	0	0	0	0	1064	98	0	0	0	53	0	0
+input/resources/library/FHIRHelpers.json	1653044	74	0	0	0	0	0	0	1	21	0	0	0	0	0	0	0	0	0	0	2016	116	0	0	0	78	0	0
+input/resources/measure/ColorectalCancerScreeningCQM.json	21010	5	0	0	0	0	0	0	2	35	0	0	0	0	0	0	0	1	0	0	85	46	0	0	0	3	0	0
+input/resources/plandefinition/ColorectalCancerScreeningCDS.xml	3013	23	0	0	1	0	0	0	1	13	0	0	0	0	0	0	0	0	0	0	27	11	0	0	0	0	0	0
+/input/resources/device/cqf-tooling.json	390	-	0	0	0	0	0	0	0	66	0	0	0	0	0	0	0	0	0	0	16	15	0	0	0	0	0	0

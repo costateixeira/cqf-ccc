@@ -1,0 +1,19 @@
+{
+  "url" : "http://fhir.org/guides/cqf/ccc/ImplementationGuide/fhir.cqf.ccc",
+  "name" : "CCC",
+  "title" : "Colorectal Cancer Concepts",
+  "description" : "An example content implementation guide that illustrates a CPG-on-FHIR approach to knowledge engineering applied to Colorectal Cancer.",
+  "status" : "draft",
+  "package-id" : "fhir.cqf.ccc",
+  "ig-ver" : "0.1.0",
+  "date" : "Thu, 27 Feb, 2025 06:22:34 +0000",
+  "dateISO8601" : "2025-02-27T06:22:34+00:00",
+  "errs" : 0,
+  "warnings" : 0,
+  "hints" : 3,
+  "suppressed-hints" : 70,
+  "suppressed-warnings" : 3,
+  "version" : "4.0.1",
+  "tool" : "5.0.0 (3)",
+  "maxMemory" : 1355965024
+}

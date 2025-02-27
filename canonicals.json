@@ -1,0 +1,79 @@
+[
+  {
+    "id" : "fhir.cqf.ccc",
+    "type" : "ImplementationGuide",
+    "url" : "http://fhir.org/guides/cqf/ccc/ImplementationGuide/fhir.cqf.ccc",
+    "version" : "0.1.0",
+    "name" : "CCC"
+  },
+  {
+    "id" : "ColorectalCancerConcepts",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerConcepts"
+  },
+  {
+    "id" : "ColorectalCancerElements",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerElements",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerElements"
+  },
+  {
+    "id" : "ColorectalCancerScreeningCDS",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCDS",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerScreeningCDS"
+  },
+  {
+    "id" : "ColorectalCancerScreeningCQM",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerScreeningCQM"
+  },
+  {
+    "id" : "ColorectalCancerScreeningHEDIS",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningHEDIS",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerScreeningHEDIS"
+  },
+  {
+    "id" : "FHIR-ModelInfo",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/FHIR-ModelInfo",
+    "version" : "0.1.0",
+    "name" : "FHIR"
+  },
+  {
+    "id" : "FHIRCommon",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/FHIRCommon",
+    "version" : "0.1.0",
+    "name" : "FHIRCommon"
+  },
+  {
+    "id" : "FHIRHelpers",
+    "type" : "Library",
+    "url" : "http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers",
+    "version" : "0.1.0",
+    "name" : "FHIRHelpers"
+  },
+  {
+    "id" : "ColorectalCancerScreeningCQM",
+    "type" : "Measure",
+    "url" : "http://fhir.org/guides/cqf/ccc/Measure/ColorectalCancerScreeningCQM",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerScreeningCQM"
+  },
+  {
+    "id" : "ColorectalCancerScreeningCDS",
+    "type" : "PlanDefinition",
+    "url" : "http://fhir.org/guides/cqf/ccc/PlanDefinition/ColorectalCancerScreeningCDS",
+    "version" : "0.1.0",
+    "name" : "ColorectalCancerScreeningCDS"
+  }
+]

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation translatorVersion="2.7.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="29">
+         <a:s>library ColorectalCancerScreeningCQM version '0.1.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="ColorectalCancerScreeningCQM" system="http://fhir.org/guides/cqf/ccc" version="0.1.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="1">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="2" locator="5:1-5:54" localIdentifier="FHIRHelpers" path="http://fhir.org/guides/cqf/ccc/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="2">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s> version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="3" locator="9:1-9:43" localIdentifier="CCE" path="http://fhir.org/guides/cqf/ccc/ColorectalCancerElements">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="3">
+               <a:s>// Proposed change to CQL to support binding of parameters of included libraries:
+// https://jira.hl7.org/browse/FHIR-33126
+include </a:s>
+               <a:s>
+                  <a:s>ColorectalCancerElements</a:s>
+               </a:s>
+               <a:s> called CCE</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <parameters>
+      <def localId="9" locator="11:1-12:78" name="Measurement Period" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="9">
+               <a:s>// bind { AsOf: end of &quot;Measurement Period&quot; }
+parameter &quot;Measurement Period&quot; </a:s>
+               <a:s r="8">
+                  <a:s>Interval&lt;</a:s>
+                  <a:s r="7">
+                     <a:s>DateTime</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>
+  default </a:s>
+               <a:s r="6">
+                  <a:s r="4">Interval[@2022-01-01T00:00:00.0-06:00, @2023-01-01T00:00:00.0-06:00)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <default localId="6" locator="12:11-12:78" lowClosed="true" highClosed="false" xsi:type="Interval">
+            <low localId="4" locator="12:20-12:47" xsi:type="DateTime">
+               <year valueType="t:Integer" value="2022" xsi:type="Literal"/>
+               <month valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <day valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <timezoneOffset valueType="t:Decimal" value="-6.0" xsi:type="Literal"/>
+            </low>
+            <high localId="5" locator="12:50-12:77" xsi:type="DateTime">
+               <year valueType="t:Integer" value="2023" xsi:type="Literal"/>
+               <month valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <day valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <timezoneOffset valueType="t:Decimal" value="-6.0" xsi:type="Literal"/>
+            </high>
+         </default>
+         <parameterTypeSpecifier localId="8" locator="11:32-11:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="7" locator="11:41-11:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <contexts>
+      <def locator="14:1-14:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def locator="14:1-14:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="14:1-14:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="17" locator="19:1-20:65" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="17">
+               <a:s>/*
+NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
+*/
+define &quot;Initial Population&quot;:
+  </a:s>
+               <a:s r="16">
+                  <a:s r="12">
+                     <a:s>AgeInYearsAt(</a:s>
+                     <a:s r="11">
+                        <a:s>start of </a:s>
+                        <a:s r="10">
+                           <a:s>&quot;Measurement Period&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s> in </a:s>
+                  <a:s r="15">
+                     <a:s r="13">Interval[50, 75]</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="16" locator="20:3-20:65" xsi:type="In">
+            <operand localId="12" locator="20:3-20:45" precision="Year" xsi:type="CalculateAgeAt">
+               <operand xsi:type="ToDateTime">
+                  <operand path="birthDate.value" xsi:type="Property">
+                     <source name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="11" locator="20:16-20:44" xsi:type="Start">
+                  <operand localId="10" locator="20:25-20:44" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+            <operand localId="15" locator="20:50-20:65" lowClosed="true" highClosed="true" xsi:type="Interval">
+               <low localId="13" locator="20:59-20:60" valueType="t:Integer" value="50" xsi:type="Literal"/>
+               <high localId="14" locator="20:63-20:64" valueType="t:Integer" value="75" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="19" locator="22:1-23:22" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="19">
+               <a:s>define &quot;Denominator&quot;:
+  </a:s>
+               <a:s r="18">
+                  <a:s>&quot;Initial Population&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="18" locator="23:3-23:22" name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="22" locator="25:1-26:51" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="22">
+               <a:s>define &quot;Numerator&quot;:
+  </a:s>
+               <a:s r="21">
+                  <a:s r="20">
+                     <a:s>CCE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="21">
+                     <a:s>&quot;Has Appropriate Colorectal Cancer Screening&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="21" locator="26:3-26:51" name="Has Appropriate Colorectal Cancer Screening" libraryName="CCE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="29" locator="31:1-33:45" name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="29">
+               <a:s>/*
+NOTE: Removed hospice, advanced illness, and frailty exclusions to simplify for demonstration purposes
+*/
+define &quot;Denominator Exclusion&quot;:
+  </a:s>
+               <a:s r="28">
+                  <a:s r="24">
+                     <a:s r="23">
+                        <a:s>CCE</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="24">
+                        <a:s>&quot;Has Active Malignant Neoplasm&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    or </a:s>
+                  <a:s r="27">
+                     <a:s>exists </a:s>
+                     <a:s r="26">
+                        <a:s r="25">
+                           <a:s>CCE</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="26">
+                           <a:s>&quot;Total Colectomy Performed&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="28" locator="32:3-33:45" xsi:type="Or">
+            <operand localId="24" locator="32:3-32:37" name="Has Active Malignant Neoplasm" libraryName="CCE" xsi:type="ExpressionRef"/>
+            <operand localId="27" locator="33:8-33:45" xsi:type="Exists">
+               <operand localId="26" locator="33:15-33:45" name="Total Colectomy Performed" libraryName="CCE" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

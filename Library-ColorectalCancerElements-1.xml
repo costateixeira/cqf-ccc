@@ -1,0 +1,2217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation translatorVersion="2.7.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="340">
+         <a:s>library ColorectalCancerElements version '0.1.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="ColorectalCancerElements" system="http://fhir.org/guides/cqf/ccc" version="0.1.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="1">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="2" locator="5:1-5:35" localIdentifier="FHIRHelpers" path="http://fhir.org/guides/cqf/ccc/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="2">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="3" locator="6:1-6:44" localIdentifier="FC" path="http://fhir.org/guides/cqf/ccc/FHIRCommon" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="3">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRCommon</a:s>
+               </a:s>
+               <a:s> version '4.0.1' called FC</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="4" locator="8:1-8:42" localIdentifier="Cx" path="http://fhir.org/guides/cqf/ccc/ColorectalCancerConcepts">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="4">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>ColorectalCancerConcepts</a:s>
+               </a:s>
+               <a:s> called Cx</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <parameters>
+      <def localId="12" locator="17:1-18:41" name="Measurement Period" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="12">
+               <a:s>// QUESTION: Should this be a single timepoint, or is a period required?
+//parameter AsOf DateTime default Now()
+
+/*
+NOTE: Introduced Measurement Period as the parameter here for demonstration purposes
+so it will run on the current implementations.
+*/
+parameter &quot;Measurement Period&quot; </a:s>
+               <a:s r="11">
+                  <a:s>Interval&lt;</a:s>
+                  <a:s r="10">
+                     <a:s>DateTime</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>
+  default </a:s>
+               <a:s r="9">
+                  <a:s>Interval[</a:s>
+                  <a:s r="7">
+                     <a:s r="5">
+                        <a:s>Now()</a:s>
+                     </a:s>
+                     <a:s> - </a:s>
+                     <a:s r="6">
+                        <a:s>1 year</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>, </a:s>
+                  <a:s r="8">
+                     <a:s>Now()</a:s>
+                  </a:s>
+                  <a:s>]</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <default localId="9" locator="18:11-18:41" lowClosed="true" highClosed="true" xsi:type="Interval">
+            <low localId="7" locator="18:20-18:33" xsi:type="Subtract">
+               <operand localId="5" locator="18:20-18:24" xsi:type="Now"/>
+               <operand localId="6" locator="18:28-18:33" value="1" unit="year" xsi:type="Quantity"/>
+            </low>
+            <high localId="8" locator="18:36-18:40" xsi:type="Now"/>
+         </default>
+         <parameterTypeSpecifier localId="11" locator="17:32-17:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="10" locator="17:41-17:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <contexts>
+      <def locator="20:1-20:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def locator="20:1-20:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="20:1-20:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="15" locator="22:1-23:29" name="AsOf" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="15">
+               <a:s>define AsOf:
+  </a:s>
+               <a:s r="14">
+                  <a:s>end of </a:s>
+                  <a:s r="13">
+                     <a:s>&quot;Measurement Period&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="14" locator="23:3-23:29" xsi:type="End">
+            <operand localId="13" locator="23:10-23:29" name="Measurement Period" xsi:type="ParameterRef"/>
+         </expression>
+      </def>
+      <def localId="23" locator="28:1-30:50" name="Flexible Sigmoidoscopy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:t name="description" value="Completed Flexible Sigmoidoscopy Procedures"/>
+            <a:s r="23">
+               <a:s>/*
+@description: Completed Flexible Sigmoidoscopy Procedures
+*/
+define &quot;Flexible Sigmoidoscopy Performed&quot;:
+  </a:s>
+               <a:s r="22">
+                  <a:s>
+                     <a:s r="17">
+                        <a:s r="16">
+                           <a:s r="16">
+                              <a:s>[Procedure: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Flexible Sigmoidoscopy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FlexibleSigmoidoscopy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+		</a:s>
+                  <a:s r="21">
+                     <a:s>where </a:s>
+                     <a:s r="21">
+                        <a:s r="19">
+                           <a:s r="18">
+                              <a:s>FlexibleSigmoidoscopy</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="19">
+                              <a:s>status</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="20">
+                           <a:s>'completed'</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="22" locator="29:3-30:50" xsi:type="Query">
+            <source localId="17" locator="29:3-29:64" alias="FlexibleSigmoidoscopy">
+               <expression localId="16" locator="29:3-29:42" dataType="fhir:Procedure" templateId="http://hl7.org/fhir/StructureDefinition/Procedure" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="29:15-29:41" name="Flexible Sigmoidoscopy" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="21" locator="30:3-30:50" xsi:type="Equal">
+               <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="19" locator="30:9-30:36" path="status" scope="FlexibleSigmoidoscopy" xsi:type="Property"/>
+               </operand>
+               <operand localId="20" locator="30:40-30:50" valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def localId="38" locator="33:1-36:76" name="Flexible Sigmoidoscopy from Patient History" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="38">
+               <a:s>// NOTE: HEDIS version allows for a &quot;history of&quot; SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
+define &quot;Flexible Sigmoidoscopy from Patient History&quot;:
+  </a:s>
+               <a:s r="37">
+                  <a:s>
+                     <a:s r="25">
+                        <a:s r="24">
+                           <a:s r="24">
+                              <a:s>[Condition: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Flexible Sigmoidoscopy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FlexibleSigmoidoscopyCondition</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="36">
+                     <a:s>where </a:s>
+                     <a:s r="36">
+                        <a:s r="30">
+                           <a:s r="27">
+                              <a:s r="26">
+                                 <a:s>FlexibleSigmoidoscopyCondition</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="27">
+                                 <a:s>clinicalStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="29">
+                              <a:s r="28">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="29">
+                                 <a:s>&quot;Active Condition&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      and </a:s>
+                        <a:s r="35">
+                           <a:s r="32">
+                              <a:s r="31">
+                                 <a:s>FlexibleSigmoidoscopyCondition</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="32">
+                                 <a:s>verificationStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> ~ </a:s>
+                           <a:s r="34">
+                              <a:s r="33">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="34">
+                                 <a:s>&quot;confirmed&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="37" locator="34:3-36:76" xsi:type="Query">
+            <source localId="25" locator="34:3-34:73" alias="FlexibleSigmoidoscopyCondition">
+               <expression localId="24" locator="34:3-34:42" dataType="fhir:Condition" templateId="http://hl7.org/fhir/StructureDefinition/Condition" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="34:15-34:41" name="Flexible Sigmoidoscopy" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="36" locator="35:5-36:76" xsi:type="And">
+               <operand localId="30" locator="35:11-35:80" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="27" locator="35:11-35:55" path="clinicalStatus" scope="FlexibleSigmoidoscopyCondition" xsi:type="Property"/>
+                  </code>
+                  <valueset localId="29" locator="35:60-35:80" name="Active Condition" libraryName="FC"/>
+               </operand>
+               <operand localId="35" locator="36:11-36:76" xsi:type="Equivalent">
+                  <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="32" locator="36:11-36:59" path="verificationStatus" scope="FlexibleSigmoidoscopyCondition" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="ToConcept">
+                     <operand localId="34" locator="36:63-36:76" name="confirmed" libraryName="FC" xsi:type="CodeRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="46" locator="38:1-40:43" name="CT Colonography Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="46">
+               <a:s>define &quot;CT Colonography Performed&quot;:
+  </a:s>
+               <a:s r="45">
+                  <a:s>
+                     <a:s r="40">
+                        <a:s r="39">
+                           <a:s r="39">
+                              <a:s>[Procedure: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;CT Colonography&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Colonography</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="44">
+                     <a:s>where </a:s>
+                     <a:s r="44">
+                        <a:s r="42">
+                           <a:s r="41">
+                              <a:s>Colonography</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="42">
+                              <a:s>status</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="43">
+                           <a:s>'completed'</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="45" locator="39:3-40:43" xsi:type="Query">
+            <source localId="40" locator="39:3-39:48" alias="Colonography">
+               <expression localId="39" locator="39:3-39:35" dataType="fhir:Procedure" templateId="http://hl7.org/fhir/StructureDefinition/Procedure" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="39:15-39:34" name="CT Colonography" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="44" locator="40:5-40:43" xsi:type="Equal">
+               <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="42" locator="40:11-40:29" path="status" scope="Colonography" xsi:type="Property"/>
+               </operand>
+               <operand localId="43" locator="40:33-40:43" valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def localId="54" locator="42:1-44:40" name="Total Colectomy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="54">
+               <a:s>define &quot;Total Colectomy Performed&quot;:
+  </a:s>
+               <a:s r="53">
+                  <a:s>
+                     <a:s r="48">
+                        <a:s r="47">
+                           <a:s r="47">
+                              <a:s>[Procedure: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Total Colectomy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Colectomy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="52">
+                     <a:s>where </a:s>
+                     <a:s r="52">
+                        <a:s r="50">
+                           <a:s r="49">
+                              <a:s>Colectomy</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="50">
+                              <a:s>status</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="51">
+                           <a:s>'completed'</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="53" locator="43:3-44:40" xsi:type="Query">
+            <source localId="48" locator="43:3-43:45" alias="Colectomy">
+               <expression localId="47" locator="43:3-43:35" dataType="fhir:Procedure" templateId="http://hl7.org/fhir/StructureDefinition/Procedure" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="43:15-43:34" name="Total Colectomy" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="52" locator="44:5-44:40" xsi:type="Equal">
+               <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="50" locator="44:11-44:26" path="status" scope="Colectomy" xsi:type="Property"/>
+               </operand>
+               <operand localId="51" locator="44:30-44:40" valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def localId="69" locator="47:1-50:64" name="Total Colectomy from Patient History" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="69">
+               <a:s>// NOTE: HEDIS version allows for a &quot;history of&quot; SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
+define &quot;Total Colectomy from Patient History&quot;:
+  </a:s>
+               <a:s r="68">
+                  <a:s>
+                     <a:s r="56">
+                        <a:s r="55">
+                           <a:s r="55">
+                              <a:s>[Condition: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Total Colectomy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> ColectomyCondition</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="67">
+                     <a:s>where </a:s>
+                     <a:s r="67">
+                        <a:s r="61">
+                           <a:s r="58">
+                              <a:s r="57">
+                                 <a:s>ColectomyCondition</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="58">
+                                 <a:s>clinicalStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="60">
+                              <a:s r="59">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="60">
+                                 <a:s>&quot;Active Condition&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      and </a:s>
+                        <a:s r="66">
+                           <a:s r="63">
+                              <a:s r="62">
+                                 <a:s>ColectomyCondition</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="63">
+                                 <a:s>verificationStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> ~ </a:s>
+                           <a:s r="65">
+                              <a:s r="64">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="65">
+                                 <a:s>&quot;confirmed&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="68" locator="48:3-50:64" xsi:type="Query">
+            <source localId="56" locator="48:3-48:54" alias="ColectomyCondition">
+               <expression localId="55" locator="48:3-48:35" dataType="fhir:Condition" templateId="http://hl7.org/fhir/StructureDefinition/Condition" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="48:15-48:34" name="Total Colectomy" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="67" locator="49:5-50:64" xsi:type="And">
+               <operand localId="61" locator="49:11-49:68" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="58" locator="49:11-49:43" path="clinicalStatus" scope="ColectomyCondition" xsi:type="Property"/>
+                  </code>
+                  <valueset localId="60" locator="49:48-49:68" name="Active Condition" libraryName="FC"/>
+               </operand>
+               <operand localId="66" locator="50:11-50:64" xsi:type="Equivalent">
+                  <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="63" locator="50:11-50:47" path="verificationStatus" scope="ColectomyCondition" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="ToConcept">
+                     <operand localId="65" locator="50:51-50:64" name="confirmed" libraryName="FC" xsi:type="CodeRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="85" locator="52:1-55:42" name="Fecal Occult Blood Test Result" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="85">
+               <a:s>define &quot;Fecal Occult Blood Test Result&quot;:
+  </a:s>
+               <a:s r="84">
+                  <a:s>
+                     <a:s r="71">
+                        <a:s r="70">
+                           <a:s r="70">
+                              <a:s>[Observation: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Fecal Occult Blood Test (FOBT)&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FecalOccultResult</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+		</a:s>
+                  <a:s r="83">
+                     <a:s>where </a:s>
+                     <a:s r="83">
+                        <a:s r="79">
+                           <a:s r="73">
+                              <a:s r="72">
+                                 <a:s>FecalOccultResult</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="73">
+                                 <a:s>status</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="78">
+                              <a:s>{</a:s>
+                              <a:s r="74">
+                                 <a:s>'final'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="75">
+                                 <a:s>'amended'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="76">
+                                 <a:s>'corrected'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="77">
+                                 <a:s>'preliminary'</a:s>
+                              </a:s>
+                              <a:s>}</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+			and </a:s>
+                        <a:s r="82">
+                           <a:s r="81">
+                              <a:s r="80">
+                                 <a:s>FecalOccultResult</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="81">
+                                 <a:s>value</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="84" locator="53:3-55:42" xsi:type="Query">
+            <source localId="71" locator="53:3-53:70" alias="FecalOccultResult">
+               <expression localId="70" locator="53:3-53:52" dataType="fhir:Observation" templateId="http://hl7.org/fhir/StructureDefinition/Observation" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="53:17-53:51" name="Fecal Occult Blood Test (FOBT)" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="83" locator="54:3-55:42" xsi:type="And">
+               <operand localId="79" locator="54:9-54:84" xsi:type="In">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="73" locator="54:9-54:32" path="status" scope="FecalOccultResult" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="78" locator="54:37-54:84" xsi:type="List">
+                     <element localId="74" locator="54:38-54:44" valueType="t:String" value="final" xsi:type="Literal"/>
+                     <element localId="75" locator="54:47-54:55" valueType="t:String" value="amended" xsi:type="Literal"/>
+                     <element localId="76" locator="54:58-54:68" valueType="t:String" value="corrected" xsi:type="Literal"/>
+                     <element localId="77" locator="54:71-54:83" valueType="t:String" value="preliminary" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand localId="82" locator="55:8-55:42" xsi:type="Not">
+                  <operand locator="55:8-55:42" xsi:type="IsNull">
+                     <operand localId="81" locator="55:8-55:30" path="value" scope="FecalOccultResult" xsi:type="Property"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="101" locator="57:1-60:31" name="Fecal Immunochemical Test DNA Result" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="101">
+               <a:s>define &quot;Fecal Immunochemical Test DNA Result&quot;:
+  </a:s>
+               <a:s r="100">
+                  <a:s>
+                     <a:s r="87">
+                        <a:s r="86">
+                           <a:s r="86">
+                              <a:s>[Observation: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;FIT DNA&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> FitDNA</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+		</a:s>
+                  <a:s r="99">
+                     <a:s>where </a:s>
+                     <a:s r="99">
+                        <a:s r="95">
+                           <a:s r="89">
+                              <a:s r="88">
+                                 <a:s>FitDNA</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="89">
+                                 <a:s>status</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="94">
+                              <a:s>{</a:s>
+                              <a:s r="90">
+                                 <a:s>'final'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="91">
+                                 <a:s>'amended'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="92">
+                                 <a:s>'corrected'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="93">
+                                 <a:s>'preliminary'</a:s>
+                              </a:s>
+                              <a:s>}</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+			and </a:s>
+                        <a:s r="98">
+                           <a:s r="97">
+                              <a:s r="96">
+                                 <a:s>FitDNA</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="97">
+                                 <a:s>value</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> is not null</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="100" locator="58:3-60:31" xsi:type="Query">
+            <source localId="87" locator="58:3-58:36" alias="FitDNA">
+               <expression localId="86" locator="58:3-58:29" dataType="fhir:Observation" templateId="http://hl7.org/fhir/StructureDefinition/Observation" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="58:17-58:28" name="FIT DNA" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="99" locator="59:3-60:31" xsi:type="And">
+               <operand localId="95" locator="59:9-59:73" xsi:type="In">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="89" locator="59:9-59:21" path="status" scope="FitDNA" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="94" locator="59:26-59:73" xsi:type="List">
+                     <element localId="90" locator="59:27-59:33" valueType="t:String" value="final" xsi:type="Literal"/>
+                     <element localId="91" locator="59:36-59:44" valueType="t:String" value="amended" xsi:type="Literal"/>
+                     <element localId="92" locator="59:47-59:57" valueType="t:String" value="corrected" xsi:type="Literal"/>
+                     <element localId="93" locator="59:60-59:72" valueType="t:String" value="preliminary" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand localId="98" locator="60:8-60:31" xsi:type="Not">
+                  <operand locator="60:8-60:31" xsi:type="IsNull">
+                     <operand localId="97" locator="60:8-60:19" path="value" scope="FitDNA" xsi:type="Property"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="109" locator="62:1-64:40" name="Colonoscopy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="109">
+               <a:s>define &quot;Colonoscopy Performed&quot;:
+  </a:s>
+               <a:s r="108">
+                  <a:s>
+                     <a:s r="103">
+                        <a:s r="102">
+                           <a:s r="102">
+                              <a:s>[Procedure: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Colonoscopy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Colonoscopy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+		</a:s>
+                  <a:s r="107">
+                     <a:s>where </a:s>
+                     <a:s r="107">
+                        <a:s r="105">
+                           <a:s r="104">
+                              <a:s>Colonoscopy</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="105">
+                              <a:s>status</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="106">
+                           <a:s>'completed'</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="108" locator="63:3-64:40" xsi:type="Query">
+            <source localId="103" locator="63:3-63:43" alias="Colonoscopy">
+               <expression localId="102" locator="63:3-63:31" dataType="fhir:Procedure" templateId="http://hl7.org/fhir/StructureDefinition/Procedure" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="63:15-63:30" name="Colonoscopy" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="107" locator="64:3-64:40" xsi:type="Equal">
+               <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="105" locator="64:9-64:26" path="status" scope="Colonoscopy" xsi:type="Property"/>
+               </operand>
+               <operand localId="106" locator="64:30-64:40" valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def localId="124" locator="67:1-70:45" name="Colonoscopy from Patient History" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="124">
+               <a:s>// NOTE: HEDIS version allows for a &quot;history of&quot; SNOMED code as FHIR.Condition. Code is present in eCQM valueset.
+define &quot;Colonoscopy from Patient History&quot;:
+  </a:s>
+               <a:s r="123">
+                  <a:s>
+                     <a:s r="111">
+                        <a:s r="110">
+                           <a:s r="110">
+                              <a:s>[Condition: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Colonoscopy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> C</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="122">
+                     <a:s>where </a:s>
+                     <a:s r="122">
+                        <a:s r="116">
+                           <a:s r="113">
+                              <a:s r="112">
+                                 <a:s>C</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="113">
+                                 <a:s>clinicalStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="115">
+                              <a:s r="114">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="115">
+                                 <a:s>&quot;Active Condition&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+    and </a:s>
+                        <a:s r="121">
+                           <a:s r="118">
+                              <a:s r="117">
+                                 <a:s>C</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="118">
+                                 <a:s>verificationStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> ~ </a:s>
+                           <a:s r="120">
+                              <a:s r="119">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="120">
+                                 <a:s>&quot;confirmed&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="123" locator="68:3-70:45" xsi:type="Query">
+            <source localId="111" locator="68:3-68:33" alias="C">
+               <expression localId="110" locator="68:3-68:31" dataType="fhir:Condition" templateId="http://hl7.org/fhir/StructureDefinition/Condition" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="68:15-68:30" name="Colonoscopy" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="122" locator="69:5-70:45" xsi:type="And">
+               <operand localId="116" locator="69:11-69:51" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="113" locator="69:11-69:26" path="clinicalStatus" scope="C" xsi:type="Property"/>
+                  </code>
+                  <valueset localId="115" locator="69:31-69:51" name="Active Condition" libraryName="FC"/>
+               </operand>
+               <operand localId="121" locator="70:9-70:45" xsi:type="Equivalent">
+                  <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="118" locator="70:9-70:28" path="verificationStatus" scope="C" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="ToConcept">
+                     <operand localId="120" locator="70:32-70:45" name="confirmed" libraryName="FC" xsi:type="CodeRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="139" locator="72:1-75:62" name="Active Malignant Neoplasm" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="139">
+               <a:s>define &quot;Active Malignant Neoplasm&quot;:
+  </a:s>
+               <a:s r="138">
+                  <a:s>
+                     <a:s r="126">
+                        <a:s r="125">
+                           <a:s r="125">
+                              <a:s>[Condition: </a:s>
+                              <a:s>
+                                 <a:s>Cx.&quot;Malignant Neoplasm of Colon&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> ColorectalCancer</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="137">
+                     <a:s>where </a:s>
+                     <a:s r="137">
+                        <a:s r="131">
+                           <a:s r="128">
+                              <a:s r="127">
+                                 <a:s>ColorectalCancer</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="128">
+                                 <a:s>clinicalStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="130">
+                              <a:s r="129">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="130">
+                                 <a:s>&quot;Active Condition&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      and </a:s>
+                        <a:s r="136">
+                           <a:s r="133">
+                              <a:s r="132">
+                                 <a:s>ColorectalCancer</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="133">
+                                 <a:s>verificationStatus</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> ~ </a:s>
+                           <a:s r="135">
+                              <a:s r="134">
+                                 <a:s>FC</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="135">
+                                 <a:s>&quot;confirmed&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="138" locator="73:3-75:62" xsi:type="Query">
+            <source localId="126" locator="73:3-73:64" alias="ColorectalCancer">
+               <expression localId="125" locator="73:3-73:47" dataType="fhir:Condition" templateId="http://hl7.org/fhir/StructureDefinition/Condition" codeProperty="code" codeComparator="in" xsi:type="Retrieve">
+                  <codes locator="73:15-73:46" name="Malignant Neoplasm of Colon" libraryName="Cx" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="137" locator="74:5-75:62" xsi:type="And">
+               <operand localId="131" locator="74:11-74:66" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="128" locator="74:11-74:41" path="clinicalStatus" scope="ColorectalCancer" xsi:type="Property"/>
+                  </code>
+                  <valueset localId="130" locator="74:46-74:66" name="Active Condition" libraryName="FC"/>
+               </operand>
+               <operand localId="136" locator="75:11-75:62" xsi:type="Equivalent">
+                  <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="133" locator="75:11-75:45" path="verificationStatus" scope="ColorectalCancer" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="ToConcept">
+                     <operand localId="135" locator="75:49-75:62" name="confirmed" libraryName="FC" xsi:type="CodeRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="148" locator="77:1-79:51" name="Fecal Occult Blood Test Result Within 1 Year" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="148">
+               <a:s>define &quot;Fecal Occult Blood Test Result Within 1 Year&quot;:
+  </a:s>
+               <a:s r="147">
+                  <a:s>
+                     <a:s r="141">
+                        <a:s r="140">
+                           <a:s>
+                              <a:s>&quot;Fecal Occult Blood Test Result&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="146">
+                     <a:s>where </a:s>
+                     <a:s r="146">
+                        <a:s r="143">
+                           <a:s r="142">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="143">
+                              <a:s>issued</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="146">
+                           <a:s r="145">
+                              <a:s>1 year</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="144">
+                           <a:s>AsOf</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="147" locator="78:3-79:51" xsi:type="Query">
+            <source localId="141" locator="78:3-78:36" alias="R">
+               <expression localId="140" locator="78:3-78:34" name="Fecal Occult Blood Test Result" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="146" locator="79:5-79:51" xsi:type="And">
+               <operand locator="79:20-79:33" xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="143" locator="79:11-79:18" path="issued" scope="R" xsi:type="Property"/>
+                  </operand>
+                  <operand locator="79:20-79:33" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low locator="79:48-79:51" xsi:type="Subtract">
+                        <operand localId="144" locator="79:48-79:51" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="145" locator="79:20-79:25" value="1" unit="year" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="144" locator="79:48-79:51" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand locator="79:20-79:33" xsi:type="Not">
+                  <operand locator="79:20-79:33" xsi:type="IsNull">
+                     <operand localId="144" locator="79:48-79:51" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="164" locator="153:1-157:3" name="MostRecent" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="164">
+               <a:s>define function MostRecent(procedures </a:s>
+               <a:s r="152">
+                  <a:s>List&lt;</a:s>
+                  <a:s r="151">
+                     <a:s>Procedure</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>, asOf </a:s>
+               <a:s r="153">
+                  <a:s>DateTime</a:s>
+               </a:s>
+               <a:s>):
+  </a:s>
+               <a:s r="163">
+                  <a:s r="163">
+                     <a:s>First(
+    </a:s>
+                     <a:s r="162">
+                        <a:s>
+                           <a:s r="155">
+                              <a:s r="154">
+                                 <a:s>
+                                    <a:s>procedures</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> P</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      </a:s>
+                        <a:s r="161">
+                           <a:s>sort by </a:s>
+                           <a:s r="160">
+                              <a:s r="159">
+                                 <a:s>start of </a:s>
+                                 <a:s r="158">
+                                    <a:s r="156">
+                                       <a:s>FC</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="158">
+                                       <a:s>ToInterval(</a:s>
+                                       <a:s r="157">
+                                          <a:s>performed</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="163" locator="154:3-157:3" xsi:type="First">
+            <source localId="162" locator="155:5-156:47" xsi:type="Query">
+               <source localId="155" locator="155:5-155:16" alias="P">
+                  <expression localId="154" locator="155:5-155:14" name="procedures" xsi:type="OperandRef"/>
+               </source>
+               <sort localId="161" locator="156:7-156:47">
+                  <by localId="160" locator="156:15-156:47" direction="asc" xsi:type="ByExpression">
+                     <expression localId="159" locator="156:15-156:47" xsi:type="Start">
+                        <operand localId="158" locator="156:24-156:47" name="ToInterval" libraryName="FC" xsi:type="FunctionRef">
+                           <operand localId="157" locator="156:38-156:46" name="performed" xsi:type="IdentifierRef"/>
+                        </operand>
+                     </expression>
+                  </by>
+               </sort>
+            </source>
+         </expression>
+         <operand name="procedures">
+            <operandTypeSpecifier localId="152" locator="153:39-153:53" xsi:type="ListTypeSpecifier">
+               <elementType localId="151" locator="153:44-153:52" name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+         <operand name="asOf">
+            <operandTypeSpecifier localId="153" locator="153:61-153:68" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="175" locator="159:1-163:3" name="MostRecent" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="175">
+               <a:s>define function MostRecent(observations </a:s>
+               <a:s r="166">
+                  <a:s>List&lt;</a:s>
+                  <a:s r="165">
+                     <a:s>Observation</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>, asOf </a:s>
+               <a:s r="167">
+                  <a:s>DateTime</a:s>
+               </a:s>
+               <a:s>):
+  </a:s>
+               <a:s r="174">
+                  <a:s r="174">
+                     <a:s>First(
+    </a:s>
+                     <a:s r="173">
+                        <a:s>
+                           <a:s r="169">
+                              <a:s r="168">
+                                 <a:s>
+                                    <a:s>observations</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> O</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      </a:s>
+                        <a:s r="172">
+                           <a:s>sort by </a:s>
+                           <a:s r="171">
+                              <a:s r="170">
+                                 <a:s>issued</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="174" locator="160:3-163:3" xsi:type="First">
+            <source localId="173" locator="161:5-162:20" xsi:type="Query">
+               <source localId="169" locator="161:5-161:18" alias="O">
+                  <expression localId="168" locator="161:5-161:16" name="observations" xsi:type="OperandRef"/>
+               </source>
+               <sort localId="172" locator="162:7-162:20">
+                  <by localId="171" locator="162:15-162:20" direction="asc" path="issued" xsi:type="ByColumn"/>
+               </sort>
+            </source>
+         </expression>
+         <operand name="observations">
+            <operandTypeSpecifier localId="166" locator="159:41-159:57" xsi:type="ListTypeSpecifier">
+               <elementType localId="165" locator="159:46-159:56" name="fhir:Observation" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+         <operand name="asOf">
+            <operandTypeSpecifier localId="167" locator="159:65-159:72" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="177" locator="81:1-82:52" name="Most Recent Fecal Occult Blood Test Result" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="177">
+               <a:s>define &quot;Most Recent Fecal Occult Blood Test Result&quot;:
+  </a:s>
+               <a:s r="176">
+                  <a:s>MostRecent(</a:s>
+                  <a:s r="149">
+                     <a:s>&quot;Fecal Occult Blood Test Result&quot;</a:s>
+                  </a:s>
+                  <a:s>, </a:s>
+                  <a:s r="150">
+                     <a:s>AsOf</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="176" locator="82:3-82:52" name="MostRecent" xsi:type="FunctionRef">
+            <operand localId="149" locator="82:14-82:45" name="Fecal Occult Blood Test Result" xsi:type="ExpressionRef"/>
+            <operand localId="150" locator="82:48-82:51" name="AsOf" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="186" locator="84:1-86:52" name="Fecal Immunochemical Test DNA Result Within 3 Years" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="186">
+               <a:s>define &quot;Fecal Immunochemical Test DNA Result Within 3 Years&quot;:
+  </a:s>
+               <a:s r="185">
+                  <a:s>
+                     <a:s r="179">
+                        <a:s r="178">
+                           <a:s>
+                              <a:s>&quot;Fecal Immunochemical Test DNA Result&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> R</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="184">
+                     <a:s>where </a:s>
+                     <a:s r="184">
+                        <a:s r="181">
+                           <a:s r="180">
+                              <a:s>R</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="181">
+                              <a:s>issued</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="184">
+                           <a:s r="183">
+                              <a:s>3 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="182">
+                           <a:s>AsOf</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="185" locator="85:3-86:52" xsi:type="Query">
+            <source localId="179" locator="85:3-85:42" alias="R">
+               <expression localId="178" locator="85:3-85:40" name="Fecal Immunochemical Test DNA Result" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="184" locator="86:5-86:52" xsi:type="And">
+               <operand locator="86:20-86:34" xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="181" locator="86:11-86:18" path="issued" scope="R" xsi:type="Property"/>
+                  </operand>
+                  <operand locator="86:20-86:34" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low locator="86:49-86:52" xsi:type="Subtract">
+                        <operand localId="182" locator="86:49-86:52" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="183" locator="86:20-86:26" value="3" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="182" locator="86:49-86:52" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand locator="86:20-86:34" xsi:type="Not">
+                  <operand locator="86:20-86:34" xsi:type="IsNull">
+                     <operand localId="182" locator="86:49-86:52" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="190" locator="88:1-89:58" name="Most Recent Fecal Immunochemical Test DNA Result" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="190">
+               <a:s>define &quot;Most Recent Fecal Immunochemical Test DNA Result&quot;:
+  </a:s>
+               <a:s r="189">
+                  <a:s>MostRecent(</a:s>
+                  <a:s r="187">
+                     <a:s>&quot;Fecal Immunochemical Test DNA Result&quot;</a:s>
+                  </a:s>
+                  <a:s>, </a:s>
+                  <a:s r="188">
+                     <a:s>AsOf</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="189" locator="89:3-89:58" name="MostRecent" xsi:type="FunctionRef">
+            <operand localId="187" locator="89:14-89:51" name="Fecal Immunochemical Test DNA Result" xsi:type="ExpressionRef"/>
+            <operand localId="188" locator="89:54-89:57" name="AsOf" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="201" locator="91:1-93:75" name="Flexible Sigmoidoscopy Performed Within 5 Years" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="201">
+               <a:s>define &quot;Flexible Sigmoidoscopy Performed Within 5 Years&quot;:
+  </a:s>
+               <a:s r="200">
+                  <a:s>
+                     <a:s r="192">
+                        <a:s r="191">
+                           <a:s>
+                              <a:s>&quot;Flexible Sigmoidoscopy Performed&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> P</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="199">
+                     <a:s>where </a:s>
+                     <a:s r="199">
+                        <a:s r="196">
+                           <a:s r="193">
+                              <a:s>FC</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="196">
+                              <a:s>ToInterval(</a:s>
+                              <a:s r="195">
+                                 <a:s r="194">
+                                    <a:s>P</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="195">
+                                    <a:s>performed</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="199">
+                           <a:s>ends </a:s>
+                           <a:s r="198">
+                              <a:s>5 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="197">
+                           <a:s>AsOf</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="200" locator="92:3-93:75" xsi:type="Query">
+            <source localId="192" locator="92:3-92:38" alias="P">
+               <expression localId="191" locator="92:3-92:36" name="Flexible Sigmoidoscopy Performed" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="199" locator="93:5-93:75" xsi:type="And">
+               <operand locator="93:43-93:57" xsi:type="In">
+                  <operand locator="93:38-93:41" xsi:type="End">
+                     <operand localId="196" locator="93:11-93:36" name="ToInterval" libraryName="FC" xsi:type="FunctionRef">
+                        <operand localId="195" locator="93:25-93:35" path="performed" scope="P" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand locator="93:43-93:57" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low locator="93:72-93:75" xsi:type="Subtract">
+                        <operand localId="197" locator="93:72-93:75" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="198" locator="93:43-93:49" value="5" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="197" locator="93:72-93:75" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand locator="93:43-93:57" xsi:type="Not">
+                  <operand locator="93:43-93:57" xsi:type="IsNull">
+                     <operand localId="197" locator="93:72-93:75" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="205" locator="95:1-96:54" name="Most Recent Flexible Sigmoidoscopy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="205">
+               <a:s>define &quot;Most Recent Flexible Sigmoidoscopy Performed&quot;:
+  </a:s>
+               <a:s r="204">
+                  <a:s>MostRecent(</a:s>
+                  <a:s r="202">
+                     <a:s>&quot;Flexible Sigmoidoscopy Performed&quot;</a:s>
+                  </a:s>
+                  <a:s>, </a:s>
+                  <a:s r="203">
+                     <a:s>AsOf</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="204" locator="96:3-96:54" name="MostRecent" xsi:type="FunctionRef">
+            <operand localId="202" locator="96:14-96:47" name="Flexible Sigmoidoscopy Performed" xsi:type="ExpressionRef"/>
+            <operand localId="203" locator="96:50-96:53" name="AsOf" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="216" locator="98:1-100:75" name="CT Colonography Performed Within 5 Years" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>define &quot;CT Colonography Performed Within 5 Years&quot;:
+  </a:s>
+               <a:s r="215">
+                  <a:s>
+                     <a:s r="207">
+                        <a:s r="206">
+                           <a:s>
+                              <a:s>&quot;CT Colonography Performed&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> P</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="214">
+                     <a:s>where </a:s>
+                     <a:s r="214">
+                        <a:s r="211">
+                           <a:s r="208">
+                              <a:s>FC</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="211">
+                              <a:s>ToInterval(</a:s>
+                              <a:s r="210">
+                                 <a:s r="209">
+                                    <a:s>P</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="210">
+                                    <a:s>performed</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="214">
+                           <a:s>ends </a:s>
+                           <a:s r="213">
+                              <a:s>5 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="212">
+                           <a:s>AsOf</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="215" locator="99:3-100:75" xsi:type="Query">
+            <source localId="207" locator="99:3-99:31" alias="P">
+               <expression localId="206" locator="99:3-99:29" name="CT Colonography Performed" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="214" locator="100:5-100:75" xsi:type="And">
+               <operand locator="100:43-100:57" xsi:type="In">
+                  <operand locator="100:38-100:41" xsi:type="End">
+                     <operand localId="211" locator="100:11-100:36" name="ToInterval" libraryName="FC" xsi:type="FunctionRef">
+                        <operand localId="210" locator="100:25-100:35" path="performed" scope="P" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand locator="100:43-100:57" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low locator="100:72-100:75" xsi:type="Subtract">
+                        <operand localId="212" locator="100:72-100:75" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="213" locator="100:43-100:49" value="5" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="212" locator="100:72-100:75" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand locator="100:43-100:57" xsi:type="Not">
+                  <operand locator="100:43-100:57" xsi:type="IsNull">
+                     <operand localId="212" locator="100:72-100:75" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="220" locator="102:1-103:47" name="Most Recent CT Colonography Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="220">
+               <a:s>define &quot;Most Recent CT Colonography Performed&quot;:
+  </a:s>
+               <a:s r="219">
+                  <a:s>MostRecent(</a:s>
+                  <a:s r="217">
+                     <a:s>&quot;CT Colonography Performed&quot;</a:s>
+                  </a:s>
+                  <a:s>, </a:s>
+                  <a:s r="218">
+                     <a:s>AsOf</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="219" locator="103:3-103:47" name="MostRecent" xsi:type="FunctionRef">
+            <operand localId="217" locator="103:14-103:40" name="CT Colonography Performed" xsi:type="ExpressionRef"/>
+            <operand localId="218" locator="103:43-103:46" name="AsOf" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="231" locator="105:1-107:76" name="Colonoscopy Performed Within 10 Years" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="231">
+               <a:s>define &quot;Colonoscopy Performed Within 10 Years&quot;:
+  </a:s>
+               <a:s r="230">
+                  <a:s>
+                     <a:s r="222">
+                        <a:s r="221">
+                           <a:s>
+                              <a:s>&quot;Colonoscopy Performed&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> P</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    </a:s>
+                  <a:s r="229">
+                     <a:s>where </a:s>
+                     <a:s r="229">
+                        <a:s r="226">
+                           <a:s r="223">
+                              <a:s>FC</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="226">
+                              <a:s>ToInterval(</a:s>
+                              <a:s r="225">
+                                 <a:s r="224">
+                                    <a:s>P</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="225">
+                                    <a:s>performed</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="229">
+                           <a:s>ends </a:s>
+                           <a:s r="228">
+                              <a:s>10 years</a:s>
+                           </a:s>
+                           <a:s> or less on or before</a:s>
+                        </a:s>
+                        <a:s> </a:s>
+                        <a:s r="227">
+                           <a:s>AsOf</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="230" locator="106:3-107:76" xsi:type="Query">
+            <source localId="222" locator="106:3-106:27" alias="P">
+               <expression localId="221" locator="106:3-106:25" name="Colonoscopy Performed" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="229" locator="107:5-107:76" xsi:type="And">
+               <operand locator="107:43-107:58" xsi:type="In">
+                  <operand locator="107:38-107:41" xsi:type="End">
+                     <operand localId="226" locator="107:11-107:36" name="ToInterval" libraryName="FC" xsi:type="FunctionRef">
+                        <operand localId="225" locator="107:25-107:35" path="performed" scope="P" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand locator="107:43-107:58" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low locator="107:73-107:76" xsi:type="Subtract">
+                        <operand localId="227" locator="107:73-107:76" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="228" locator="107:43-107:50" value="10" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high localId="227" locator="107:73-107:76" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand locator="107:43-107:58" xsi:type="Not">
+                  <operand locator="107:43-107:58" xsi:type="IsNull">
+                     <operand localId="227" locator="107:73-107:76" name="AsOf" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="235" locator="109:1-110:43" name="Most Recent Colonoscopy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="235">
+               <a:s>define &quot;Most Recent Colonoscopy Performed&quot;:
+  </a:s>
+               <a:s r="234">
+                  <a:s>MostRecent(</a:s>
+                  <a:s r="232">
+                     <a:s>&quot;Colonoscopy Performed&quot;</a:s>
+                  </a:s>
+                  <a:s>, </a:s>
+                  <a:s r="233">
+                     <a:s>AsOf</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="234" locator="110:3-110:43" name="MostRecent" xsi:type="FunctionRef">
+            <operand localId="232" locator="110:14-110:36" name="Colonoscopy Performed" xsi:type="ExpressionRef"/>
+            <operand localId="233" locator="110:39-110:42" name="AsOf" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="245" locator="112:1-116:3" name="Has Active Malignant Neoplasm" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="245">
+               <a:s>define &quot;Has Active Malignant Neoplasm&quot;:
+  </a:s>
+               <a:s r="244">
+                  <a:s>exists </a:s>
+                  <a:s r="243">
+                     <a:s>(
+    </a:s>
+                     <a:s r="243">
+                        <a:s>
+                           <a:s r="237">
+                              <a:s r="236">
+                                 <a:s>
+                                    <a:s>&quot;Active Malignant Neoplasm&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> M</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      </a:s>
+                        <a:s r="242">
+                           <a:s>where </a:s>
+                           <a:s r="242">
+                              <a:s r="240">
+                                 <a:s r="238">
+                                    <a:s>FC</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="240">
+                                    <a:s>ToPrevalenceInterval(</a:s>
+                                    <a:s r="239">
+                                       <a:s>M</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="242"> starts on or before </a:s>
+                              <a:s r="241">
+                                 <a:s>AsOf</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="244" locator="113:3-116:3" xsi:type="Exists">
+            <operand localId="243" locator="113:10-116:3" xsi:type="Query">
+               <source localId="237" locator="114:5-114:33" alias="M">
+                  <expression localId="236" locator="114:5-114:31" name="Active Malignant Neoplasm" xsi:type="ExpressionRef"/>
+               </source>
+               <where localId="242" locator="115:7-115:63" xsi:type="SameOrBefore">
+                  <operand locator="115:40-115:45" xsi:type="Start">
+                     <operand localId="240" locator="115:13-115:38" name="ToPrevalenceInterval" libraryName="FC" xsi:type="FunctionRef">
+                        <operand localId="239" locator="115:37" name="M" xsi:type="AliasRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="241" locator="115:60-115:63" name="AsOf" xsi:type="ExpressionRef"/>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def localId="263" locator="169:1-171:78" name="PerformedWithin" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="263">
+               <a:s>define function PerformedWithin(procedures </a:s>
+               <a:s r="249">
+                  <a:s>List&lt;</a:s>
+                  <a:s r="248">
+                     <a:s>Procedure</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>, lookback </a:s>
+               <a:s r="250">
+                  <a:s>System.Quantity</a:s>
+               </a:s>
+               <a:s>):
+  </a:s>
+               <a:s r="262">
+                  <a:s r="262">
+                     <a:s>
+                        <a:s r="252">
+                           <a:s r="251">
+                              <a:s>
+                                 <a:s>procedures</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> P</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    </a:s>
+                     <a:s r="261">
+                        <a:s>where </a:s>
+                        <a:s r="261">
+                           <a:s r="257">
+                              <a:s>end of </a:s>
+                              <a:s r="256">
+                                 <a:s r="253">
+                                    <a:s>FC</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="256">
+                                    <a:s>ToInterval(</a:s>
+                                    <a:s r="255">
+                                       <a:s r="254">
+                                          <a:s>P</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="255">
+                                          <a:s>performed</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="261"> on or after day of </a:s>
+                           <a:s r="260">
+                              <a:s r="258">
+                                 <a:s>AsOf</a:s>
+                              </a:s>
+                              <a:s> - </a:s>
+                              <a:s r="259">
+                                 <a:s>lookback</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="262" locator="170:3-171:78" xsi:type="Query">
+            <source localId="252" locator="170:3-170:14" alias="P">
+               <expression localId="251" locator="170:3-170:12" name="procedures" xsi:type="OperandRef"/>
+            </source>
+            <where localId="261" locator="171:5-171:78" precision="Day" xsi:type="SameOrAfter">
+               <operand localId="257" locator="171:11-171:43" xsi:type="End">
+                  <operand localId="256" locator="171:18-171:43" name="ToInterval" libraryName="FC" xsi:type="FunctionRef">
+                     <operand localId="255" locator="171:32-171:42" path="performed" scope="P" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand localId="260" locator="171:64-171:78" xsi:type="Subtract">
+                  <operand localId="258" locator="171:64-171:67" name="AsOf" xsi:type="ExpressionRef"/>
+                  <operand localId="259" locator="171:71-171:78" name="lookback" xsi:type="OperandRef"/>
+               </operand>
+            </where>
+         </expression>
+         <operand name="procedures">
+            <operandTypeSpecifier localId="249" locator="169:44-169:58" xsi:type="ListTypeSpecifier">
+               <elementType localId="248" locator="169:49-169:57" name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+         <operand name="lookback">
+            <operandTypeSpecifier localId="250" locator="169:70-169:84" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="266" locator="119:1-122:3" name="Has Total Colectomy Performed" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="266">
+               <a:s>// NOTE: Added these two for HEDIS version.
+define &quot;Has Total Colectomy Performed&quot;:
+  </a:s>
+               <a:s r="265">
+                  <a:s>exists </a:s>
+                  <a:s r="264">
+                     <a:s>(
+    </a:s>
+                     <a:s r="264">
+                        <a:s>PerformedWithin(</a:s>
+                        <a:s r="246">
+                           <a:s>&quot;Total Colectomy Performed&quot;</a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s r="247">
+                           <a:s>1 year</a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="265" locator="120:3-122:3" xsi:type="Exists">
+            <operand localId="264" locator="120:10-122:3" name="PerformedWithin" xsi:type="FunctionRef">
+               <operand localId="246" locator="121:21-121:47" name="Total Colectomy Performed" xsi:type="ExpressionRef"/>
+               <operand localId="247" locator="121:50-121:55" value="1" unit="year" xsi:type="Quantity"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="276" locator="124:1-128:3" name="Has History of Total Colectomy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="276">
+               <a:s>define &quot;Has History of Total Colectomy&quot;:
+ </a:s>
+               <a:s r="275">
+                  <a:s>exists </a:s>
+                  <a:s r="274">
+                     <a:s>(
+    </a:s>
+                     <a:s r="274">
+                        <a:s>
+                           <a:s r="268">
+                              <a:s r="267">
+                                 <a:s>
+                                    <a:s>&quot;Total Colectomy from Patient History&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> ColectomyHistory</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+      </a:s>
+                        <a:s r="273">
+                           <a:s>where </a:s>
+                           <a:s r="273">
+                              <a:s r="271">
+                                 <a:s r="269">
+                                    <a:s>FC</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="271">
+                                    <a:s>ToPrevalenceInterval(</a:s>
+                                    <a:s r="270">
+                                       <a:s>ColectomyHistory</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="273"> starts on or before </a:s>
+                              <a:s r="272">
+                                 <a:s>AsOf</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+  )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="275" locator="125:2-128:3" xsi:type="Exists">
+            <operand localId="274" locator="125:9-128:3" xsi:type="Query">
+               <source localId="268" locator="126:5-126:59" alias="ColectomyHistory">
+                  <expression localId="267" locator="126:5-126:42" name="Total Colectomy from Patient History" xsi:type="ExpressionRef"/>
+               </source>
+               <where localId="273" locator="127:7-127:78" xsi:type="SameOrBefore">
+                  <operand locator="127:55-127:60" xsi:type="Start">
+                     <operand localId="271" locator="127:13-127:53" name="ToPrevalenceInterval" libraryName="FC" xsi:type="FunctionRef">
+                        <operand localId="270" locator="127:37-127:52" name="ColectomyHistory" xsi:type="AliasRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="272" locator="127:75-127:78" name="AsOf" xsi:type="ExpressionRef"/>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def localId="291" locator="137:1-142:53" name="Has Appropriate Colorectal Cancer Screening" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="291">
+               <a:s>/*
+  FOBT within 1 year
+    or FIT DNA within 3 years
+    or CT Colonography within 5 years
+    or Flexible Sigmoidoscopy within 5 years
+    or Colonoscopy within 10 years
+*/
+define &quot;Has Appropriate Colorectal Cancer Screening&quot;:
+  </a:s>
+               <a:s r="290">
+                  <a:s r="287">
+                     <a:s r="284">
+                        <a:s r="281">
+                           <a:s r="278">
+                              <a:s>exists </a:s>
+                              <a:s r="277">
+                                 <a:s>&quot;Fecal Occult Blood Test Result Within 1 Year&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+    or </a:s>
+                           <a:s r="280">
+                              <a:s>exists </a:s>
+                              <a:s r="279">
+                                 <a:s>&quot;Fecal Immunochemical Test DNA Result Within 3 Years&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>
+    or </a:s>
+                        <a:s r="283">
+                           <a:s>exists </a:s>
+                           <a:s r="282">
+                              <a:s>&quot;CT Colonography Performed Within 5 Years&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    or </a:s>
+                     <a:s r="286">
+                        <a:s>exists </a:s>
+                        <a:s r="285">
+                           <a:s>&quot;Flexible Sigmoidoscopy Performed Within 5 Years&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    or </a:s>
+                  <a:s r="289">
+                     <a:s>exists </a:s>
+                     <a:s r="288">
+                        <a:s>&quot;Colonoscopy Performed Within 10 Years&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="290" locator="138:3-142:53" xsi:type="Or">
+            <operand localId="287" locator="138:3-141:63" xsi:type="Or">
+               <operand localId="284" locator="138:3-140:56" xsi:type="Or">
+                  <operand localId="281" locator="138:3-139:67" xsi:type="Or">
+                     <operand localId="278" locator="138:3-138:55" xsi:type="Exists">
+                        <operand localId="277" locator="138:10-138:55" name="Fecal Occult Blood Test Result Within 1 Year" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand localId="280" locator="139:8-139:67" xsi:type="Exists">
+                        <operand localId="279" locator="139:15-139:67" name="Fecal Immunochemical Test DNA Result Within 3 Years" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="283" locator="140:8-140:56" xsi:type="Exists">
+                     <operand localId="282" locator="140:15-140:56" name="CT Colonography Performed Within 5 Years" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="286" locator="141:8-141:63" xsi:type="Exists">
+                  <operand localId="285" locator="141:15-141:63" name="Flexible Sigmoidoscopy Performed Within 5 Years" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="289" locator="142:8-142:53" xsi:type="Exists">
+               <operand localId="288" locator="142:15-142:53" name="Colonoscopy Performed Within 10 Years" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="315" locator="145:1-151:99" name="Has History of Appropriate Colorectal Cancer Screening" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="315">
+               <a:s>// NOTE: For Condition options
+define &quot;Has History of Appropriate Colorectal Cancer Screening&quot;:
+  </a:s>
+               <a:s r="314">
+                  <a:s r="302">
+                     <a:s>exists </a:s>
+                     <a:s r="301">
+                        <a:s>(
+    </a:s>
+                        <a:s r="301">
+                           <a:s>
+                              <a:s r="293">
+                                 <a:s r="292">
+                                    <a:s>
+                                       <a:s>&quot;Flexible Sigmoidoscopy from Patient History&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> FlexSigCondition</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      </a:s>
+                           <a:s r="300">
+                              <a:s>where </a:s>
+                              <a:s r="300">
+                                 <a:s r="296">
+                                    <a:s r="294">
+                                       <a:s>FC</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="296">
+                                       <a:s>ToPrevalenceInterval(</a:s>
+                                       <a:s r="295">
+                                          <a:s>FlexSigCondition</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="300"> starts on or after day of </a:s>
+                                 <a:s r="299">
+                                    <a:s r="297">
+                                       <a:s>AsOf</a:s>
+                                    </a:s>
+                                    <a:s> - </a:s>
+                                    <a:s r="298">
+                                       <a:s>5 years</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+  or </a:s>
+                  <a:s r="313">
+                     <a:s>exists </a:s>
+                     <a:s r="312">
+                        <a:s>(
+    </a:s>
+                        <a:s r="312">
+                           <a:s>
+                              <a:s r="304">
+                                 <a:s r="303">
+                                    <a:s>
+                                       <a:s>&quot;Colonoscopy from Patient History&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> ColonscopyCondition</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>
+      </a:s>
+                           <a:s r="311">
+                              <a:s>where </a:s>
+                              <a:s r="311">
+                                 <a:s r="307">
+                                    <a:s r="305">
+                                       <a:s>FC</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="307">
+                                       <a:s>ToPrevalenceInterval(</a:s>
+                                       <a:s r="306">
+                                          <a:s>ColonscopyCondition</a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="311"> starts on or after day of </a:s>
+                                 <a:s r="310">
+                                    <a:s r="308">
+                                       <a:s>AsOf</a:s>
+                                    </a:s>
+                                    <a:s> - </a:s>
+                                    <a:s r="309">
+                                       <a:s>10 years</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>)</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="314" locator="146:3-151:99" xsi:type="Or">
+            <operand localId="302" locator="146:3-148:95" xsi:type="Exists">
+               <operand localId="301" locator="146:10-148:95" xsi:type="Query">
+                  <source localId="293" locator="147:5-147:66" alias="FlexSigCondition">
+                     <expression localId="292" locator="147:5-147:49" name="Flexible Sigmoidoscopy from Patient History" xsi:type="ExpressionRef"/>
+                  </source>
+                  <where localId="300" locator="148:7-148:94" precision="Day" xsi:type="SameOrAfter">
+                     <operand locator="148:55-148:60" xsi:type="Start">
+                        <operand localId="296" locator="148:13-148:53" name="ToPrevalenceInterval" libraryName="FC" xsi:type="FunctionRef">
+                           <operand localId="295" locator="148:37-148:52" name="FlexSigCondition" xsi:type="AliasRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="299" locator="148:81-148:94" xsi:type="Subtract">
+                        <operand localId="297" locator="148:81-148:84" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="298" locator="148:88-148:94" value="5" unit="years" xsi:type="Quantity"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+            <operand localId="313" locator="149:6-151:99" xsi:type="Exists">
+               <operand localId="312" locator="149:13-151:99" xsi:type="Query">
+                  <source localId="304" locator="150:5-150:58" alias="ColonscopyCondition">
+                     <expression localId="303" locator="150:5-150:38" name="Colonoscopy from Patient History" xsi:type="ExpressionRef"/>
+                  </source>
+                  <where localId="311" locator="151:7-151:98" precision="Day" xsi:type="SameOrAfter">
+                     <operand locator="151:58-151:63" xsi:type="Start">
+                        <operand localId="307" locator="151:13-151:56" name="ToPrevalenceInterval" libraryName="FC" xsi:type="FunctionRef">
+                           <operand localId="306" locator="151:37-151:55" name="ColonscopyCondition" xsi:type="AliasRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="310" locator="151:84-151:98" xsi:type="Subtract">
+                        <operand localId="308" locator="151:84-151:87" name="AsOf" xsi:type="ExpressionRef"/>
+                        <operand localId="309" locator="151:91-151:98" value="10" unit="years" xsi:type="Quantity"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="336" locator="165:1-167:53" name="IssuedWithin" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="336">
+               <a:s>define function IssuedWithin(observations </a:s>
+               <a:s r="325">
+                  <a:s>List&lt;</a:s>
+                  <a:s r="324">
+                     <a:s>Observation</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>, lookback </a:s>
+               <a:s r="326">
+                  <a:s>System.Quantity</a:s>
+               </a:s>
+               <a:s>):
+  </a:s>
+               <a:s r="335">
+                  <a:s r="335">
+                     <a:s>
+                        <a:s r="328">
+                           <a:s r="327">
+                              <a:s>
+                                 <a:s>observations</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> O</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>
+    </a:s>
+                     <a:s r="334">
+                        <a:s>where </a:s>
+                        <a:s r="334">
+                           <a:s r="330">
+                              <a:s r="329">
+                                 <a:s>O</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="330">
+                                 <a:s>issued</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="334"> on or after day of </a:s>
+                           <a:s r="333">
+                              <a:s r="331">
+                                 <a:s>AsOf</a:s>
+                              </a:s>
+                              <a:s> - </a:s>
+                              <a:s r="332">
+                                 <a:s>lookback</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="335" locator="166:3-167:53" xsi:type="Query">
+            <source localId="328" locator="166:3-166:16" alias="O">
+               <expression localId="327" locator="166:3-166:14" name="observations" xsi:type="OperandRef"/>
+            </source>
+            <where localId="334" locator="167:5-167:53" precision="Day" xsi:type="SameOrAfter">
+               <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand localId="330" locator="167:11-167:18" path="issued" scope="O" xsi:type="Property"/>
+               </operand>
+               <operand localId="333" locator="167:39-167:53" xsi:type="Subtract">
+                  <operand localId="331" locator="167:39-167:42" name="AsOf" xsi:type="ExpressionRef"/>
+                  <operand localId="332" locator="167:46-167:53" name="lookback" xsi:type="OperandRef"/>
+               </operand>
+            </where>
+         </expression>
+         <operand name="observations">
+            <operandTypeSpecifier localId="325" locator="165:43-165:59" xsi:type="ListTypeSpecifier">
+               <elementType localId="324" locator="165:48-165:58" name="fhir:Observation" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+         <operand name="lookback">
+            <operandTypeSpecifier localId="326" locator="165:71-165:85" name="t:Quantity" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+   </statements>
+</library>

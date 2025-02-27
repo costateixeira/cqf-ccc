@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation translatorVersion="2.7.0" translatorOptions="EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion" xsi:type="a:CqlToElmInfo"/>
+   <annotation xsi:type="a:Annotation">
+      <a:s r="34">
+         <a:s>library ColorectalCancerScreeningHEDIS version '0.1.0'</a:s>
+      </a:s>
+   </annotation>
+   <identifier id="ColorectalCancerScreeningHEDIS" system="http://fhir.org/guides/cqf/ccc" version="0.1.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="1">
+               <a:s>using </a:s>
+               <a:s>
+                  <a:s>FHIR</a:s>
+               </a:s>
+               <a:s> version '4.0.1'</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </usings>
+   <includes>
+      <def localId="2" locator="5:1-5:54" localIdentifier="FHIRHelpers" path="http://fhir.org/guides/cqf/ccc/FHIRHelpers" version="4.0.1">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="2">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>FHIRHelpers</a:s>
+               </a:s>
+               <a:s> version '4.0.1' called FHIRHelpers</a:s>
+            </a:s>
+         </annotation>
+      </def>
+      <def localId="3" locator="7:1-7:43" localIdentifier="CCE" path="http://fhir.org/guides/cqf/ccc/ColorectalCancerElements">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="3">
+               <a:s>include </a:s>
+               <a:s>
+                  <a:s>ColorectalCancerElements</a:s>
+               </a:s>
+               <a:s> called CCE</a:s>
+            </a:s>
+         </annotation>
+      </def>
+   </includes>
+   <parameters>
+      <def localId="9" locator="9:1-10:78" name="Measurement Period" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="9">
+               <a:s>parameter &quot;Measurement Period&quot; </a:s>
+               <a:s r="8">
+                  <a:s>Interval&lt;</a:s>
+                  <a:s r="7">
+                     <a:s>DateTime</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>
+  default </a:s>
+               <a:s r="6">
+                  <a:s r="4">Interval[@2022-01-01T00:00:00.0-06:00, @2023-01-01T00:00:00.0-06:00)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <default localId="6" locator="10:11-10:78" lowClosed="true" highClosed="false" xsi:type="Interval">
+            <low localId="4" locator="10:20-10:47" xsi:type="DateTime">
+               <year valueType="t:Integer" value="2022" xsi:type="Literal"/>
+               <month valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <day valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <timezoneOffset valueType="t:Decimal" value="-6.0" xsi:type="Literal"/>
+            </low>
+            <high localId="5" locator="10:50-10:77" xsi:type="DateTime">
+               <year valueType="t:Integer" value="2023" xsi:type="Literal"/>
+               <month valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <day valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <timezoneOffset valueType="t:Decimal" value="-6.0" xsi:type="Literal"/>
+            </high>
+         </default>
+         <parameterTypeSpecifier localId="8" locator="9:32-9:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="7" locator="9:41-9:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <contexts>
+      <def locator="12:1-12:15" name="Patient"/>
+   </contexts>
+   <statements>
+      <def locator="12:1-12:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="12:1-12:15" dataType="fhir:Patient" templateId="http://hl7.org/fhir/StructureDefinition/Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="17" locator="18:1-19:63" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="17">
+               <a:s>/*
+NOTE: Removed Health Plan Enrollment criteria to simplify for demonstration purposes
+NOTE: Age for HEDIS is based on the end of the MP, adjustment reflected below
+*/
+define &quot;Initial Population&quot;:
+  </a:s>
+               <a:s r="16">
+                  <a:s r="12">
+                     <a:s>AgeInYearsAt(</a:s>
+                     <a:s r="11">
+                        <a:s>end of </a:s>
+                        <a:s r="10">
+                           <a:s>&quot;Measurement Period&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s> in </a:s>
+                  <a:s r="15">
+                     <a:s r="13">Interval[51, 75]</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="16" locator="19:3-19:63" xsi:type="In">
+            <operand localId="12" locator="19:3-19:43" precision="Year" xsi:type="CalculateAgeAt">
+               <operand xsi:type="ToDateTime">
+                  <operand path="birthDate.value" xsi:type="Property">
+                     <source name="Patient" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand localId="11" locator="19:16-19:42" xsi:type="End">
+                  <operand localId="10" locator="19:23-19:42" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+            <operand localId="15" locator="19:48-19:63" lowClosed="true" highClosed="true" xsi:type="Interval">
+               <low localId="13" locator="19:57-19:58" valueType="t:Integer" value="51" xsi:type="Literal"/>
+               <high localId="14" locator="19:61-19:62" valueType="t:Integer" value="75" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="19" locator="21:1-22:22" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="19">
+               <a:s>define &quot;Denominator&quot;:
+  </a:s>
+               <a:s r="18">
+                  <a:s>&quot;Initial Population&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="18" locator="22:3-22:22" name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="25" locator="24:1-26:67" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="25">
+               <a:s>define &quot;Numerator&quot;:
+  </a:s>
+               <a:s r="24">
+                  <a:s r="21">
+                     <a:s r="20">
+                        <a:s>CCE</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="21">
+                        <a:s>&quot;Has Appropriate Colorectal Cancer Screening&quot;</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>
+    or </a:s>
+                  <a:s r="23">
+                     <a:s r="22">
+                        <a:s>CCE</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="23">
+                        <a:s>&quot;Has History of Appropriate Colorectal Cancer Screening&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="24" locator="25:3-26:67" xsi:type="Or">
+            <operand localId="21" locator="25:3-25:51" name="Has Appropriate Colorectal Cancer Screening" libraryName="CCE" xsi:type="ExpressionRef"/>
+            <operand localId="23" locator="26:8-26:67" name="Has History of Appropriate Colorectal Cancer Screening" libraryName="CCE" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="34" locator="31:1-34:43" name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="34">
+               <a:s>/*
+NOTE: Removed hospice, advanced illness, and frailty exclusions to simplify for demonstration purposes
+*/
+define &quot;Denominator Exclusion&quot;:
+  </a:s>
+               <a:s r="33">
+                  <a:s r="30">
+                     <a:s r="27">
+                        <a:s r="26">
+                           <a:s>CCE</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="27">
+                           <a:s>&quot;Has Active Malignant Neoplasm&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> 
+    or </a:s>
+                     <a:s r="29">
+                        <a:s r="28">
+                           <a:s>CCE</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="29">
+                           <a:s>&quot;Has Total Colectomy Performed&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s> 
+    or </a:s>
+                  <a:s r="32">
+                     <a:s r="31">
+                        <a:s>CCE</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="32">
+                        <a:s>&quot;Has History of Total Colectomy&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="33" locator="32:3-34:43" xsi:type="Or">
+            <operand localId="30" locator="32:3-33:42" xsi:type="Or">
+               <operand localId="27" locator="32:3-32:37" name="Has Active Malignant Neoplasm" libraryName="CCE" xsi:type="ExpressionRef"/>
+               <operand localId="29" locator="33:8-33:42" name="Has Total Colectomy Performed" libraryName="CCE" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand localId="32" locator="34:8-34:43" name="Has History of Total Colectomy" libraryName="CCE" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>

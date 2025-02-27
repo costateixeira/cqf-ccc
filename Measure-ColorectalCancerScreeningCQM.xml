@@ -1,0 +1,1381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="ColorectalCancerScreeningCQM"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"/>
+    <profile value="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"/>
+  </meta>
+  <language value="en"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <table class="grid dict">
+        
+            <tr>
+                <th scope="row"><b>Title: </b></th>
+                <td style="padding-left: 4px;">Colorectal Cancer Screening CQM</td>
+            </tr>
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Id: </b></th>
+                <td style="padding-left: 4px;">ColorectalCancerScreeningCQM</td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Version: </b></th>
+                <td style="padding-left: 4px;">0.1.0</td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Url: </b></th>
+                <td style="padding-left: 4px;"><a href="Measure-ColorectalCancerScreeningCQM.html">Colorectal Cancer Screening CQM</a></td>
+            </tr>
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Effective Period: </b></th>
+                <td style="padding-left: 4px;">2022-01-01
+                    ..2022-12-31</td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Status: </b></th>
+                <td style="padding-left: 4px;">draft</td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Experimental: </b></th>
+                <td style="padding-left: 4px;">true</td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Date: </b></th>
+                <td style="padding-left: 4px;">2024-05-14 12:25:12-0600</td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Publisher: </b></th>
+                <td style="padding-left: 4px;">Clinical Quality Framework</td>
+            </tr>
+        
+
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Description: </b></th>
+                <td style="padding-left: 4px;"><div><p>Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer</p>
+</div></td>
+            </tr>
+        
+
+        
+
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Jurisdiction: </b></th>
+                <td style="padding-left: 4px;">001</td>
+            </tr>
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Purpose: </b></th>
+                <td style="padding-left: 4px;"><div><p>Illustration</p>
+</div></td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Copyright: </b></th>
+                <td style="padding-left: 4px;"><div><p>This Physician Performance Measure (Measure) and related data specifications are owned and were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (e.g., use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2020 National Committee for Quality Assurance. All Rights Reserved.</p>
+<p>Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications.</p>
+<p>CPT(R) contained in the Measure specifications is copyright 2004-2020 American Medical Association. LOINC(R) copyright 2004-2020 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2020 International Health Terminology Standards Development Organisation. ICD-10 copyright 2020 World Health Organization. All Rights Reserved.</p>
+</div></td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Disclaimer: </b></th>
+                <td style="padding-left: 4px;"><div><p>The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND.</p>
+<p>Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].</p>
+</div></td>
+            </tr>
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Basis: </b></th>
+                <td style="padding-left: 4px;">
+                boolean
+                </td>
+            </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Scoring: </b></th>
+                <td style="padding-left: 4px;">
+                    
+                        
+                            <p style="margin-bottom: 5px;">
+                                <span>Proportion </span>
+                            </p>
+                        
+                    
+                    
+                </td>
+            </tr>
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Type: </b></th>
+                <td style="padding-left: 4px;">
+                    
+                        
+                            <p style="margin-bottom: 5px;">
+                                <span>process </span>
+                            </p>
+                        
+                    
+                    
+                </td>
+            </tr>
+        
+
+        
+
+        
+
+        
+        <tr>
+            <th scope="row"><b>Rationale: </b></th>
+            <td style="padding-left: 4px;"><div><p>Colorectal cancer represents eight percent of all new cancer cases in the United States. In 2020, there were an estimated 147,950 new cases of colorectal cancer and an estimated 53,200 deaths attributed to it. According to the National Cancer Institute, about 4.2 percent of men and women will be diagnosed with colorectal cancer at some point during their lifetimes. For most adults, older age is the most important risk factor for colorectal cancer, although being male and black are also associated with higher incidence and mortality. Colorectal cancer is most frequently diagnosed among people 65 to 74 years old (National Cancer Institute, 2020).</p>
+<p>Screening can be effective for finding precancerous lesions (polyps) that could later become malignant, and for detecting early cancers that can be more easily and effectively treated. Precancerous polyps usually take about 10 to 15 years to develop into colorectal cancer, and most can be found and removed before turning into cancer. The five-year relative survival rate for people whose colorectal cancer is found in the early stage before it has spread is about 90 percent (American Cancer Society, 2020).</p>
+</div></td>
+        </tr>
+        
+
+        
+        <tr>
+            <th scope="row"><b>Clinical recommendation statement: </b></th>
+            <td style="padding-left: 4px;"><div><p>The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016).
+Appropriate screenings are defined by any one of the following:
+-Colonoscopy (every 10 years)
+-Flexible sigmoidoscopy (every 5 years)
+-Fecal occult blood test (annually)
+-FIT-DNA (every 3 years)
+-Computed tomographic colonography (every 5 years)</p>
+</div></td>
+        </tr>
+        
+
+        
+            <tr>
+                <th scope="row"><b>Improvement Notation: </b></th>
+                <td style="padding-left: 4px;">
+                    
+                        
+                            <p style="margin-bottom: 5px;">
+                                <span>increase </span>
+                            </p>
+                        
+                    
+                    
+                </td>
+            </tr>
+        
+
+        
+
+        
+            
+        
+
+        
+
+        
+
+        
+
+        
+            <tr>
+                <th scope="row"><b>Libraries: </b></th>
+                <td style="padding-left: 4px;">
+                    <table class="grid-dict">
+                        
+                            <tr>
+                                <td><a href="Library-ColorectalCancerScreeningCQM.html">Colorectal Cancer Screening CQM</a></td>
+                            </tr>
+                        
+                    </table>
+                </td>
+            </tr>
+        
+
+        
+
+        
+            
+                <tr>
+                    <th scope="row"><b>Related Artifact Dependencies: </b></th>
+                    <td style="padding-left: 4px;">
+                        
+                            <li><a href="Library-ColorectalCancerElements.html">Colorectal Cancer Elements</a></li>
+                        
+                            <li><a href="Library-ColorectalCancerConcepts.html">Colorectal Cancer Concepts</a></li>
+                        
+                            <li><code>http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1</code></li>
+                        
+                            <li><code>http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1</code></li>
+                        
+                            <li><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.198.12.1011/expansion">Fecal Occult Blood Test (FOBT)</a></li>
+                        
+                            <li><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.108.12.1039/expansion">FIT DNA</a></li>
+                        
+                            <li><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.108.12.1038/expansion">CT Colonography</a></li>
+                        
+                            <li><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.198.12.1010/expansion">Flexible Sigmoidoscopy</a></li>
+                        
+                            <li><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.108.12.1020/expansion">Colonoscopy</a></li>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><b>Parameters:</b></th>
+                    <td style="padding-left: 4px;">
+                        <table class="grid-dict">
+                            <tr>
+                                <th><b>name</b></th>
+                                <th><b>use</b></th>
+                                <th><b>min</b></th>
+                                <th><b>max</b></th>
+                                <th><b>type</b></th>
+                            </tr>
+                            
+                                <tr>
+                                    <td>Measurement Period</td>
+                                    <td>In</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>Period</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Numerator</td>
+                                    <td>Out</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>boolean</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Denominator</td>
+                                    <td>Out</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>boolean</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Initial Population</td>
+                                    <td>Out</td>
+                                    <td>0</td>
+                                    <td>1</td>
+                                    <td>boolean</td>
+                                </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row"><b>DataRequirements:</b></th>
+                    <td style="padding-left: 4px;">
+                        <table class="grid-dict">
+                            <tr>
+                                <th><b>Type</b></th>
+                                <th><b>Elements</b></th>
+                                <th><b>Valueset Name</b></th>
+                                <th><b>Valueset</b></th>
+                            </tr>
+                            
+                                <tr>
+                                    <td>Observation(<a href="http://hl7.org/fhir/R4/observation.html">Observation</a>)</td>
+                                    <td>
+                                        
+                                            code
+                                        
+                                            status
+                                        
+                                            value
+                                        
+                                            issued
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                            
+                                                 Fecal Occult Blood Test (FOBT)
+                                            
+                                        
+                                    </td>
+                                    <td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.198.12.1011/expansion">Fecal Occult Blood Test (FOBT)</a></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Observation(<a href="http://hl7.org/fhir/R4/observation.html">Observation</a>)</td>
+                                    <td>
+                                        
+                                            code
+                                        
+                                            status
+                                        
+                                            value
+                                        
+                                            issued
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                            
+                                                 FIT DNA
+                                            
+                                        
+                                    </td>
+                                    <td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.108.12.1039/expansion">FIT DNA</a></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Procedure(<a href="http://hl7.org/fhir/R4/procedure.html">Procedure</a>)</td>
+                                    <td>
+                                        
+                                            code
+                                        
+                                            status
+                                        
+                                            performed
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                            
+                                                 CT Colonography
+                                            
+                                        
+                                    </td>
+                                    <td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.108.12.1038/expansion">CT Colonography</a></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Procedure(<a href="http://hl7.org/fhir/R4/procedure.html">Procedure</a>)</td>
+                                    <td>
+                                        
+                                            code
+                                        
+                                            status
+                                        
+                                            performed
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                            
+                                                 Flexible Sigmoidoscopy
+                                            
+                                        
+                                    </td>
+                                    <td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.198.12.1010/expansion">Flexible Sigmoidoscopy</a></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Procedure(<a href="http://hl7.org/fhir/R4/procedure.html">Procedure</a>)</td>
+                                    <td>
+                                        
+                                            code
+                                        
+                                            status
+                                        
+                                            performed
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                            
+                                                 Colonoscopy
+                                            
+                                        
+                                    </td>
+                                    <td><a href="https://vsac.nlm.nih.gov/valueset/2.16.840.1.113883.3.464.1003.108.12.1020/expansion">Colonoscopy</a></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>Patient(<a href="http://hl7.org/fhir/R4/patient.html">Patient</a>)</td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                    </td>
+                                    <td/>
+                                </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+
+                
+
+                
+                <tr>
+                    <th scope="row"><b>Logic Definitions:</b></th>
+                    <td style="padding-left: 4px;">
+                        
+                        <table class="grid-dict">
+                            <tr>
+                                <th><b>Group</b></th>
+                                <th><b>Scoring</b></th>
+                                <th><b>Population Criteria</b></th>
+                                <th><b>Expression</b></th>
+                            </tr>
+                            <tr>
+                                
+                                <td>  </td>
+                                <td>
+                                    
+
+                                    
+
+                                    
+                                        <b>Measure scoring:</b>
+                                        
+                                            <p style="margin-bottom: 5px;">
+                                                <span>Proportion</span>
+                                            </p>
+                                        
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+
+                                </td>
+                                
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td>Initial Population</td>
+                                    <td>
+                                        
+                                            <pre><code class="language-cql">/*
+NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
+*/
+define &quot;Initial Population&quot;:
+  AgeInYearsAt(start of &quot;Measurement Period&quot;) in Interval[50, 75]</code></pre>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td>Denominator</td>
+                                    <td>
+                                        
+                                            <pre><code class="language-cql">define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;</code></pre>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td/>
+                                    <td/>
+                                    <td>Numerator</td>
+                                    <td>
+                                        
+                                            <pre><code class="language-cql">define &quot;Numerator&quot;:
+  CCE.&quot;Has Appropriate Colorectal Cancer Screening&quot;</code></pre>
+                                        
+                                    </td>
+                                </tr>
+                                
+                                
+                            
+                            </tr>
+                        </table>
+                
+
+                <table class="grid-dict">
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Fecal Occult Blood Test Result</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Fecal Occult Blood Test Result&quot;:
+  [Observation: Cx.&quot;Fecal Occult Blood Test (FOBT)&quot;] FecalOccultResult
+		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
+			and FecalOccultResult.value is not null</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>AsOf</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define AsOf:
+  end of &quot;Measurement Period&quot;</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Fecal Occult Blood Test Result Within 1 Year</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Fecal Occult Blood Test Result Within 1 Year&quot;:
+  &quot;Fecal Occult Blood Test Result&quot; R
+    where R.issued 1 year or less on or before AsOf</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Fecal Immunochemical Test DNA Result</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Fecal Immunochemical Test DNA Result&quot;:
+  [Observation: Cx.&quot;FIT DNA&quot;] FitDNA
+		where FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}
+			and FitDNA.value is not null</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Fecal Immunochemical Test DNA Result Within 3 Years</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Fecal Immunochemical Test DNA Result Within 3 Years&quot;:
+  &quot;Fecal Immunochemical Test DNA Result&quot; R
+    where R.issued 3 years or less on or before AsOf</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>CT Colonography Performed</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;CT Colonography Performed&quot;:
+  [Procedure: Cx.&quot;CT Colonography&quot;] Colonography
+    where Colonography.status = 'completed'</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>CT Colonography Performed Within 5 Years</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;CT Colonography Performed Within 5 Years&quot;:
+  &quot;CT Colonography Performed&quot; P
+    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Flexible Sigmoidoscopy Performed</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">/*
+@description: Completed Flexible Sigmoidoscopy Procedures
+*/
+define &quot;Flexible Sigmoidoscopy Performed&quot;:
+  [Procedure: Cx.&quot;Flexible Sigmoidoscopy&quot;] FlexibleSigmoidoscopy
+		where FlexibleSigmoidoscopy.status = 'completed'</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Flexible Sigmoidoscopy Performed Within 5 Years</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Flexible Sigmoidoscopy Performed Within 5 Years&quot;:
+  &quot;Flexible Sigmoidoscopy Performed&quot; P
+    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Colonoscopy Performed</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Colonoscopy Performed&quot;:
+  [Procedure: Cx.&quot;Colonoscopy&quot;] Colonoscopy
+		where Colonoscopy.status = 'completed'</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Colonoscopy Performed Within 10 Years</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Colonoscopy Performed Within 10 Years&quot;:
+  &quot;Colonoscopy Performed&quot; P
+    where FC.ToInterval(P.performed) ends 10 years or less on or before AsOf</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerElements</td>
+                            
+                            
+                                <td>Has Appropriate Colorectal Cancer Screening</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">/*
+  FOBT within 1 year
+    or FIT DNA within 3 years
+    or CT Colonography within 5 years
+    or Flexible Sigmoidoscopy within 5 years
+    or Colonoscopy within 10 years
+*/
+define &quot;Has Appropriate Colorectal Cancer Screening&quot;:
+  exists &quot;Fecal Occult Blood Test Result Within 1 Year&quot;
+    or exists &quot;Fecal Immunochemical Test DNA Result Within 3 Years&quot;
+    or exists &quot;CT Colonography Performed Within 5 Years&quot;
+    or exists &quot;Flexible Sigmoidoscopy Performed Within 5 Years&quot;
+    or exists &quot;Colonoscopy Performed Within 10 Years&quot;</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerScreeningCQM</td>
+                            
+                            
+                                <td>Numerator</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Numerator&quot;:
+  CCE.&quot;Has Appropriate Colorectal Cancer Screening&quot;</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerScreeningCQM</td>
+                            
+                            
+                                <td>Initial Population</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">/*
+NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes
+*/
+define &quot;Initial Population&quot;:
+  AgeInYearsAt(start of &quot;Measurement Period&quot;) in Interval[50, 75]</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                        <tr>
+                            <th><b>Library Name</b></th>
+                            <th><b>Name</b></th>
+                        </tr>
+                        <tr>
+                            
+                                <td>ColorectalCancerScreeningCQM</td>
+                            
+                            
+                                <td>Denominator</td>
+                            
+                        </tr>
+                        <tr>
+                            
+                                <td/>
+                                <td>
+                                    <pre class="highlight language-cql"><code class="language-cql">define &quot;Denominator&quot;:
+  &quot;Initial Population&quot;</code></pre>
+                                </td>
+                            
+                        </tr>
+                    
+                    </table>
+                </td>
+            </tr>
+            
+        
+    
+
+    </table>
+</div>
+  </text>
+  <contained>
+    <Library>
+      <id value="effective-data-requirements"/>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Fecal Occult Blood Test Result"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Fecal Occult Blood Test Result&quot;:&#xA;  [Observation: Cx.&quot;Fecal Occult Blood Test (FOBT)&quot;] FecalOccultResult&#xA;&#x9;&#x9;where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}&#xA;&#x9;&#x9;&#x9;and FecalOccultResult.value is not null"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="0"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="AsOf"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define AsOf:&#xA;  end of &quot;Measurement Period&quot;"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="1"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Fecal Occult Blood Test Result Within 1 Year"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Fecal Occult Blood Test Result Within 1 Year&quot;:&#xA;  &quot;Fecal Occult Blood Test Result&quot; R&#xA;    where R.issued 1 year or less on or before AsOf"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="2"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Fecal Immunochemical Test DNA Result"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Fecal Immunochemical Test DNA Result&quot;:&#xA;  [Observation: Cx.&quot;FIT DNA&quot;] FitDNA&#xA;&#x9;&#x9;where FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}&#xA;&#x9;&#x9;&#x9;and FitDNA.value is not null"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="3"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Fecal Immunochemical Test DNA Result Within 3 Years"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Fecal Immunochemical Test DNA Result Within 3 Years&quot;:&#xA;  &quot;Fecal Immunochemical Test DNA Result&quot; R&#xA;    where R.issued 3 years or less on or before AsOf"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="4"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="CT Colonography Performed"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;CT Colonography Performed&quot;:&#xA;  [Procedure: Cx.&quot;CT Colonography&quot;] Colonography&#xA;    where Colonography.status = 'completed'"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="5"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="CT Colonography Performed Within 5 Years"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;CT Colonography Performed Within 5 Years&quot;:&#xA;  &quot;CT Colonography Performed&quot; P&#xA;    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="6"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Flexible Sigmoidoscopy Performed"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="/*&#xA;@description: Completed Flexible Sigmoidoscopy Procedures&#xA;*/&#xA;define &quot;Flexible Sigmoidoscopy Performed&quot;:&#xA;  [Procedure: Cx.&quot;Flexible Sigmoidoscopy&quot;] FlexibleSigmoidoscopy&#xA;&#x9;&#x9;where FlexibleSigmoidoscopy.status = 'completed'"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="7"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Flexible Sigmoidoscopy Performed Within 5 Years"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Flexible Sigmoidoscopy Performed Within 5 Years&quot;:&#xA;  &quot;Flexible Sigmoidoscopy Performed&quot; P&#xA;    where FC.ToInterval(P.performed) ends 5 years or less on or before AsOf"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="8"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Colonoscopy Performed"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Colonoscopy Performed&quot;:&#xA;  [Procedure: Cx.&quot;Colonoscopy&quot;] Colonoscopy&#xA;&#x9;&#x9;where Colonoscopy.status = 'completed'"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="9"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Colonoscopy Performed Within 10 Years"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Colonoscopy Performed Within 10 Years&quot;:&#xA;  &quot;Colonoscopy Performed&quot; P&#xA;    where FC.ToInterval(P.performed) ends 10 years or less on or before AsOf"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="10"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerElements"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Has Appropriate Colorectal Cancer Screening"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="/*&#xA;  FOBT within 1 year&#xA;    or FIT DNA within 3 years&#xA;    or CT Colonography within 5 years&#xA;    or Flexible Sigmoidoscopy within 5 years&#xA;    or Colonoscopy within 10 years&#xA;*/&#xA;define &quot;Has Appropriate Colorectal Cancer Screening&quot;:&#xA;  exists &quot;Fecal Occult Blood Test Result Within 1 Year&quot;&#xA;    or exists &quot;Fecal Immunochemical Test DNA Result Within 3 Years&quot;&#xA;    or exists &quot;CT Colonography Performed Within 5 Years&quot;&#xA;    or exists &quot;Flexible Sigmoidoscopy Performed Within 5 Years&quot;&#xA;    or exists &quot;Colonoscopy Performed Within 10 Years&quot;"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="11"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerScreeningCQM"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Numerator"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Numerator&quot;:&#xA;  CCE.&quot;Has Appropriate Colorectal Cancer Screening&quot;"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="12"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerScreeningCQM"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Initial Population"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="/*&#xA;NOTE: Removed qualifying encounters criteria to simplify for demonstration purposes&#xA;*/&#xA;define &quot;Initial Population&quot;:&#xA;  AgeInYearsAt(start of &quot;Measurement Period&quot;) in Interval[50, 75]"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="13"/>
+        </extension>
+      </extension>
+      <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition">
+        <extension url="libraryName">
+          <valueString value="ColorectalCancerScreeningCQM"/>
+        </extension>
+        <extension url="name">
+          <valueString value="Denominator"/>
+        </extension>
+        <extension url="statement">
+          <valueString value="define &quot;Denominator&quot;:&#xA;  &quot;Initial Population&quot;"/>
+        </extension>
+        <extension url="displaySequence">
+          <valueInteger value="14"/>
+        </extension>
+      </extension>
+      <status value="active"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+          <code value="module-definition"/>
+        </coding>
+      </type>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Library CCE"/>
+        <resource value="http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerElements"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Library Cx"/>
+        <resource value="http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerConcepts"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Library FHIRHelpers"/>
+        <resource value="http://fhir.org/guides/cqf/ccc/Library/FHIRHelpers|4.0.1"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Library FC"/>
+        <resource value="http://fhir.org/guides/cqf/ccc/Library/FHIRCommon|4.0.1"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Value set Fecal Occult Blood Test (FOBT)"/>
+        <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Value set FIT DNA"/>
+        <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Value set CT Colonography"/>
+        <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Value set Flexible Sigmoidoscopy"/>
+        <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Value set Colonoscopy"/>
+        <resource value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"/>
+      </relatedArtifact>
+      <parameter>
+        <name value="Measurement Period"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type value="Period"/>
+      </parameter>
+      <parameter>
+        <name value="Numerator"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type value="boolean"/>
+      </parameter>
+      <parameter>
+        <name value="Denominator"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type value="boolean"/>
+      </parameter>
+      <parameter>
+        <name value="Initial Population"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type value="boolean"/>
+      </parameter>
+      <dataRequirement>
+        <type value="Observation"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <mustSupport value="code"/>
+        <mustSupport value="status"/>
+        <mustSupport value="value"/>
+        <mustSupport value="issued"/>
+        <codeFilter>
+          <path value="code"/>
+          <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011"/>
+        </codeFilter>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Observation"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <mustSupport value="code"/>
+        <mustSupport value="status"/>
+        <mustSupport value="value"/>
+        <mustSupport value="issued"/>
+        <codeFilter>
+          <path value="code"/>
+          <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039"/>
+        </codeFilter>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Procedure"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <mustSupport value="code"/>
+        <mustSupport value="status"/>
+        <mustSupport value="performed"/>
+        <codeFilter>
+          <path value="code"/>
+          <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038"/>
+        </codeFilter>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Procedure"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <mustSupport value="code"/>
+        <mustSupport value="status"/>
+        <mustSupport value="performed"/>
+        <codeFilter>
+          <path value="code"/>
+          <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010"/>
+        </codeFilter>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Procedure"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <mustSupport value="code"/>
+        <mustSupport value="status"/>
+        <mustSupport value="performed"/>
+        <codeFilter>
+          <path value="code"/>
+          <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020"/>
+        </codeFilter>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Patient"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </dataRequirement>
+    </Library>
+  </contained>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis">
+    <valueCode value="boolean"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem">
+    <valueReference>
+      <reference value="Device/cqf-tooling"/>
+    </valueReference>
+  </extension>
+  <extension id="effective-data-requirements" url="http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements">
+    <valueReference>
+      <reference value="#effective-data-requirements"/>
+    </valueReference>
+  </extension>
+  <url value="http://fhir.org/guides/cqf/ccc/Measure/ColorectalCancerScreeningCQM"/>
+  <version value="0.1.0"/>
+  <name value="ColorectalCancerScreeningCQM"/>
+  <title value="Colorectal Cancer Screening CQM"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2024-05-14T12:25:12-06:00"/>
+  <publisher value="Clinical Quality Framework"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://github.com/cqframework"/>
+    </telecom>
+  </contact>
+  <description value="Percentage of adults 50-75 years of age who had appropriate screening for colorectal cancer"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Illustration"/>
+  <copyright value="This Physician Performance Measure (Measure) and related data specifications are owned and were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (e.g., use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2020 National Committee for Quality Assurance. All Rights Reserved. &#xA;&#xA;Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications.&#xA;&#xA;CPT(R) contained in the Measure specifications is copyright 2004-2020 American Medical Association. LOINC(R) copyright 2004-2020 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2020 International Health Terminology Standards Development Organisation. ICD-10 copyright 2020 World Health Organization. All Rights Reserved."/>
+  <effectivePeriod>
+    <start value="2022-01-01"/>
+    <end value="2022-12-31"/>
+  </effectivePeriod>
+  <library value="http://fhir.org/guides/cqf/ccc/Library/ColorectalCancerScreeningCQM"/>
+  <disclaimer value="The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND.&#xA; &#xA;Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>
+  <scoring>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+      <code value="proportion"/>
+      <display value="Proportion"/>
+    </coding>
+  </scoring>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
+      <code value="process"/>
+    </coding>
+  </type>
+  <rationale value="Colorectal cancer represents eight percent of all new cancer cases in the United States. In 2020, there were an estimated 147,950 new cases of colorectal cancer and an estimated 53,200 deaths attributed to it. According to the National Cancer Institute, about 4.2 percent of men and women will be diagnosed with colorectal cancer at some point during their lifetimes. For most adults, older age is the most important risk factor for colorectal cancer, although being male and black are also associated with higher incidence and mortality. Colorectal cancer is most frequently diagnosed among people 65 to 74 years old (National Cancer Institute, 2020).&#xA;&#xA;Screening can be effective for finding precancerous lesions (polyps) that could later become malignant, and for detecting early cancers that can be more easily and effectively treated. Precancerous polyps usually take about 10 to 15 years to develop into colorectal cancer, and most can be found and removed before turning into cancer. The five-year relative survival rate for people whose colorectal cancer is found in the early stage before it has spread is about 90 percent (American Cancer Society, 2020)."/>
+  <clinicalRecommendationStatement value="The U.S. Preventive Services Task Force (2016) recommends screening for colorectal cancer starting at age 50 years and continuing until age 75 years. This is a Grade A recommendation (U.S. Preventive Services Task Force, 2016). &#xA;Appropriate screenings are defined by any one of the following:&#xA;-Colonoscopy (every 10 years)&#xA;-Flexible sigmoidoscopy (every 5 years)&#xA;-Fecal occult blood test (annually)&#xA;-FIT-DNA (every 3 years)&#xA;-Computed tomographic colonography (every 5 years)"/>
+  <improvementNotation>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+      <code value="increase"/>
+    </coding>
+  </improvementNotation>
+  <guidance value="Patient self-report for procedures as well as diagnostic studies should be recorded in &quot;Procedure, Performed&quot; template or &quot;Diagnostic Study, Performed&quot; template in QRDA-1. &#xA;&#xA;Do not count digital rectal exams (DRE), fecal occult blood tests (FOBTs) performed in an office setting or performed on a sample collected via DRE.&#xA;&#xA;This eCQM is a patient-based measure.&#xA;&#xA;This version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM."/>
+  <group>
+    <population id="B225F36D-A1FE-4840-A685-4B48964C6890">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="initial-population"/>
+          <display value="Initial Population"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Initial Population"/>
+      </criteria>
+    </population>
+    <population id="19E7BDDF-1A30-4179-A186-402D43D29D90">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="denominator"/>
+          <display value="Denominator"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Denominator"/>
+      </criteria>
+    </population>
+    <population id="C071B00B-A126-47F0-85CC-4DD7B76BD15D">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="numerator"/>
+          <display value="Numerator"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Numerator"/>
+      </criteria>
+    </population>
+  </group>
+</Measure>

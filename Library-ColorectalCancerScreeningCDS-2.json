@@ -1,0 +1,1340 @@
+{
+   "library" : {
+      "annotation" : [ {
+         "translatorVersion" : "2.7.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "103",
+            "s" : [ {
+               "value" : [ "","library ColorectalCancerScreeningCDS version '0.1.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "ColorectalCancerScreeningCDS",
+         "system" : "http://fhir.org/guides/cqf/ccc",
+         "version" : "0.1.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "1",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "2",
+            "locator" : "5:1-5:35",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://fhir.org/guides/cqf/ccc/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "2",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "3",
+            "locator" : "6:1-6:44",
+            "localIdentifier" : "FC",
+            "path" : "http://fhir.org/guides/cqf/ccc/FHIRCommon",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "3",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRCommon" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'"," called ","FC" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "4",
+            "locator" : "8:1-8:43",
+            "localIdentifier" : "CCE",
+            "path" : "http://fhir.org/guides/cqf/ccc/ColorectalCancerElements",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "4",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ColorectalCancerElements" ]
+                     } ]
+                  }, {
+                     "value" : [ " called ","CCE" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "parameters" : {
+         "def" : [ {
+            "localId" : "12",
+            "locator" : "17:1-18:41",
+            "name" : "Measurement Period",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "12",
+                  "s" : [ {
+                     "value" : [ "// QUESTION: Should this be a single timepoint, or is a period required?\n//parameter AsOf DateTime default Now()\n\n/*\nNOTE: Introduced Measurement Period as the parameter here for demonstration purposes\nso it will run on the current implementations.\n*/\n","parameter ","\"Measurement Period\""," " ]
+                  }, {
+                     "r" : "11",
+                     "s" : [ {
+                        "value" : [ "Interval<" ]
+                     }, {
+                        "r" : "10",
+                        "s" : [ {
+                           "value" : [ "DateTime" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ "\n  default " ]
+                  }, {
+                     "r" : "9",
+                     "s" : [ {
+                        "value" : [ "Interval[" ]
+                     }, {
+                        "r" : "7",
+                        "s" : [ {
+                           "r" : "5",
+                           "s" : [ {
+                              "value" : [ "Now","()" ]
+                           } ]
+                        }, {
+                           "value" : [ " - " ]
+                        }, {
+                           "r" : "6",
+                           "s" : [ {
+                              "value" : [ "1 ","year" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "8",
+                        "s" : [ {
+                           "value" : [ "Now","()" ]
+                        } ]
+                     }, {
+                        "value" : [ "]" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "default" : {
+               "localId" : "9",
+               "locator" : "18:11-18:41",
+               "lowClosed" : true,
+               "highClosed" : true,
+               "type" : "Interval",
+               "low" : {
+                  "localId" : "7",
+                  "locator" : "18:20-18:33",
+                  "type" : "Subtract",
+                  "operand" : [ {
+                     "localId" : "5",
+                     "locator" : "18:20-18:24",
+                     "type" : "Now"
+                  }, {
+                     "localId" : "6",
+                     "locator" : "18:28-18:33",
+                     "value" : 1,
+                     "unit" : "year",
+                     "type" : "Quantity"
+                  } ]
+               },
+               "high" : {
+                  "localId" : "8",
+                  "locator" : "18:36-18:40",
+                  "type" : "Now"
+               }
+            },
+            "parameterTypeSpecifier" : {
+               "localId" : "11",
+               "locator" : "17:32-17:49",
+               "type" : "IntervalTypeSpecifier",
+               "pointType" : {
+                  "localId" : "10",
+                  "locator" : "17:41-17:48",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "locator" : "20:1-20:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "20:1-20:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "20:1-20:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "32",
+            "locator" : "22:1-26:52",
+            "name" : "Is Recommendation Applicable",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "32",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Is Recommendation Applicable\"",":\n  " ]
+                  }, {
+                     "r" : "31",
+                     "s" : [ {
+                        "r" : "26",
+                        "s" : [ {
+                           "r" : "22",
+                           "s" : [ {
+                              "r" : "18",
+                              "s" : [ {
+                                 "r" : "15",
+                                 "s" : [ {
+                                    "value" : [ "AgeInYearsAt","(" ]
+                                 }, {
+                                    "r" : "14",
+                                    "s" : [ {
+                                       "value" : [ "start of " ]
+                                    }, {
+                                       "r" : "13",
+                                       "s" : [ {
+                                          "value" : [ "\"Measurement Period\"" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              }, {
+                                 "r" : "16",
+                                 "value" : [ " between ","50"," and ","75" ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    and " ]
+                           }, {
+                              "r" : "21",
+                              "s" : [ {
+                                 "value" : [ "not " ]
+                              }, {
+                                 "r" : "20",
+                                 "s" : [ {
+                                    "r" : "19",
+                                    "s" : [ {
+                                       "value" : [ "CCE" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "20",
+                                    "s" : [ {
+                                       "value" : [ "\"Has Appropriate Colorectal Cancer Screening\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    and " ]
+                        }, {
+                           "r" : "25",
+                           "s" : [ {
+                              "value" : [ "not " ]
+                           }, {
+                              "r" : "24",
+                              "s" : [ {
+                                 "r" : "23",
+                                 "s" : [ {
+                                    "value" : [ "CCE" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "24",
+                                 "s" : [ {
+                                    "value" : [ "\"Has Active Malignant Neoplasm\"" ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    and " ]
+                     }, {
+                        "r" : "30",
+                        "s" : [ {
+                           "value" : [ "not " ]
+                        }, {
+                           "r" : "29",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "28",
+                              "s" : [ {
+                                 "value" : [ "(" ]
+                              }, {
+                                 "r" : "28",
+                                 "s" : [ {
+                                    "r" : "27",
+                                    "s" : [ {
+                                       "value" : [ "CCE" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "28",
+                                    "s" : [ {
+                                       "value" : [ "\"Total Colectomy Performed\"" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "31",
+               "locator" : "23:3-26:52",
+               "type" : "And",
+               "operand" : [ {
+                  "localId" : "26",
+                  "locator" : "23:3-25:47",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "22",
+                     "locator" : "23:3-24:61",
+                     "type" : "And",
+                     "operand" : [ {
+                        "localId" : "18",
+                        "locator" : "23:3-23:63",
+                        "type" : "And",
+                        "operand" : [ {
+                           "type" : "GreaterOrEqual",
+                           "operand" : [ {
+                              "localId" : "15",
+                              "locator" : "23:3-23:45",
+                              "precision" : "Year",
+                              "type" : "CalculateAgeAt",
+                              "operand" : [ {
+                                 "type" : "ToDateTime",
+                                 "operand" : {
+                                    "path" : "birthDate.value",
+                                    "type" : "Property",
+                                    "source" : {
+                                       "name" : "Patient",
+                                       "type" : "ExpressionRef"
+                                    }
+                                 }
+                              }, {
+                                 "localId" : "14",
+                                 "locator" : "23:16-23:44",
+                                 "type" : "Start",
+                                 "operand" : {
+                                    "localId" : "13",
+                                    "locator" : "23:25-23:44",
+                                    "name" : "Measurement Period",
+                                    "type" : "ParameterRef"
+                                 }
+                              } ]
+                           }, {
+                              "localId" : "16",
+                              "locator" : "23:55-23:56",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "value" : "50",
+                              "type" : "Literal"
+                           } ]
+                        }, {
+                           "type" : "LessOrEqual",
+                           "operand" : [ {
+                              "localId" : "15",
+                              "locator" : "23:3-23:45",
+                              "precision" : "Year",
+                              "type" : "CalculateAgeAt",
+                              "operand" : [ {
+                                 "type" : "ToDateTime",
+                                 "operand" : {
+                                    "path" : "birthDate.value",
+                                    "type" : "Property",
+                                    "source" : {
+                                       "name" : "Patient",
+                                       "type" : "ExpressionRef"
+                                    }
+                                 }
+                              }, {
+                                 "localId" : "14",
+                                 "locator" : "23:16-23:44",
+                                 "type" : "Start",
+                                 "operand" : {
+                                    "localId" : "13",
+                                    "locator" : "23:25-23:44",
+                                    "name" : "Measurement Period",
+                                    "type" : "ParameterRef"
+                                 }
+                              } ]
+                           }, {
+                              "localId" : "17",
+                              "locator" : "23:62-23:63",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "value" : "75",
+                              "type" : "Literal"
+                           } ]
+                        } ]
+                     }, {
+                        "localId" : "21",
+                        "locator" : "24:9-24:61",
+                        "type" : "Not",
+                        "operand" : {
+                           "localId" : "20",
+                           "locator" : "24:13-24:61",
+                           "name" : "Has Appropriate Colorectal Cancer Screening",
+                           "libraryName" : "CCE",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "localId" : "25",
+                     "locator" : "25:9-25:47",
+                     "type" : "Not",
+                     "operand" : {
+                        "localId" : "24",
+                        "locator" : "25:13-25:47",
+                        "name" : "Has Active Malignant Neoplasm",
+                        "libraryName" : "CCE",
+                        "type" : "ExpressionRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "30",
+                  "locator" : "26:9-26:52",
+                  "type" : "Not",
+                  "operand" : {
+                     "localId" : "29",
+                     "locator" : "26:13-26:52",
+                     "type" : "Exists",
+                     "operand" : {
+                        "localId" : "28",
+                        "locator" : "26:20-26:52",
+                        "name" : "Total Colectomy Performed",
+                        "libraryName" : "CCE",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "37",
+            "locator" : "28:1-32:57",
+            "name" : "Get Card Summary",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "37",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Get Card Summary\"",":\n  " ]
+                  }, {
+                     "r" : "36",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "33",
+                        "s" : [ {
+                           "value" : [ "\"Is Recommendation Applicable\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then\n    " ]
+                     }, {
+                        "r" : "34",
+                        "s" : [ {
+                           "value" : [ "'Recommend appropriate colorectal cancer screening'" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "35",
+                        "s" : [ {
+                           "value" : [ "'Patient has appropriate colorectal cancer screening'" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "36",
+               "locator" : "29:3-32:57",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "33",
+                  "locator" : "29:6-29:35",
+                  "name" : "Is Recommendation Applicable",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "34",
+                  "locator" : "30:5-30:55",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "Recommend appropriate colorectal cancer screening",
+                  "type" : "Literal"
+               },
+               "else" : {
+                  "localId" : "35",
+                  "locator" : "32:5-32:57",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "Patient has appropriate colorectal cancer screening",
+                  "type" : "Literal"
+               }
+            }
+         }, {
+            "localId" : "87",
+            "locator" : "40:1-48:4",
+            "name" : "Rationale",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "87",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Rationale\"",":\n  " ]
+                  }, {
+                     "r" : "86",
+                     "s" : [ {
+                        "value" : [ "Coalesce","(" ]
+                     }, {
+                        "r" : "85",
+                        "s" : [ {
+                           "value" : [ "{\n    " ]
+                        }, {
+                           "r" : "46",
+                           "s" : [ {
+                              "r" : "40",
+                              "s" : [ {
+                                 "value" : [ "'most recent FOBT issued on '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "45",
+                              "s" : [ {
+                                 "value" : [ "ToString","(" ]
+                              }, {
+                                 "r" : "44",
+                                 "s" : [ {
+                                    "value" : [ "date from " ]
+                                 }, {
+                                    "r" : "43",
+                                    "s" : [ {
+                                       "r" : "42",
+                                       "s" : [ {
+                                          "r" : "41",
+                                          "s" : [ {
+                                             "value" : [ "CCE" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "42",
+                                          "s" : [ {
+                                             "value" : [ "\"Most Recent Fecal Occult Blood Test Result\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "43",
+                                       "s" : [ {
+                                          "value" : [ "issued" ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "53",
+                           "s" : [ {
+                              "r" : "47",
+                              "s" : [ {
+                                 "value" : [ "'most recent FIT DNA issued on '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "52",
+                              "s" : [ {
+                                 "value" : [ "ToString","(" ]
+                              }, {
+                                 "r" : "51",
+                                 "s" : [ {
+                                    "value" : [ "date from " ]
+                                 }, {
+                                    "r" : "50",
+                                    "s" : [ {
+                                       "r" : "49",
+                                       "s" : [ {
+                                          "r" : "48",
+                                          "s" : [ {
+                                             "value" : [ "CCE" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "49",
+                                          "s" : [ {
+                                             "value" : [ "\"Most Recent Fecal Immunochemical Test DNA Result\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "50",
+                                       "s" : [ {
+                                          "value" : [ "issued" ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "63",
+                           "s" : [ {
+                              "r" : "54",
+                              "s" : [ {
+                                 "value" : [ "'most recent CT Colonography performed on '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "62",
+                              "s" : [ {
+                                 "value" : [ "ToString","(" ]
+                              }, {
+                                 "r" : "61",
+                                 "s" : [ {
+                                    "value" : [ "date from " ]
+                                 }, {
+                                    "r" : "60",
+                                    "s" : [ {
+                                       "value" : [ "start of " ]
+                                    }, {
+                                       "r" : "59",
+                                       "s" : [ {
+                                          "r" : "55",
+                                          "s" : [ {
+                                             "value" : [ "FC" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "59",
+                                          "s" : [ {
+                                             "value" : [ "ToInterval","(" ]
+                                          }, {
+                                             "r" : "58",
+                                             "s" : [ {
+                                                "r" : "57",
+                                                "s" : [ {
+                                                   "r" : "56",
+                                                   "s" : [ {
+                                                      "value" : [ "CCE" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "57",
+                                                   "s" : [ {
+                                                      "value" : [ "\"Most Recent CT Colonography Performed\"" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "58",
+                                                "s" : [ {
+                                                   "value" : [ "performed" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ ")" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "73",
+                           "s" : [ {
+                              "r" : "64",
+                              "s" : [ {
+                                 "value" : [ "'most recent Flexible Sigmoidoscopy performed on '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "72",
+                              "s" : [ {
+                                 "value" : [ "ToString","(" ]
+                              }, {
+                                 "r" : "71",
+                                 "s" : [ {
+                                    "value" : [ "date from " ]
+                                 }, {
+                                    "r" : "70",
+                                    "s" : [ {
+                                       "value" : [ "start of " ]
+                                    }, {
+                                       "r" : "69",
+                                       "s" : [ {
+                                          "r" : "65",
+                                          "s" : [ {
+                                             "value" : [ "FC" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "69",
+                                          "s" : [ {
+                                             "value" : [ "ToInterval","(" ]
+                                          }, {
+                                             "r" : "68",
+                                             "s" : [ {
+                                                "r" : "67",
+                                                "s" : [ {
+                                                   "r" : "66",
+                                                   "s" : [ {
+                                                      "value" : [ "CCE" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "67",
+                                                   "s" : [ {
+                                                      "value" : [ "\"Most Recent Flexible Sigmoidoscopy Performed\"" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "68",
+                                                "s" : [ {
+                                                   "value" : [ "performed" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ ")" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "83",
+                           "s" : [ {
+                              "r" : "74",
+                              "s" : [ {
+                                 "value" : [ "'most recent Colonoscopy performed on '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "82",
+                              "s" : [ {
+                                 "value" : [ "ToString","(" ]
+                              }, {
+                                 "r" : "81",
+                                 "s" : [ {
+                                    "value" : [ "date from " ]
+                                 }, {
+                                    "r" : "80",
+                                    "s" : [ {
+                                       "value" : [ "start of " ]
+                                    }, {
+                                       "r" : "79",
+                                       "s" : [ {
+                                          "r" : "75",
+                                          "s" : [ {
+                                             "value" : [ "FC" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "79",
+                                          "s" : [ {
+                                             "value" : [ "ToInterval","(" ]
+                                          }, {
+                                             "r" : "78",
+                                             "s" : [ {
+                                                "r" : "77",
+                                                "s" : [ {
+                                                   "r" : "76",
+                                                   "s" : [ {
+                                                      "value" : [ "CCE" ]
+                                                   } ]
+                                                }, {
+                                                   "value" : [ "." ]
+                                                }, {
+                                                   "r" : "77",
+                                                   "s" : [ {
+                                                      "value" : [ "\"Most Recent Colonoscopy Performed\"" ]
+                                                   } ]
+                                                } ]
+                                             }, {
+                                                "value" : [ "." ]
+                                             }, {
+                                                "r" : "78",
+                                                "s" : [ {
+                                                   "value" : [ "performed" ]
+                                                } ]
+                                             } ]
+                                          }, {
+                                             "value" : [ ")" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ ")" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ ",\n    " ]
+                        }, {
+                           "r" : "84",
+                           "s" : [ {
+                              "value" : [ "'no evidence of appropriate screening'" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  }" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "86",
+               "locator" : "41:3-48:4",
+               "type" : "Coalesce",
+               "operand" : [ {
+                  "localId" : "85",
+                  "locator" : "41:12-48:3",
+                  "type" : "List",
+                  "element" : [ {
+                     "localId" : "46",
+                     "locator" : "42:5-42:111",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "40",
+                        "locator" : "42:5-42:33",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "most recent FOBT issued on ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "45",
+                        "locator" : "42:37-42:111",
+                        "type" : "ToString",
+                        "operand" : {
+                           "localId" : "44",
+                           "locator" : "42:46-42:110",
+                           "type" : "DateFrom",
+                           "operand" : {
+                              "name" : "ToDateTime",
+                              "libraryName" : "FHIRHelpers",
+                              "type" : "FunctionRef",
+                              "operand" : [ {
+                                 "localId" : "43",
+                                 "locator" : "42:56-42:110",
+                                 "path" : "issued",
+                                 "type" : "Property",
+                                 "source" : {
+                                    "localId" : "42",
+                                    "locator" : "42:56-42:103",
+                                    "name" : "Most Recent Fecal Occult Blood Test Result",
+                                    "libraryName" : "CCE",
+                                    "type" : "ExpressionRef"
+                                 }
+                              } ]
+                           }
+                        }
+                     } ]
+                  }, {
+                     "localId" : "53",
+                     "locator" : "43:5-43:120",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "47",
+                        "locator" : "43:5-43:36",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "most recent FIT DNA issued on ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "52",
+                        "locator" : "43:40-43:120",
+                        "type" : "ToString",
+                        "operand" : {
+                           "localId" : "51",
+                           "locator" : "43:49-43:119",
+                           "type" : "DateFrom",
+                           "operand" : {
+                              "name" : "ToDateTime",
+                              "libraryName" : "FHIRHelpers",
+                              "type" : "FunctionRef",
+                              "operand" : [ {
+                                 "localId" : "50",
+                                 "locator" : "43:59-43:119",
+                                 "path" : "issued",
+                                 "type" : "Property",
+                                 "source" : {
+                                    "localId" : "49",
+                                    "locator" : "43:59-43:112",
+                                    "name" : "Most Recent Fecal Immunochemical Test DNA Result",
+                                    "libraryName" : "CCE",
+                                    "type" : "ExpressionRef"
+                                 }
+                              } ]
+                           }
+                        }
+                     } ]
+                  }, {
+                     "localId" : "63",
+                     "locator" : "44:5-44:147",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "54",
+                        "locator" : "44:5-44:47",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "most recent CT Colonography performed on ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "62",
+                        "locator" : "44:51-44:147",
+                        "type" : "ToString",
+                        "operand" : {
+                           "localId" : "61",
+                           "locator" : "44:60-44:146",
+                           "type" : "DateFrom",
+                           "operand" : {
+                              "localId" : "60",
+                              "locator" : "44:70-44:146",
+                              "type" : "Start",
+                              "operand" : {
+                                 "localId" : "59",
+                                 "locator" : "44:79-44:146",
+                                 "name" : "ToInterval",
+                                 "libraryName" : "FC",
+                                 "type" : "FunctionRef",
+                                 "operand" : [ {
+                                    "localId" : "58",
+                                    "locator" : "44:93-44:145",
+                                    "path" : "performed",
+                                    "type" : "Property",
+                                    "source" : {
+                                       "localId" : "57",
+                                       "locator" : "44:93-44:135",
+                                       "name" : "Most Recent CT Colonography Performed",
+                                       "libraryName" : "CCE",
+                                       "type" : "ExpressionRef"
+                                    }
+                                 } ]
+                              }
+                           }
+                        }
+                     } ]
+                  }, {
+                     "localId" : "73",
+                     "locator" : "45:5-45:161",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "64",
+                        "locator" : "45:5-45:54",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "most recent Flexible Sigmoidoscopy performed on ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "72",
+                        "locator" : "45:58-45:161",
+                        "type" : "ToString",
+                        "operand" : {
+                           "localId" : "71",
+                           "locator" : "45:67-45:160",
+                           "type" : "DateFrom",
+                           "operand" : {
+                              "localId" : "70",
+                              "locator" : "45:77-45:160",
+                              "type" : "Start",
+                              "operand" : {
+                                 "localId" : "69",
+                                 "locator" : "45:86-45:160",
+                                 "name" : "ToInterval",
+                                 "libraryName" : "FC",
+                                 "type" : "FunctionRef",
+                                 "operand" : [ {
+                                    "localId" : "68",
+                                    "locator" : "45:100-45:159",
+                                    "path" : "performed",
+                                    "type" : "Property",
+                                    "source" : {
+                                       "localId" : "67",
+                                       "locator" : "45:100-45:149",
+                                       "name" : "Most Recent Flexible Sigmoidoscopy Performed",
+                                       "libraryName" : "CCE",
+                                       "type" : "ExpressionRef"
+                                    }
+                                 } ]
+                              }
+                           }
+                        }
+                     } ]
+                  }, {
+                     "localId" : "83",
+                     "locator" : "46:5-46:139",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "74",
+                        "locator" : "46:5-46:43",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "most recent Colonoscopy performed on ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "82",
+                        "locator" : "46:47-46:139",
+                        "type" : "ToString",
+                        "operand" : {
+                           "localId" : "81",
+                           "locator" : "46:56-46:138",
+                           "type" : "DateFrom",
+                           "operand" : {
+                              "localId" : "80",
+                              "locator" : "46:66-46:138",
+                              "type" : "Start",
+                              "operand" : {
+                                 "localId" : "79",
+                                 "locator" : "46:75-46:138",
+                                 "name" : "ToInterval",
+                                 "libraryName" : "FC",
+                                 "type" : "FunctionRef",
+                                 "operand" : [ {
+                                    "localId" : "78",
+                                    "locator" : "46:89-46:137",
+                                    "path" : "performed",
+                                    "type" : "Property",
+                                    "source" : {
+                                       "localId" : "77",
+                                       "locator" : "46:89-46:127",
+                                       "name" : "Most Recent Colonoscopy Performed",
+                                       "libraryName" : "CCE",
+                                       "type" : "ExpressionRef"
+                                    }
+                                 } ]
+                              }
+                           }
+                        }
+                     } ]
+                  }, {
+                     "localId" : "84",
+                     "locator" : "47:5-47:42",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "no evidence of appropriate screening",
+                     "type" : "Literal"
+                  } ]
+               } ]
+            }
+         }, {
+            "localId" : "98",
+            "locator" : "34:1-38:77",
+            "name" : "Get Card Detail",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "98",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Get Card Detail\"",":\n  " ]
+                  }, {
+                     "r" : "97",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "38",
+                        "s" : [ {
+                           "value" : [ "\"Is Recommendation Applicable\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then\n    " ]
+                     }, {
+                        "r" : "91",
+                        "s" : [ {
+                           "r" : "89",
+                           "s" : [ {
+                              "r" : "39",
+                              "s" : [ {
+                                 "value" : [ "'Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "88",
+                              "s" : [ {
+                                 "value" : [ "Rationale" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " + " ]
+                        }, {
+                           "r" : "90",
+                           "s" : [ {
+                              "value" : [ "'.'" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "96",
+                        "s" : [ {
+                           "r" : "94",
+                           "s" : [ {
+                              "r" : "92",
+                              "s" : [ {
+                                 "value" : [ "'Patient has appropriate colorectal cancer screening: '" ]
+                              } ]
+                           }, {
+                              "value" : [ " + " ]
+                           }, {
+                              "r" : "93",
+                              "s" : [ {
+                                 "value" : [ "Rationale" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ " + " ]
+                        }, {
+                           "r" : "95",
+                           "s" : [ {
+                              "value" : [ "'.'" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "97",
+               "locator" : "35:3-38:77",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "38",
+                  "locator" : "35:6-35:35",
+                  "name" : "Is Recommendation Applicable",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "91",
+                  "locator" : "36:5-36:114",
+                  "type" : "Concatenate",
+                  "operand" : [ {
+                     "localId" : "89",
+                     "locator" : "36:5-36:108",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "39",
+                        "locator" : "36:5-36:96",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Patient meets the inclusion criteria for appropriate colorectal cancer screening, but has ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "88",
+                        "locator" : "36:100-36:108",
+                        "name" : "Rationale",
+                        "type" : "ExpressionRef"
+                     } ]
+                  }, {
+                     "localId" : "90",
+                     "locator" : "36:112-36:114",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : ".",
+                     "type" : "Literal"
+                  } ]
+               },
+               "else" : {
+                  "localId" : "96",
+                  "locator" : "38:5-38:77",
+                  "type" : "Concatenate",
+                  "operand" : [ {
+                     "localId" : "94",
+                     "locator" : "38:5-38:71",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "localId" : "92",
+                        "locator" : "38:5-38:59",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Patient has appropriate colorectal cancer screening: ",
+                        "type" : "Literal"
+                     }, {
+                        "localId" : "93",
+                        "locator" : "38:63-38:71",
+                        "name" : "Rationale",
+                        "type" : "ExpressionRef"
+                     } ]
+                  }, {
+                     "localId" : "95",
+                     "locator" : "38:75-38:77",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : ".",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "103",
+            "locator" : "50:1-54:10",
+            "name" : "Get Card Indicator",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "103",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Get Card Indicator\"",":\n  " ]
+                  }, {
+                     "r" : "102",
+                     "s" : [ {
+                        "value" : [ "if " ]
+                     }, {
+                        "r" : "99",
+                        "s" : [ {
+                           "value" : [ "\"Is Recommendation Applicable\"" ]
+                        } ]
+                     }, {
+                        "value" : [ " then\n    " ]
+                     }, {
+                        "r" : "100",
+                        "s" : [ {
+                           "value" : [ "'warning'" ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  else\n    " ]
+                     }, {
+                        "r" : "101",
+                        "s" : [ {
+                           "value" : [ "'info'" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "102",
+               "locator" : "51:3-54:10",
+               "type" : "If",
+               "condition" : {
+                  "localId" : "99",
+                  "locator" : "51:6-51:35",
+                  "name" : "Is Recommendation Applicable",
+                  "type" : "ExpressionRef"
+               },
+               "then" : {
+                  "localId" : "100",
+                  "locator" : "52:5-52:13",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "warning",
+                  "type" : "Literal"
+               },
+               "else" : {
+                  "localId" : "101",
+                  "locator" : "54:5-54:10",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                  "value" : "info",
+                  "type" : "Literal"
+               }
+            }
+         } ]
+      }
+   }
+}

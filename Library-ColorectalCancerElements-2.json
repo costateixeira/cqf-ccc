@@ -1,0 +1,4566 @@
+{
+   "library" : {
+      "annotation" : [ {
+         "translatorVersion" : "2.7.0",
+         "translatorOptions" : "EnableAnnotations,EnableLocators,DisableListDemotion,DisableListPromotion",
+         "type" : "CqlToElmInfo"
+      }, {
+         "type" : "Annotation",
+         "s" : {
+            "r" : "340",
+            "s" : [ {
+               "value" : [ "","library ColorectalCancerElements version '0.1.0'" ]
+            } ]
+         }
+      } ],
+      "identifier" : {
+         "id" : "ColorectalCancerElements",
+         "system" : "http://fhir.org/guides/cqf/ccc",
+         "version" : "0.1.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localId" : "1",
+            "locator" : "3:1-3:26",
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "1",
+                  "s" : [ {
+                     "value" : [ "","using " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIR" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localId" : "2",
+            "locator" : "5:1-5:35",
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "http://fhir.org/guides/cqf/ccc/FHIRHelpers",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "2",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRHelpers" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "3",
+            "locator" : "6:1-6:44",
+            "localIdentifier" : "FC",
+            "path" : "http://fhir.org/guides/cqf/ccc/FHIRCommon",
+            "version" : "4.0.1",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "3",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "FHIRCommon" ]
+                     } ]
+                  }, {
+                     "value" : [ " version ","'4.0.1'"," called ","FC" ]
+                  } ]
+               }
+            } ]
+         }, {
+            "localId" : "4",
+            "locator" : "8:1-8:42",
+            "localIdentifier" : "Cx",
+            "path" : "http://fhir.org/guides/cqf/ccc/ColorectalCancerConcepts",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "4",
+                  "s" : [ {
+                     "value" : [ "","include " ]
+                  }, {
+                     "s" : [ {
+                        "value" : [ "ColorectalCancerConcepts" ]
+                     } ]
+                  }, {
+                     "value" : [ " called ","Cx" ]
+                  } ]
+               }
+            } ]
+         } ]
+      },
+      "parameters" : {
+         "def" : [ {
+            "localId" : "12",
+            "locator" : "17:1-18:41",
+            "name" : "Measurement Period",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "12",
+                  "s" : [ {
+                     "value" : [ "// QUESTION: Should this be a single timepoint, or is a period required?\n//parameter AsOf DateTime default Now()\n\n/*\nNOTE: Introduced Measurement Period as the parameter here for demonstration purposes\nso it will run on the current implementations.\n*/\n","parameter ","\"Measurement Period\""," " ]
+                  }, {
+                     "r" : "11",
+                     "s" : [ {
+                        "value" : [ "Interval<" ]
+                     }, {
+                        "r" : "10",
+                        "s" : [ {
+                           "value" : [ "DateTime" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ "\n  default " ]
+                  }, {
+                     "r" : "9",
+                     "s" : [ {
+                        "value" : [ "Interval[" ]
+                     }, {
+                        "r" : "7",
+                        "s" : [ {
+                           "r" : "5",
+                           "s" : [ {
+                              "value" : [ "Now","()" ]
+                           } ]
+                        }, {
+                           "value" : [ " - " ]
+                        }, {
+                           "r" : "6",
+                           "s" : [ {
+                              "value" : [ "1 ","year" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "8",
+                        "s" : [ {
+                           "value" : [ "Now","()" ]
+                        } ]
+                     }, {
+                        "value" : [ "]" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "default" : {
+               "localId" : "9",
+               "locator" : "18:11-18:41",
+               "lowClosed" : true,
+               "highClosed" : true,
+               "type" : "Interval",
+               "low" : {
+                  "localId" : "7",
+                  "locator" : "18:20-18:33",
+                  "type" : "Subtract",
+                  "operand" : [ {
+                     "localId" : "5",
+                     "locator" : "18:20-18:24",
+                     "type" : "Now"
+                  }, {
+                     "localId" : "6",
+                     "locator" : "18:28-18:33",
+                     "value" : 1,
+                     "unit" : "year",
+                     "type" : "Quantity"
+                  } ]
+               },
+               "high" : {
+                  "localId" : "8",
+                  "locator" : "18:36-18:40",
+                  "type" : "Now"
+               }
+            },
+            "parameterTypeSpecifier" : {
+               "localId" : "11",
+               "locator" : "17:32-17:49",
+               "type" : "IntervalTypeSpecifier",
+               "pointType" : {
+                  "localId" : "10",
+                  "locator" : "17:41-17:48",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }
+         } ]
+      },
+      "contexts" : {
+         "def" : [ {
+            "locator" : "20:1-20:15",
+            "name" : "Patient"
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "locator" : "20:1-20:15",
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "locator" : "20:1-20:15",
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "templateId" : "http://hl7.org/fhir/StructureDefinition/Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "localId" : "15",
+            "locator" : "22:1-23:29",
+            "name" : "AsOf",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "15",
+                  "s" : [ {
+                     "value" : [ "","define ","AsOf",":\n  " ]
+                  }, {
+                     "r" : "14",
+                     "s" : [ {
+                        "value" : [ "end of " ]
+                     }, {
+                        "r" : "13",
+                        "s" : [ {
+                           "value" : [ "\"Measurement Period\"" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "14",
+               "locator" : "23:3-23:29",
+               "type" : "End",
+               "operand" : {
+                  "localId" : "13",
+                  "locator" : "23:10-23:29",
+                  "name" : "Measurement Period",
+                  "type" : "ParameterRef"
+               }
+            }
+         }, {
+            "localId" : "23",
+            "locator" : "28:1-30:50",
+            "name" : "Flexible Sigmoidoscopy Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "t" : [ {
+                  "name" : "description",
+                  "value" : "Completed Flexible Sigmoidoscopy Procedures"
+               } ],
+               "s" : {
+                  "r" : "23",
+                  "s" : [ {
+                     "value" : [ "/*\n@description: Completed Flexible Sigmoidoscopy Procedures\n*/\n","define ","\"Flexible Sigmoidoscopy Performed\"",":\n  " ]
+                  }, {
+                     "r" : "22",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "17",
+                           "s" : [ {
+                              "r" : "16",
+                              "s" : [ {
+                                 "r" : "16",
+                                 "s" : [ {
+                                    "value" : [ "[","Procedure",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Flexible Sigmoidoscopy\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","FlexibleSigmoidoscopy" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n\t\t" ]
+                     }, {
+                        "r" : "21",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "21",
+                           "s" : [ {
+                              "r" : "19",
+                              "s" : [ {
+                                 "r" : "18",
+                                 "s" : [ {
+                                    "value" : [ "FlexibleSigmoidoscopy" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "19",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","="," " ]
+                           }, {
+                              "r" : "20",
+                              "s" : [ {
+                                 "value" : [ "'completed'" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "22",
+               "locator" : "29:3-30:50",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "17",
+                  "locator" : "29:3-29:64",
+                  "alias" : "FlexibleSigmoidoscopy",
+                  "expression" : {
+                     "localId" : "16",
+                     "locator" : "29:3-29:42",
+                     "dataType" : "{http://hl7.org/fhir}Procedure",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "29:15-29:41",
+                        "name" : "Flexible Sigmoidoscopy",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "21",
+                  "locator" : "30:3-30:50",
+                  "type" : "Equal",
+                  "operand" : [ {
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "localId" : "19",
+                        "locator" : "30:9-30:36",
+                        "path" : "status",
+                        "scope" : "FlexibleSigmoidoscopy",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "20",
+                     "locator" : "30:40-30:50",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "completed",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "38",
+            "locator" : "33:1-36:76",
+            "name" : "Flexible Sigmoidoscopy from Patient History",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "38",
+                  "s" : [ {
+                     "value" : [ "// NOTE: HEDIS version allows for a \"history of\" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.\n","define ","\"Flexible Sigmoidoscopy from Patient History\"",":\n  " ]
+                  }, {
+                     "r" : "37",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "25",
+                           "s" : [ {
+                              "r" : "24",
+                              "s" : [ {
+                                 "r" : "24",
+                                 "s" : [ {
+                                    "value" : [ "[","Condition",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Flexible Sigmoidoscopy\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","FlexibleSigmoidoscopyCondition" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "36",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "36",
+                           "s" : [ {
+                              "r" : "30",
+                              "s" : [ {
+                                 "r" : "27",
+                                 "s" : [ {
+                                    "r" : "26",
+                                    "s" : [ {
+                                       "value" : [ "FlexibleSigmoidoscopyCondition" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "27",
+                                    "s" : [ {
+                                       "value" : [ "clinicalStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "29",
+                                 "s" : [ {
+                                    "r" : "28",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "29",
+                                    "s" : [ {
+                                       "value" : [ "\"Active Condition\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      and " ]
+                           }, {
+                              "r" : "35",
+                              "s" : [ {
+                                 "r" : "32",
+                                 "s" : [ {
+                                    "r" : "31",
+                                    "s" : [ {
+                                       "value" : [ "FlexibleSigmoidoscopyCondition" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "32",
+                                    "s" : [ {
+                                       "value" : [ "verificationStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","~"," " ]
+                              }, {
+                                 "r" : "34",
+                                 "s" : [ {
+                                    "r" : "33",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "34",
+                                    "s" : [ {
+                                       "value" : [ "\"confirmed\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "37",
+               "locator" : "34:3-36:76",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "25",
+                  "locator" : "34:3-34:73",
+                  "alias" : "FlexibleSigmoidoscopyCondition",
+                  "expression" : {
+                     "localId" : "24",
+                     "locator" : "34:3-34:42",
+                     "dataType" : "{http://hl7.org/fhir}Condition",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "34:15-34:41",
+                        "name" : "Flexible Sigmoidoscopy",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "36",
+                  "locator" : "35:5-36:76",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "30",
+                     "locator" : "35:11-35:80",
+                     "type" : "InValueSet",
+                     "code" : {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "27",
+                           "locator" : "35:11-35:55",
+                           "path" : "clinicalStatus",
+                           "scope" : "FlexibleSigmoidoscopyCondition",
+                           "type" : "Property"
+                        } ]
+                     },
+                     "valueset" : {
+                        "localId" : "29",
+                        "locator" : "35:60-35:80",
+                        "name" : "Active Condition",
+                        "libraryName" : "FC"
+                     }
+                  }, {
+                     "localId" : "35",
+                     "locator" : "36:11-36:76",
+                     "type" : "Equivalent",
+                     "operand" : [ {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "32",
+                           "locator" : "36:11-36:59",
+                           "path" : "verificationStatus",
+                           "scope" : "FlexibleSigmoidoscopyCondition",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "type" : "ToConcept",
+                        "operand" : {
+                           "localId" : "34",
+                           "locator" : "36:63-36:76",
+                           "name" : "confirmed",
+                           "libraryName" : "FC",
+                           "type" : "CodeRef"
+                        }
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "46",
+            "locator" : "38:1-40:43",
+            "name" : "CT Colonography Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "46",
+                  "s" : [ {
+                     "value" : [ "","define ","\"CT Colonography Performed\"",":\n  " ]
+                  }, {
+                     "r" : "45",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "40",
+                           "s" : [ {
+                              "r" : "39",
+                              "s" : [ {
+                                 "r" : "39",
+                                 "s" : [ {
+                                    "value" : [ "[","Procedure",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"CT Colonography\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","Colonography" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "44",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "44",
+                           "s" : [ {
+                              "r" : "42",
+                              "s" : [ {
+                                 "r" : "41",
+                                 "s" : [ {
+                                    "value" : [ "Colonography" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "42",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","="," " ]
+                           }, {
+                              "r" : "43",
+                              "s" : [ {
+                                 "value" : [ "'completed'" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "45",
+               "locator" : "39:3-40:43",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "40",
+                  "locator" : "39:3-39:48",
+                  "alias" : "Colonography",
+                  "expression" : {
+                     "localId" : "39",
+                     "locator" : "39:3-39:35",
+                     "dataType" : "{http://hl7.org/fhir}Procedure",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "39:15-39:34",
+                        "name" : "CT Colonography",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "44",
+                  "locator" : "40:5-40:43",
+                  "type" : "Equal",
+                  "operand" : [ {
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "localId" : "42",
+                        "locator" : "40:11-40:29",
+                        "path" : "status",
+                        "scope" : "Colonography",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "43",
+                     "locator" : "40:33-40:43",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "completed",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "54",
+            "locator" : "42:1-44:40",
+            "name" : "Total Colectomy Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "54",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Total Colectomy Performed\"",":\n  " ]
+                  }, {
+                     "r" : "53",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "48",
+                           "s" : [ {
+                              "r" : "47",
+                              "s" : [ {
+                                 "r" : "47",
+                                 "s" : [ {
+                                    "value" : [ "[","Procedure",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Total Colectomy\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","Colectomy" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "52",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "52",
+                           "s" : [ {
+                              "r" : "50",
+                              "s" : [ {
+                                 "r" : "49",
+                                 "s" : [ {
+                                    "value" : [ "Colectomy" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "50",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","="," " ]
+                           }, {
+                              "r" : "51",
+                              "s" : [ {
+                                 "value" : [ "'completed'" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "53",
+               "locator" : "43:3-44:40",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "48",
+                  "locator" : "43:3-43:45",
+                  "alias" : "Colectomy",
+                  "expression" : {
+                     "localId" : "47",
+                     "locator" : "43:3-43:35",
+                     "dataType" : "{http://hl7.org/fhir}Procedure",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "43:15-43:34",
+                        "name" : "Total Colectomy",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "52",
+                  "locator" : "44:5-44:40",
+                  "type" : "Equal",
+                  "operand" : [ {
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "localId" : "50",
+                        "locator" : "44:11-44:26",
+                        "path" : "status",
+                        "scope" : "Colectomy",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "51",
+                     "locator" : "44:30-44:40",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "completed",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "69",
+            "locator" : "47:1-50:64",
+            "name" : "Total Colectomy from Patient History",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "69",
+                  "s" : [ {
+                     "value" : [ "// NOTE: HEDIS version allows for a \"history of\" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.\n","define ","\"Total Colectomy from Patient History\"",":\n  " ]
+                  }, {
+                     "r" : "68",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "56",
+                           "s" : [ {
+                              "r" : "55",
+                              "s" : [ {
+                                 "r" : "55",
+                                 "s" : [ {
+                                    "value" : [ "[","Condition",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Total Colectomy\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","ColectomyCondition" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "67",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "67",
+                           "s" : [ {
+                              "r" : "61",
+                              "s" : [ {
+                                 "r" : "58",
+                                 "s" : [ {
+                                    "r" : "57",
+                                    "s" : [ {
+                                       "value" : [ "ColectomyCondition" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "58",
+                                    "s" : [ {
+                                       "value" : [ "clinicalStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "60",
+                                 "s" : [ {
+                                    "r" : "59",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "60",
+                                    "s" : [ {
+                                       "value" : [ "\"Active Condition\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      and " ]
+                           }, {
+                              "r" : "66",
+                              "s" : [ {
+                                 "r" : "63",
+                                 "s" : [ {
+                                    "r" : "62",
+                                    "s" : [ {
+                                       "value" : [ "ColectomyCondition" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "63",
+                                    "s" : [ {
+                                       "value" : [ "verificationStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","~"," " ]
+                              }, {
+                                 "r" : "65",
+                                 "s" : [ {
+                                    "r" : "64",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "65",
+                                    "s" : [ {
+                                       "value" : [ "\"confirmed\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "68",
+               "locator" : "48:3-50:64",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "56",
+                  "locator" : "48:3-48:54",
+                  "alias" : "ColectomyCondition",
+                  "expression" : {
+                     "localId" : "55",
+                     "locator" : "48:3-48:35",
+                     "dataType" : "{http://hl7.org/fhir}Condition",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "48:15-48:34",
+                        "name" : "Total Colectomy",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "67",
+                  "locator" : "49:5-50:64",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "61",
+                     "locator" : "49:11-49:68",
+                     "type" : "InValueSet",
+                     "code" : {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "58",
+                           "locator" : "49:11-49:43",
+                           "path" : "clinicalStatus",
+                           "scope" : "ColectomyCondition",
+                           "type" : "Property"
+                        } ]
+                     },
+                     "valueset" : {
+                        "localId" : "60",
+                        "locator" : "49:48-49:68",
+                        "name" : "Active Condition",
+                        "libraryName" : "FC"
+                     }
+                  }, {
+                     "localId" : "66",
+                     "locator" : "50:11-50:64",
+                     "type" : "Equivalent",
+                     "operand" : [ {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "63",
+                           "locator" : "50:11-50:47",
+                           "path" : "verificationStatus",
+                           "scope" : "ColectomyCondition",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "type" : "ToConcept",
+                        "operand" : {
+                           "localId" : "65",
+                           "locator" : "50:51-50:64",
+                           "name" : "confirmed",
+                           "libraryName" : "FC",
+                           "type" : "CodeRef"
+                        }
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "85",
+            "locator" : "52:1-55:42",
+            "name" : "Fecal Occult Blood Test Result",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "85",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Fecal Occult Blood Test Result\"",":\n  " ]
+                  }, {
+                     "r" : "84",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "71",
+                           "s" : [ {
+                              "r" : "70",
+                              "s" : [ {
+                                 "r" : "70",
+                                 "s" : [ {
+                                    "value" : [ "[","Observation",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Fecal Occult Blood Test (FOBT)\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","FecalOccultResult" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n\t\t" ]
+                     }, {
+                        "r" : "83",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "83",
+                           "s" : [ {
+                              "r" : "79",
+                              "s" : [ {
+                                 "r" : "73",
+                                 "s" : [ {
+                                    "r" : "72",
+                                    "s" : [ {
+                                       "value" : [ "FecalOccultResult" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "73",
+                                    "s" : [ {
+                                       "value" : [ "status" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "78",
+                                 "s" : [ {
+                                    "value" : [ "{" ]
+                                 }, {
+                                    "r" : "74",
+                                    "s" : [ {
+                                       "value" : [ "'final'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "75",
+                                    "s" : [ {
+                                       "value" : [ "'amended'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "76",
+                                    "s" : [ {
+                                       "value" : [ "'corrected'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "77",
+                                    "s" : [ {
+                                       "value" : [ "'preliminary'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "}" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n\t\t\tand " ]
+                           }, {
+                              "r" : "82",
+                              "s" : [ {
+                                 "r" : "81",
+                                 "s" : [ {
+                                    "r" : "80",
+                                    "s" : [ {
+                                       "value" : [ "FecalOccultResult" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "81",
+                                    "s" : [ {
+                                       "value" : [ "value" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " is not null" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "84",
+               "locator" : "53:3-55:42",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "71",
+                  "locator" : "53:3-53:70",
+                  "alias" : "FecalOccultResult",
+                  "expression" : {
+                     "localId" : "70",
+                     "locator" : "53:3-53:52",
+                     "dataType" : "{http://hl7.org/fhir}Observation",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Observation",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "53:17-53:51",
+                        "name" : "Fecal Occult Blood Test (FOBT)",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "83",
+                  "locator" : "54:3-55:42",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "79",
+                     "locator" : "54:9-54:84",
+                     "type" : "In",
+                     "operand" : [ {
+                        "name" : "ToString",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "73",
+                           "locator" : "54:9-54:32",
+                           "path" : "status",
+                           "scope" : "FecalOccultResult",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "localId" : "78",
+                        "locator" : "54:37-54:84",
+                        "type" : "List",
+                        "element" : [ {
+                           "localId" : "74",
+                           "locator" : "54:38-54:44",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "final",
+                           "type" : "Literal"
+                        }, {
+                           "localId" : "75",
+                           "locator" : "54:47-54:55",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "amended",
+                           "type" : "Literal"
+                        }, {
+                           "localId" : "76",
+                           "locator" : "54:58-54:68",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "corrected",
+                           "type" : "Literal"
+                        }, {
+                           "localId" : "77",
+                           "locator" : "54:71-54:83",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "preliminary",
+                           "type" : "Literal"
+                        } ]
+                     } ]
+                  }, {
+                     "localId" : "82",
+                     "locator" : "55:8-55:42",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "55:8-55:42",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "81",
+                           "locator" : "55:8-55:30",
+                           "path" : "value",
+                           "scope" : "FecalOccultResult",
+                           "type" : "Property"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "101",
+            "locator" : "57:1-60:31",
+            "name" : "Fecal Immunochemical Test DNA Result",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "101",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Fecal Immunochemical Test DNA Result\"",":\n  " ]
+                  }, {
+                     "r" : "100",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "87",
+                           "s" : [ {
+                              "r" : "86",
+                              "s" : [ {
+                                 "r" : "86",
+                                 "s" : [ {
+                                    "value" : [ "[","Observation",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"FIT DNA\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","FitDNA" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n\t\t" ]
+                     }, {
+                        "r" : "99",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "99",
+                           "s" : [ {
+                              "r" : "95",
+                              "s" : [ {
+                                 "r" : "89",
+                                 "s" : [ {
+                                    "r" : "88",
+                                    "s" : [ {
+                                       "value" : [ "FitDNA" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "89",
+                                    "s" : [ {
+                                       "value" : [ "status" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "94",
+                                 "s" : [ {
+                                    "value" : [ "{" ]
+                                 }, {
+                                    "r" : "90",
+                                    "s" : [ {
+                                       "value" : [ "'final'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "91",
+                                    "s" : [ {
+                                       "value" : [ "'amended'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "92",
+                                    "s" : [ {
+                                       "value" : [ "'corrected'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ", " ]
+                                 }, {
+                                    "r" : "93",
+                                    "s" : [ {
+                                       "value" : [ "'preliminary'" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "}" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n\t\t\tand " ]
+                           }, {
+                              "r" : "98",
+                              "s" : [ {
+                                 "r" : "97",
+                                 "s" : [ {
+                                    "r" : "96",
+                                    "s" : [ {
+                                       "value" : [ "FitDNA" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "97",
+                                    "s" : [ {
+                                       "value" : [ "value" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " is not null" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "100",
+               "locator" : "58:3-60:31",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "87",
+                  "locator" : "58:3-58:36",
+                  "alias" : "FitDNA",
+                  "expression" : {
+                     "localId" : "86",
+                     "locator" : "58:3-58:29",
+                     "dataType" : "{http://hl7.org/fhir}Observation",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Observation",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "58:17-58:28",
+                        "name" : "FIT DNA",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "99",
+                  "locator" : "59:3-60:31",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "95",
+                     "locator" : "59:9-59:73",
+                     "type" : "In",
+                     "operand" : [ {
+                        "name" : "ToString",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "89",
+                           "locator" : "59:9-59:21",
+                           "path" : "status",
+                           "scope" : "FitDNA",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "localId" : "94",
+                        "locator" : "59:26-59:73",
+                        "type" : "List",
+                        "element" : [ {
+                           "localId" : "90",
+                           "locator" : "59:27-59:33",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "final",
+                           "type" : "Literal"
+                        }, {
+                           "localId" : "91",
+                           "locator" : "59:36-59:44",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "amended",
+                           "type" : "Literal"
+                        }, {
+                           "localId" : "92",
+                           "locator" : "59:47-59:57",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "corrected",
+                           "type" : "Literal"
+                        }, {
+                           "localId" : "93",
+                           "locator" : "59:60-59:72",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "preliminary",
+                           "type" : "Literal"
+                        } ]
+                     } ]
+                  }, {
+                     "localId" : "98",
+                     "locator" : "60:8-60:31",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "60:8-60:31",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "97",
+                           "locator" : "60:8-60:19",
+                           "path" : "value",
+                           "scope" : "FitDNA",
+                           "type" : "Property"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "109",
+            "locator" : "62:1-64:40",
+            "name" : "Colonoscopy Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "109",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Colonoscopy Performed\"",":\n  " ]
+                  }, {
+                     "r" : "108",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "103",
+                           "s" : [ {
+                              "r" : "102",
+                              "s" : [ {
+                                 "r" : "102",
+                                 "s" : [ {
+                                    "value" : [ "[","Procedure",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Colonoscopy\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","Colonoscopy" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n\t\t" ]
+                     }, {
+                        "r" : "107",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "107",
+                           "s" : [ {
+                              "r" : "105",
+                              "s" : [ {
+                                 "r" : "104",
+                                 "s" : [ {
+                                    "value" : [ "Colonoscopy" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "105",
+                                 "s" : [ {
+                                    "value" : [ "status" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","="," " ]
+                           }, {
+                              "r" : "106",
+                              "s" : [ {
+                                 "value" : [ "'completed'" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "108",
+               "locator" : "63:3-64:40",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "103",
+                  "locator" : "63:3-63:43",
+                  "alias" : "Colonoscopy",
+                  "expression" : {
+                     "localId" : "102",
+                     "locator" : "63:3-63:31",
+                     "dataType" : "{http://hl7.org/fhir}Procedure",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Procedure",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "63:15-63:30",
+                        "name" : "Colonoscopy",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "107",
+                  "locator" : "64:3-64:40",
+                  "type" : "Equal",
+                  "operand" : [ {
+                     "name" : "ToString",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "localId" : "105",
+                        "locator" : "64:9-64:26",
+                        "path" : "status",
+                        "scope" : "Colonoscopy",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "106",
+                     "locator" : "64:30-64:40",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "completed",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "124",
+            "locator" : "67:1-70:45",
+            "name" : "Colonoscopy from Patient History",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "124",
+                  "s" : [ {
+                     "value" : [ "// NOTE: HEDIS version allows for a \"history of\" SNOMED code as FHIR.Condition. Code is present in eCQM valueset.\n","define ","\"Colonoscopy from Patient History\"",":\n  " ]
+                  }, {
+                     "r" : "123",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "111",
+                           "s" : [ {
+                              "r" : "110",
+                              "s" : [ {
+                                 "r" : "110",
+                                 "s" : [ {
+                                    "value" : [ "[","Condition",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Colonoscopy\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","C" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "122",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "122",
+                           "s" : [ {
+                              "r" : "116",
+                              "s" : [ {
+                                 "r" : "113",
+                                 "s" : [ {
+                                    "r" : "112",
+                                    "s" : [ {
+                                       "value" : [ "C" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "113",
+                                    "s" : [ {
+                                       "value" : [ "clinicalStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "115",
+                                 "s" : [ {
+                                    "r" : "114",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "115",
+                                    "s" : [ {
+                                       "value" : [ "\"Active Condition\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    and " ]
+                           }, {
+                              "r" : "121",
+                              "s" : [ {
+                                 "r" : "118",
+                                 "s" : [ {
+                                    "r" : "117",
+                                    "s" : [ {
+                                       "value" : [ "C" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "118",
+                                    "s" : [ {
+                                       "value" : [ "verificationStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","~"," " ]
+                              }, {
+                                 "r" : "120",
+                                 "s" : [ {
+                                    "r" : "119",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "120",
+                                    "s" : [ {
+                                       "value" : [ "\"confirmed\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "123",
+               "locator" : "68:3-70:45",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "111",
+                  "locator" : "68:3-68:33",
+                  "alias" : "C",
+                  "expression" : {
+                     "localId" : "110",
+                     "locator" : "68:3-68:31",
+                     "dataType" : "{http://hl7.org/fhir}Condition",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "68:15-68:30",
+                        "name" : "Colonoscopy",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "122",
+                  "locator" : "69:5-70:45",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "116",
+                     "locator" : "69:11-69:51",
+                     "type" : "InValueSet",
+                     "code" : {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "113",
+                           "locator" : "69:11-69:26",
+                           "path" : "clinicalStatus",
+                           "scope" : "C",
+                           "type" : "Property"
+                        } ]
+                     },
+                     "valueset" : {
+                        "localId" : "115",
+                        "locator" : "69:31-69:51",
+                        "name" : "Active Condition",
+                        "libraryName" : "FC"
+                     }
+                  }, {
+                     "localId" : "121",
+                     "locator" : "70:9-70:45",
+                     "type" : "Equivalent",
+                     "operand" : [ {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "118",
+                           "locator" : "70:9-70:28",
+                           "path" : "verificationStatus",
+                           "scope" : "C",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "type" : "ToConcept",
+                        "operand" : {
+                           "localId" : "120",
+                           "locator" : "70:32-70:45",
+                           "name" : "confirmed",
+                           "libraryName" : "FC",
+                           "type" : "CodeRef"
+                        }
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "139",
+            "locator" : "72:1-75:62",
+            "name" : "Active Malignant Neoplasm",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "139",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Active Malignant Neoplasm\"",":\n  " ]
+                  }, {
+                     "r" : "138",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "126",
+                           "s" : [ {
+                              "r" : "125",
+                              "s" : [ {
+                                 "r" : "125",
+                                 "s" : [ {
+                                    "value" : [ "[","Condition",": " ]
+                                 }, {
+                                    "s" : [ {
+                                       "value" : [ "Cx",".","\"Malignant Neoplasm of Colon\"" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "]" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","ColorectalCancer" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "137",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "137",
+                           "s" : [ {
+                              "r" : "131",
+                              "s" : [ {
+                                 "r" : "128",
+                                 "s" : [ {
+                                    "r" : "127",
+                                    "s" : [ {
+                                       "value" : [ "ColorectalCancer" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "128",
+                                    "s" : [ {
+                                       "value" : [ "clinicalStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " in " ]
+                              }, {
+                                 "r" : "130",
+                                 "s" : [ {
+                                    "r" : "129",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "130",
+                                    "s" : [ {
+                                       "value" : [ "\"Active Condition\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      and " ]
+                           }, {
+                              "r" : "136",
+                              "s" : [ {
+                                 "r" : "133",
+                                 "s" : [ {
+                                    "r" : "132",
+                                    "s" : [ {
+                                       "value" : [ "ColorectalCancer" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "133",
+                                    "s" : [ {
+                                       "value" : [ "verificationStatus" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","~"," " ]
+                              }, {
+                                 "r" : "135",
+                                 "s" : [ {
+                                    "r" : "134",
+                                    "s" : [ {
+                                       "value" : [ "FC" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "135",
+                                    "s" : [ {
+                                       "value" : [ "\"confirmed\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "138",
+               "locator" : "73:3-75:62",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "126",
+                  "locator" : "73:3-73:64",
+                  "alias" : "ColorectalCancer",
+                  "expression" : {
+                     "localId" : "125",
+                     "locator" : "73:3-73:47",
+                     "dataType" : "{http://hl7.org/fhir}Condition",
+                     "templateId" : "http://hl7.org/fhir/StructureDefinition/Condition",
+                     "codeProperty" : "code",
+                     "codeComparator" : "in",
+                     "type" : "Retrieve",
+                     "codes" : {
+                        "locator" : "73:15-73:46",
+                        "name" : "Malignant Neoplasm of Colon",
+                        "libraryName" : "Cx",
+                        "type" : "ValueSetRef"
+                     }
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "137",
+                  "locator" : "74:5-75:62",
+                  "type" : "And",
+                  "operand" : [ {
+                     "localId" : "131",
+                     "locator" : "74:11-74:66",
+                     "type" : "InValueSet",
+                     "code" : {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "128",
+                           "locator" : "74:11-74:41",
+                           "path" : "clinicalStatus",
+                           "scope" : "ColorectalCancer",
+                           "type" : "Property"
+                        } ]
+                     },
+                     "valueset" : {
+                        "localId" : "130",
+                        "locator" : "74:46-74:66",
+                        "name" : "Active Condition",
+                        "libraryName" : "FC"
+                     }
+                  }, {
+                     "localId" : "136",
+                     "locator" : "75:11-75:62",
+                     "type" : "Equivalent",
+                     "operand" : [ {
+                        "name" : "ToConcept",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "133",
+                           "locator" : "75:11-75:45",
+                           "path" : "verificationStatus",
+                           "scope" : "ColorectalCancer",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "type" : "ToConcept",
+                        "operand" : {
+                           "localId" : "135",
+                           "locator" : "75:49-75:62",
+                           "name" : "confirmed",
+                           "libraryName" : "FC",
+                           "type" : "CodeRef"
+                        }
+                     } ]
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "148",
+            "locator" : "77:1-79:51",
+            "name" : "Fecal Occult Blood Test Result Within 1 Year",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "148",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Fecal Occult Blood Test Result Within 1 Year\"",":\n  " ]
+                  }, {
+                     "r" : "147",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "141",
+                           "s" : [ {
+                              "r" : "140",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "\"Fecal Occult Blood Test Result\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","R" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "146",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "146",
+                           "s" : [ {
+                              "r" : "143",
+                              "s" : [ {
+                                 "r" : "142",
+                                 "s" : [ {
+                                    "value" : [ "R" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "143",
+                                 "s" : [ {
+                                    "value" : [ "issued" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "146",
+                              "s" : [ {
+                                 "r" : "145",
+                                 "s" : [ {
+                                    "value" : [ "1 ","year" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or less on or before" ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "144",
+                              "s" : [ {
+                                 "value" : [ "AsOf" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "147",
+               "locator" : "78:3-79:51",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "141",
+                  "locator" : "78:3-78:36",
+                  "alias" : "R",
+                  "expression" : {
+                     "localId" : "140",
+                     "locator" : "78:3-78:34",
+                     "name" : "Fecal Occult Blood Test Result",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "146",
+                  "locator" : "79:5-79:51",
+                  "type" : "And",
+                  "operand" : [ {
+                     "locator" : "79:20-79:33",
+                     "type" : "In",
+                     "operand" : [ {
+                        "name" : "ToDateTime",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "143",
+                           "locator" : "79:11-79:18",
+                           "path" : "issued",
+                           "scope" : "R",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "locator" : "79:20-79:33",
+                        "lowClosed" : true,
+                        "highClosed" : true,
+                        "type" : "Interval",
+                        "low" : {
+                           "locator" : "79:48-79:51",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "144",
+                              "locator" : "79:48-79:51",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "145",
+                              "locator" : "79:20-79:25",
+                              "value" : 1,
+                              "unit" : "year",
+                              "type" : "Quantity"
+                           } ]
+                        },
+                        "high" : {
+                           "localId" : "144",
+                           "locator" : "79:48-79:51",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "locator" : "79:20-79:33",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "79:20-79:33",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "144",
+                           "locator" : "79:48-79:51",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "164",
+            "locator" : "153:1-157:3",
+            "name" : "MostRecent",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "164",
+                  "s" : [ {
+                     "value" : [ "","define function ","MostRecent","(","procedures"," " ]
+                  }, {
+                     "r" : "152",
+                     "s" : [ {
+                        "value" : [ "List<" ]
+                     }, {
+                        "r" : "151",
+                        "s" : [ {
+                           "value" : [ "Procedure" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ ", ","asOf"," " ]
+                  }, {
+                     "r" : "153",
+                     "s" : [ {
+                        "value" : [ "DateTime" ]
+                     } ]
+                  }, {
+                     "value" : [ "):\n  " ]
+                  }, {
+                     "r" : "163",
+                     "s" : [ {
+                        "r" : "163",
+                        "s" : [ {
+                           "value" : [ "First","(\n    " ]
+                        }, {
+                           "r" : "162",
+                           "s" : [ {
+                              "s" : [ {
+                                 "r" : "155",
+                                 "s" : [ {
+                                    "r" : "154",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "value" : [ "procedures" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " ","P" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      " ]
+                           }, {
+                              "r" : "161",
+                              "s" : [ {
+                                 "value" : [ "sort by " ]
+                              }, {
+                                 "r" : "160",
+                                 "s" : [ {
+                                    "r" : "159",
+                                    "s" : [ {
+                                       "value" : [ "start of " ]
+                                    }, {
+                                       "r" : "158",
+                                       "s" : [ {
+                                          "r" : "156",
+                                          "s" : [ {
+                                             "value" : [ "FC" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "158",
+                                          "s" : [ {
+                                             "value" : [ "ToInterval","(" ]
+                                          }, {
+                                             "r" : "157",
+                                             "s" : [ {
+                                                "value" : [ "performed" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ ")" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  )" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "163",
+               "locator" : "154:3-157:3",
+               "type" : "First",
+               "source" : {
+                  "localId" : "162",
+                  "locator" : "155:5-156:47",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "155",
+                     "locator" : "155:5-155:16",
+                     "alias" : "P",
+                     "expression" : {
+                        "localId" : "154",
+                        "locator" : "155:5-155:14",
+                        "name" : "procedures",
+                        "type" : "OperandRef"
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "sort" : {
+                     "localId" : "161",
+                     "locator" : "156:7-156:47",
+                     "by" : [ {
+                        "localId" : "160",
+                        "locator" : "156:15-156:47",
+                        "direction" : "asc",
+                        "type" : "ByExpression",
+                        "expression" : {
+                           "localId" : "159",
+                           "locator" : "156:15-156:47",
+                           "type" : "Start",
+                           "operand" : {
+                              "localId" : "158",
+                              "locator" : "156:24-156:47",
+                              "name" : "ToInterval",
+                              "libraryName" : "FC",
+                              "type" : "FunctionRef",
+                              "operand" : [ {
+                                 "localId" : "157",
+                                 "locator" : "156:38-156:46",
+                                 "name" : "performed",
+                                 "type" : "IdentifierRef"
+                              } ]
+                           }
+                        }
+                     } ]
+                  }
+               }
+            },
+            "operand" : [ {
+               "name" : "procedures",
+               "operandTypeSpecifier" : {
+                  "localId" : "152",
+                  "locator" : "153:39-153:53",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "151",
+                     "locator" : "153:44-153:52",
+                     "name" : "{http://hl7.org/fhir}Procedure",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }, {
+               "name" : "asOf",
+               "operandTypeSpecifier" : {
+                  "localId" : "153",
+                  "locator" : "153:61-153:68",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "175",
+            "locator" : "159:1-163:3",
+            "name" : "MostRecent",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "175",
+                  "s" : [ {
+                     "value" : [ "","define function ","MostRecent","(","observations"," " ]
+                  }, {
+                     "r" : "166",
+                     "s" : [ {
+                        "value" : [ "List<" ]
+                     }, {
+                        "r" : "165",
+                        "s" : [ {
+                           "value" : [ "Observation" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ ", ","asOf"," " ]
+                  }, {
+                     "r" : "167",
+                     "s" : [ {
+                        "value" : [ "DateTime" ]
+                     } ]
+                  }, {
+                     "value" : [ "):\n  " ]
+                  }, {
+                     "r" : "174",
+                     "s" : [ {
+                        "r" : "174",
+                        "s" : [ {
+                           "value" : [ "First","(\n    " ]
+                        }, {
+                           "r" : "173",
+                           "s" : [ {
+                              "s" : [ {
+                                 "r" : "169",
+                                 "s" : [ {
+                                    "r" : "168",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "value" : [ "observations" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " ","O" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      " ]
+                           }, {
+                              "r" : "172",
+                              "s" : [ {
+                                 "value" : [ "sort by " ]
+                              }, {
+                                 "r" : "171",
+                                 "s" : [ {
+                                    "r" : "170",
+                                    "s" : [ {
+                                       "value" : [ "issued" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  )" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "174",
+               "locator" : "160:3-163:3",
+               "type" : "First",
+               "source" : {
+                  "localId" : "173",
+                  "locator" : "161:5-162:20",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "169",
+                     "locator" : "161:5-161:18",
+                     "alias" : "O",
+                     "expression" : {
+                        "localId" : "168",
+                        "locator" : "161:5-161:16",
+                        "name" : "observations",
+                        "type" : "OperandRef"
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "sort" : {
+                     "localId" : "172",
+                     "locator" : "162:7-162:20",
+                     "by" : [ {
+                        "localId" : "171",
+                        "locator" : "162:15-162:20",
+                        "direction" : "asc",
+                        "path" : "issued",
+                        "type" : "ByColumn"
+                     } ]
+                  }
+               }
+            },
+            "operand" : [ {
+               "name" : "observations",
+               "operandTypeSpecifier" : {
+                  "localId" : "166",
+                  "locator" : "159:41-159:57",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "165",
+                     "locator" : "159:46-159:56",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }, {
+               "name" : "asOf",
+               "operandTypeSpecifier" : {
+                  "localId" : "167",
+                  "locator" : "159:65-159:72",
+                  "name" : "{urn:hl7-org:elm-types:r1}DateTime",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "177",
+            "locator" : "81:1-82:52",
+            "name" : "Most Recent Fecal Occult Blood Test Result",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "177",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Most Recent Fecal Occult Blood Test Result\"",":\n  " ]
+                  }, {
+                     "r" : "176",
+                     "s" : [ {
+                        "value" : [ "MostRecent","(" ]
+                     }, {
+                        "r" : "149",
+                        "s" : [ {
+                           "value" : [ "\"Fecal Occult Blood Test Result\"" ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "150",
+                        "s" : [ {
+                           "value" : [ "AsOf" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "176",
+               "locator" : "82:3-82:52",
+               "name" : "MostRecent",
+               "type" : "FunctionRef",
+               "operand" : [ {
+                  "localId" : "149",
+                  "locator" : "82:14-82:45",
+                  "name" : "Fecal Occult Blood Test Result",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "150",
+                  "locator" : "82:48-82:51",
+                  "name" : "AsOf",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "186",
+            "locator" : "84:1-86:52",
+            "name" : "Fecal Immunochemical Test DNA Result Within 3 Years",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "186",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Fecal Immunochemical Test DNA Result Within 3 Years\"",":\n  " ]
+                  }, {
+                     "r" : "185",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "179",
+                           "s" : [ {
+                              "r" : "178",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "\"Fecal Immunochemical Test DNA Result\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","R" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "184",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "184",
+                           "s" : [ {
+                              "r" : "181",
+                              "s" : [ {
+                                 "r" : "180",
+                                 "s" : [ {
+                                    "value" : [ "R" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "181",
+                                 "s" : [ {
+                                    "value" : [ "issued" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "184",
+                              "s" : [ {
+                                 "r" : "183",
+                                 "s" : [ {
+                                    "value" : [ "3 ","years" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or less on or before" ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "182",
+                              "s" : [ {
+                                 "value" : [ "AsOf" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "185",
+               "locator" : "85:3-86:52",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "179",
+                  "locator" : "85:3-85:42",
+                  "alias" : "R",
+                  "expression" : {
+                     "localId" : "178",
+                     "locator" : "85:3-85:40",
+                     "name" : "Fecal Immunochemical Test DNA Result",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "184",
+                  "locator" : "86:5-86:52",
+                  "type" : "And",
+                  "operand" : [ {
+                     "locator" : "86:20-86:34",
+                     "type" : "In",
+                     "operand" : [ {
+                        "name" : "ToDateTime",
+                        "libraryName" : "FHIRHelpers",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "181",
+                           "locator" : "86:11-86:18",
+                           "path" : "issued",
+                           "scope" : "R",
+                           "type" : "Property"
+                        } ]
+                     }, {
+                        "locator" : "86:20-86:34",
+                        "lowClosed" : true,
+                        "highClosed" : true,
+                        "type" : "Interval",
+                        "low" : {
+                           "locator" : "86:49-86:52",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "182",
+                              "locator" : "86:49-86:52",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "183",
+                              "locator" : "86:20-86:26",
+                              "value" : 3,
+                              "unit" : "years",
+                              "type" : "Quantity"
+                           } ]
+                        },
+                        "high" : {
+                           "localId" : "182",
+                           "locator" : "86:49-86:52",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "locator" : "86:20-86:34",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "86:20-86:34",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "182",
+                           "locator" : "86:49-86:52",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "190",
+            "locator" : "88:1-89:58",
+            "name" : "Most Recent Fecal Immunochemical Test DNA Result",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "190",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Most Recent Fecal Immunochemical Test DNA Result\"",":\n  " ]
+                  }, {
+                     "r" : "189",
+                     "s" : [ {
+                        "value" : [ "MostRecent","(" ]
+                     }, {
+                        "r" : "187",
+                        "s" : [ {
+                           "value" : [ "\"Fecal Immunochemical Test DNA Result\"" ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "188",
+                        "s" : [ {
+                           "value" : [ "AsOf" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "189",
+               "locator" : "89:3-89:58",
+               "name" : "MostRecent",
+               "type" : "FunctionRef",
+               "operand" : [ {
+                  "localId" : "187",
+                  "locator" : "89:14-89:51",
+                  "name" : "Fecal Immunochemical Test DNA Result",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "188",
+                  "locator" : "89:54-89:57",
+                  "name" : "AsOf",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "201",
+            "locator" : "91:1-93:75",
+            "name" : "Flexible Sigmoidoscopy Performed Within 5 Years",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "201",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Flexible Sigmoidoscopy Performed Within 5 Years\"",":\n  " ]
+                  }, {
+                     "r" : "200",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "192",
+                           "s" : [ {
+                              "r" : "191",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "\"Flexible Sigmoidoscopy Performed\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","P" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "199",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "199",
+                           "s" : [ {
+                              "r" : "196",
+                              "s" : [ {
+                                 "r" : "193",
+                                 "s" : [ {
+                                    "value" : [ "FC" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "196",
+                                 "s" : [ {
+                                    "value" : [ "ToInterval","(" ]
+                                 }, {
+                                    "r" : "195",
+                                    "s" : [ {
+                                       "r" : "194",
+                                       "s" : [ {
+                                          "value" : [ "P" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "195",
+                                       "s" : [ {
+                                          "value" : [ "performed" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "199",
+                              "s" : [ {
+                                 "value" : [ "ends " ]
+                              }, {
+                                 "r" : "198",
+                                 "s" : [ {
+                                    "value" : [ "5 ","years" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or less on or before" ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "197",
+                              "s" : [ {
+                                 "value" : [ "AsOf" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "200",
+               "locator" : "92:3-93:75",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "192",
+                  "locator" : "92:3-92:38",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "191",
+                     "locator" : "92:3-92:36",
+                     "name" : "Flexible Sigmoidoscopy Performed",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "199",
+                  "locator" : "93:5-93:75",
+                  "type" : "And",
+                  "operand" : [ {
+                     "locator" : "93:43-93:57",
+                     "type" : "In",
+                     "operand" : [ {
+                        "locator" : "93:38-93:41",
+                        "type" : "End",
+                        "operand" : {
+                           "localId" : "196",
+                           "locator" : "93:11-93:36",
+                           "name" : "ToInterval",
+                           "libraryName" : "FC",
+                           "type" : "FunctionRef",
+                           "operand" : [ {
+                              "localId" : "195",
+                              "locator" : "93:25-93:35",
+                              "path" : "performed",
+                              "scope" : "P",
+                              "type" : "Property"
+                           } ]
+                        }
+                     }, {
+                        "locator" : "93:43-93:57",
+                        "lowClosed" : true,
+                        "highClosed" : true,
+                        "type" : "Interval",
+                        "low" : {
+                           "locator" : "93:72-93:75",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "197",
+                              "locator" : "93:72-93:75",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "198",
+                              "locator" : "93:43-93:49",
+                              "value" : 5,
+                              "unit" : "years",
+                              "type" : "Quantity"
+                           } ]
+                        },
+                        "high" : {
+                           "localId" : "197",
+                           "locator" : "93:72-93:75",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "locator" : "93:43-93:57",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "93:43-93:57",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "197",
+                           "locator" : "93:72-93:75",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "205",
+            "locator" : "95:1-96:54",
+            "name" : "Most Recent Flexible Sigmoidoscopy Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "205",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Most Recent Flexible Sigmoidoscopy Performed\"",":\n  " ]
+                  }, {
+                     "r" : "204",
+                     "s" : [ {
+                        "value" : [ "MostRecent","(" ]
+                     }, {
+                        "r" : "202",
+                        "s" : [ {
+                           "value" : [ "\"Flexible Sigmoidoscopy Performed\"" ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "203",
+                        "s" : [ {
+                           "value" : [ "AsOf" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "204",
+               "locator" : "96:3-96:54",
+               "name" : "MostRecent",
+               "type" : "FunctionRef",
+               "operand" : [ {
+                  "localId" : "202",
+                  "locator" : "96:14-96:47",
+                  "name" : "Flexible Sigmoidoscopy Performed",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "203",
+                  "locator" : "96:50-96:53",
+                  "name" : "AsOf",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "216",
+            "locator" : "98:1-100:75",
+            "name" : "CT Colonography Performed Within 5 Years",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "216",
+                  "s" : [ {
+                     "value" : [ "","define ","\"CT Colonography Performed Within 5 Years\"",":\n  " ]
+                  }, {
+                     "r" : "215",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "207",
+                           "s" : [ {
+                              "r" : "206",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "\"CT Colonography Performed\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","P" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "214",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "214",
+                           "s" : [ {
+                              "r" : "211",
+                              "s" : [ {
+                                 "r" : "208",
+                                 "s" : [ {
+                                    "value" : [ "FC" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "211",
+                                 "s" : [ {
+                                    "value" : [ "ToInterval","(" ]
+                                 }, {
+                                    "r" : "210",
+                                    "s" : [ {
+                                       "r" : "209",
+                                       "s" : [ {
+                                          "value" : [ "P" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "210",
+                                       "s" : [ {
+                                          "value" : [ "performed" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "214",
+                              "s" : [ {
+                                 "value" : [ "ends " ]
+                              }, {
+                                 "r" : "213",
+                                 "s" : [ {
+                                    "value" : [ "5 ","years" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or less on or before" ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "212",
+                              "s" : [ {
+                                 "value" : [ "AsOf" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "215",
+               "locator" : "99:3-100:75",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "207",
+                  "locator" : "99:3-99:31",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "206",
+                     "locator" : "99:3-99:29",
+                     "name" : "CT Colonography Performed",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "214",
+                  "locator" : "100:5-100:75",
+                  "type" : "And",
+                  "operand" : [ {
+                     "locator" : "100:43-100:57",
+                     "type" : "In",
+                     "operand" : [ {
+                        "locator" : "100:38-100:41",
+                        "type" : "End",
+                        "operand" : {
+                           "localId" : "211",
+                           "locator" : "100:11-100:36",
+                           "name" : "ToInterval",
+                           "libraryName" : "FC",
+                           "type" : "FunctionRef",
+                           "operand" : [ {
+                              "localId" : "210",
+                              "locator" : "100:25-100:35",
+                              "path" : "performed",
+                              "scope" : "P",
+                              "type" : "Property"
+                           } ]
+                        }
+                     }, {
+                        "locator" : "100:43-100:57",
+                        "lowClosed" : true,
+                        "highClosed" : true,
+                        "type" : "Interval",
+                        "low" : {
+                           "locator" : "100:72-100:75",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "212",
+                              "locator" : "100:72-100:75",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "213",
+                              "locator" : "100:43-100:49",
+                              "value" : 5,
+                              "unit" : "years",
+                              "type" : "Quantity"
+                           } ]
+                        },
+                        "high" : {
+                           "localId" : "212",
+                           "locator" : "100:72-100:75",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "locator" : "100:43-100:57",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "100:43-100:57",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "212",
+                           "locator" : "100:72-100:75",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "220",
+            "locator" : "102:1-103:47",
+            "name" : "Most Recent CT Colonography Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "220",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Most Recent CT Colonography Performed\"",":\n  " ]
+                  }, {
+                     "r" : "219",
+                     "s" : [ {
+                        "value" : [ "MostRecent","(" ]
+                     }, {
+                        "r" : "217",
+                        "s" : [ {
+                           "value" : [ "\"CT Colonography Performed\"" ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "218",
+                        "s" : [ {
+                           "value" : [ "AsOf" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "219",
+               "locator" : "103:3-103:47",
+               "name" : "MostRecent",
+               "type" : "FunctionRef",
+               "operand" : [ {
+                  "localId" : "217",
+                  "locator" : "103:14-103:40",
+                  "name" : "CT Colonography Performed",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "218",
+                  "locator" : "103:43-103:46",
+                  "name" : "AsOf",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "231",
+            "locator" : "105:1-107:76",
+            "name" : "Colonoscopy Performed Within 10 Years",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "231",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Colonoscopy Performed Within 10 Years\"",":\n  " ]
+                  }, {
+                     "r" : "230",
+                     "s" : [ {
+                        "s" : [ {
+                           "r" : "222",
+                           "s" : [ {
+                              "r" : "221",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "value" : [ "\"Colonoscopy Performed\"" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " ","P" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    " ]
+                     }, {
+                        "r" : "229",
+                        "s" : [ {
+                           "value" : [ "where " ]
+                        }, {
+                           "r" : "229",
+                           "s" : [ {
+                              "r" : "226",
+                              "s" : [ {
+                                 "r" : "223",
+                                 "s" : [ {
+                                    "value" : [ "FC" ]
+                                 } ]
+                              }, {
+                                 "value" : [ "." ]
+                              }, {
+                                 "r" : "226",
+                                 "s" : [ {
+                                    "value" : [ "ToInterval","(" ]
+                                 }, {
+                                    "r" : "225",
+                                    "s" : [ {
+                                       "r" : "224",
+                                       "s" : [ {
+                                          "value" : [ "P" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "225",
+                                       "s" : [ {
+                                          "value" : [ "performed" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ ")" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "229",
+                              "s" : [ {
+                                 "value" : [ "ends " ]
+                              }, {
+                                 "r" : "228",
+                                 "s" : [ {
+                                    "value" : [ "10 ","years" ]
+                                 } ]
+                              }, {
+                                 "value" : [ " or less on or before" ]
+                              } ]
+                           }, {
+                              "value" : [ " " ]
+                           }, {
+                              "r" : "227",
+                              "s" : [ {
+                                 "value" : [ "AsOf" ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "230",
+               "locator" : "106:3-107:76",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "222",
+                  "locator" : "106:3-106:27",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "221",
+                     "locator" : "106:3-106:25",
+                     "name" : "Colonoscopy Performed",
+                     "type" : "ExpressionRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "229",
+                  "locator" : "107:5-107:76",
+                  "type" : "And",
+                  "operand" : [ {
+                     "locator" : "107:43-107:58",
+                     "type" : "In",
+                     "operand" : [ {
+                        "locator" : "107:38-107:41",
+                        "type" : "End",
+                        "operand" : {
+                           "localId" : "226",
+                           "locator" : "107:11-107:36",
+                           "name" : "ToInterval",
+                           "libraryName" : "FC",
+                           "type" : "FunctionRef",
+                           "operand" : [ {
+                              "localId" : "225",
+                              "locator" : "107:25-107:35",
+                              "path" : "performed",
+                              "scope" : "P",
+                              "type" : "Property"
+                           } ]
+                        }
+                     }, {
+                        "locator" : "107:43-107:58",
+                        "lowClosed" : true,
+                        "highClosed" : true,
+                        "type" : "Interval",
+                        "low" : {
+                           "locator" : "107:73-107:76",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "227",
+                              "locator" : "107:73-107:76",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "228",
+                              "locator" : "107:43-107:50",
+                              "value" : 10,
+                              "unit" : "years",
+                              "type" : "Quantity"
+                           } ]
+                        },
+                        "high" : {
+                           "localId" : "227",
+                           "locator" : "107:73-107:76",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "locator" : "107:43-107:58",
+                     "type" : "Not",
+                     "operand" : {
+                        "locator" : "107:43-107:58",
+                        "type" : "IsNull",
+                        "operand" : {
+                           "localId" : "227",
+                           "locator" : "107:73-107:76",
+                           "name" : "AsOf",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "235",
+            "locator" : "109:1-110:43",
+            "name" : "Most Recent Colonoscopy Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "235",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Most Recent Colonoscopy Performed\"",":\n  " ]
+                  }, {
+                     "r" : "234",
+                     "s" : [ {
+                        "value" : [ "MostRecent","(" ]
+                     }, {
+                        "r" : "232",
+                        "s" : [ {
+                           "value" : [ "\"Colonoscopy Performed\"" ]
+                        } ]
+                     }, {
+                        "value" : [ ", " ]
+                     }, {
+                        "r" : "233",
+                        "s" : [ {
+                           "value" : [ "AsOf" ]
+                        } ]
+                     }, {
+                        "value" : [ ")" ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "234",
+               "locator" : "110:3-110:43",
+               "name" : "MostRecent",
+               "type" : "FunctionRef",
+               "operand" : [ {
+                  "localId" : "232",
+                  "locator" : "110:14-110:36",
+                  "name" : "Colonoscopy Performed",
+                  "type" : "ExpressionRef"
+               }, {
+                  "localId" : "233",
+                  "locator" : "110:39-110:42",
+                  "name" : "AsOf",
+                  "type" : "ExpressionRef"
+               } ]
+            }
+         }, {
+            "localId" : "245",
+            "locator" : "112:1-116:3",
+            "name" : "Has Active Malignant Neoplasm",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "245",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Has Active Malignant Neoplasm\"",":\n  " ]
+                  }, {
+                     "r" : "244",
+                     "s" : [ {
+                        "value" : [ "exists " ]
+                     }, {
+                        "r" : "243",
+                        "s" : [ {
+                           "value" : [ "(\n    " ]
+                        }, {
+                           "r" : "243",
+                           "s" : [ {
+                              "s" : [ {
+                                 "r" : "237",
+                                 "s" : [ {
+                                    "r" : "236",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "value" : [ "\"Active Malignant Neoplasm\"" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " ","M" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      " ]
+                           }, {
+                              "r" : "242",
+                              "s" : [ {
+                                 "value" : [ "where " ]
+                              }, {
+                                 "r" : "242",
+                                 "s" : [ {
+                                    "r" : "240",
+                                    "s" : [ {
+                                       "r" : "238",
+                                       "s" : [ {
+                                          "value" : [ "FC" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "240",
+                                       "s" : [ {
+                                          "value" : [ "ToPrevalenceInterval","(" ]
+                                       }, {
+                                          "r" : "239",
+                                          "s" : [ {
+                                             "value" : [ "M" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ ")" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "r" : "242",
+                                    "value" : [ " ","starts on or before"," " ]
+                                 }, {
+                                    "r" : "241",
+                                    "s" : [ {
+                                       "value" : [ "AsOf" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  )" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "244",
+               "locator" : "113:3-116:3",
+               "type" : "Exists",
+               "operand" : {
+                  "localId" : "243",
+                  "locator" : "113:10-116:3",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "237",
+                     "locator" : "114:5-114:33",
+                     "alias" : "M",
+                     "expression" : {
+                        "localId" : "236",
+                        "locator" : "114:5-114:31",
+                        "name" : "Active Malignant Neoplasm",
+                        "type" : "ExpressionRef"
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "242",
+                     "locator" : "115:7-115:63",
+                     "type" : "SameOrBefore",
+                     "operand" : [ {
+                        "locator" : "115:40-115:45",
+                        "type" : "Start",
+                        "operand" : {
+                           "localId" : "240",
+                           "locator" : "115:13-115:38",
+                           "name" : "ToPrevalenceInterval",
+                           "libraryName" : "FC",
+                           "type" : "FunctionRef",
+                           "operand" : [ {
+                              "localId" : "239",
+                              "locator" : "115:37",
+                              "name" : "M",
+                              "type" : "AliasRef"
+                           } ]
+                        }
+                     }, {
+                        "localId" : "241",
+                        "locator" : "115:60-115:63",
+                        "name" : "AsOf",
+                        "type" : "ExpressionRef"
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "263",
+            "locator" : "169:1-171:78",
+            "name" : "PerformedWithin",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "263",
+                  "s" : [ {
+                     "value" : [ "","define function ","PerformedWithin","(","procedures"," " ]
+                  }, {
+                     "r" : "249",
+                     "s" : [ {
+                        "value" : [ "List<" ]
+                     }, {
+                        "r" : "248",
+                        "s" : [ {
+                           "value" : [ "Procedure" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ ", ","lookback"," " ]
+                  }, {
+                     "r" : "250",
+                     "s" : [ {
+                        "value" : [ "System",".","Quantity" ]
+                     } ]
+                  }, {
+                     "value" : [ "):\n  " ]
+                  }, {
+                     "r" : "262",
+                     "s" : [ {
+                        "r" : "262",
+                        "s" : [ {
+                           "s" : [ {
+                              "r" : "252",
+                              "s" : [ {
+                                 "r" : "251",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "procedures" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","P" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "261",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "261",
+                              "s" : [ {
+                                 "r" : "257",
+                                 "s" : [ {
+                                    "value" : [ "end of " ]
+                                 }, {
+                                    "r" : "256",
+                                    "s" : [ {
+                                       "r" : "253",
+                                       "s" : [ {
+                                          "value" : [ "FC" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "256",
+                                       "s" : [ {
+                                          "value" : [ "ToInterval","(" ]
+                                       }, {
+                                          "r" : "255",
+                                          "s" : [ {
+                                             "r" : "254",
+                                             "s" : [ {
+                                                "value" : [ "P" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ "." ]
+                                          }, {
+                                             "r" : "255",
+                                             "s" : [ {
+                                                "value" : [ "performed" ]
+                                             } ]
+                                          } ]
+                                       }, {
+                                          "value" : [ ")" ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "r" : "261",
+                                 "value" : [ " ","on or after day of"," " ]
+                              }, {
+                                 "r" : "260",
+                                 "s" : [ {
+                                    "r" : "258",
+                                    "s" : [ {
+                                       "value" : [ "AsOf" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " - " ]
+                                 }, {
+                                    "r" : "259",
+                                    "s" : [ {
+                                       "value" : [ "lookback" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "262",
+               "locator" : "170:3-171:78",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "252",
+                  "locator" : "170:3-170:14",
+                  "alias" : "P",
+                  "expression" : {
+                     "localId" : "251",
+                     "locator" : "170:3-170:12",
+                     "name" : "procedures",
+                     "type" : "OperandRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "261",
+                  "locator" : "171:5-171:78",
+                  "precision" : "Day",
+                  "type" : "SameOrAfter",
+                  "operand" : [ {
+                     "localId" : "257",
+                     "locator" : "171:11-171:43",
+                     "type" : "End",
+                     "operand" : {
+                        "localId" : "256",
+                        "locator" : "171:18-171:43",
+                        "name" : "ToInterval",
+                        "libraryName" : "FC",
+                        "type" : "FunctionRef",
+                        "operand" : [ {
+                           "localId" : "255",
+                           "locator" : "171:32-171:42",
+                           "path" : "performed",
+                           "scope" : "P",
+                           "type" : "Property"
+                        } ]
+                     }
+                  }, {
+                     "localId" : "260",
+                     "locator" : "171:64-171:78",
+                     "type" : "Subtract",
+                     "operand" : [ {
+                        "localId" : "258",
+                        "locator" : "171:64-171:67",
+                        "name" : "AsOf",
+                        "type" : "ExpressionRef"
+                     }, {
+                        "localId" : "259",
+                        "locator" : "171:71-171:78",
+                        "name" : "lookback",
+                        "type" : "OperandRef"
+                     } ]
+                  } ]
+               }
+            },
+            "operand" : [ {
+               "name" : "procedures",
+               "operandTypeSpecifier" : {
+                  "localId" : "249",
+                  "locator" : "169:44-169:58",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "248",
+                     "locator" : "169:49-169:57",
+                     "name" : "{http://hl7.org/fhir}Procedure",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }, {
+               "name" : "lookback",
+               "operandTypeSpecifier" : {
+                  "localId" : "250",
+                  "locator" : "169:70-169:84",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         }, {
+            "localId" : "266",
+            "locator" : "119:1-122:3",
+            "name" : "Has Total Colectomy Performed",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "266",
+                  "s" : [ {
+                     "value" : [ "// NOTE: Added these two for HEDIS version.\n","define ","\"Has Total Colectomy Performed\"",":\n  " ]
+                  }, {
+                     "r" : "265",
+                     "s" : [ {
+                        "value" : [ "exists " ]
+                     }, {
+                        "r" : "264",
+                        "s" : [ {
+                           "value" : [ "(\n    " ]
+                        }, {
+                           "r" : "264",
+                           "s" : [ {
+                              "value" : [ "PerformedWithin","(" ]
+                           }, {
+                              "r" : "246",
+                              "s" : [ {
+                                 "value" : [ "\"Total Colectomy Performed\"" ]
+                              } ]
+                           }, {
+                              "value" : [ ", " ]
+                           }, {
+                              "r" : "247",
+                              "s" : [ {
+                                 "value" : [ "1 ","year" ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  )" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "265",
+               "locator" : "120:3-122:3",
+               "type" : "Exists",
+               "operand" : {
+                  "localId" : "264",
+                  "locator" : "120:10-122:3",
+                  "name" : "PerformedWithin",
+                  "type" : "FunctionRef",
+                  "operand" : [ {
+                     "localId" : "246",
+                     "locator" : "121:21-121:47",
+                     "name" : "Total Colectomy Performed",
+                     "type" : "ExpressionRef"
+                  }, {
+                     "localId" : "247",
+                     "locator" : "121:50-121:55",
+                     "value" : 1,
+                     "unit" : "year",
+                     "type" : "Quantity"
+                  } ]
+               }
+            }
+         }, {
+            "localId" : "276",
+            "locator" : "124:1-128:3",
+            "name" : "Has History of Total Colectomy",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "276",
+                  "s" : [ {
+                     "value" : [ "","define ","\"Has History of Total Colectomy\"",":\n " ]
+                  }, {
+                     "r" : "275",
+                     "s" : [ {
+                        "value" : [ "exists " ]
+                     }, {
+                        "r" : "274",
+                        "s" : [ {
+                           "value" : [ "(\n    " ]
+                        }, {
+                           "r" : "274",
+                           "s" : [ {
+                              "s" : [ {
+                                 "r" : "268",
+                                 "s" : [ {
+                                    "r" : "267",
+                                    "s" : [ {
+                                       "s" : [ {
+                                          "value" : [ "\"Total Colectomy from Patient History\"" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " ","ColectomyHistory" ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n      " ]
+                           }, {
+                              "r" : "273",
+                              "s" : [ {
+                                 "value" : [ "where " ]
+                              }, {
+                                 "r" : "273",
+                                 "s" : [ {
+                                    "r" : "271",
+                                    "s" : [ {
+                                       "r" : "269",
+                                       "s" : [ {
+                                          "value" : [ "FC" ]
+                                       } ]
+                                    }, {
+                                       "value" : [ "." ]
+                                    }, {
+                                       "r" : "271",
+                                       "s" : [ {
+                                          "value" : [ "ToPrevalenceInterval","(" ]
+                                       }, {
+                                          "r" : "270",
+                                          "s" : [ {
+                                             "value" : [ "ColectomyHistory" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ ")" ]
+                                       } ]
+                                    } ]
+                                 }, {
+                                    "r" : "273",
+                                    "value" : [ " ","starts on or before"," " ]
+                                 }, {
+                                    "r" : "272",
+                                    "s" : [ {
+                                       "value" : [ "AsOf" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n  )" ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "275",
+               "locator" : "125:2-128:3",
+               "type" : "Exists",
+               "operand" : {
+                  "localId" : "274",
+                  "locator" : "125:9-128:3",
+                  "type" : "Query",
+                  "source" : [ {
+                     "localId" : "268",
+                     "locator" : "126:5-126:59",
+                     "alias" : "ColectomyHistory",
+                     "expression" : {
+                        "localId" : "267",
+                        "locator" : "126:5-126:42",
+                        "name" : "Total Colectomy from Patient History",
+                        "type" : "ExpressionRef"
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "localId" : "273",
+                     "locator" : "127:7-127:78",
+                     "type" : "SameOrBefore",
+                     "operand" : [ {
+                        "locator" : "127:55-127:60",
+                        "type" : "Start",
+                        "operand" : {
+                           "localId" : "271",
+                           "locator" : "127:13-127:53",
+                           "name" : "ToPrevalenceInterval",
+                           "libraryName" : "FC",
+                           "type" : "FunctionRef",
+                           "operand" : [ {
+                              "localId" : "270",
+                              "locator" : "127:37-127:52",
+                              "name" : "ColectomyHistory",
+                              "type" : "AliasRef"
+                           } ]
+                        }
+                     }, {
+                        "localId" : "272",
+                        "locator" : "127:75-127:78",
+                        "name" : "AsOf",
+                        "type" : "ExpressionRef"
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "localId" : "291",
+            "locator" : "137:1-142:53",
+            "name" : "Has Appropriate Colorectal Cancer Screening",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "291",
+                  "s" : [ {
+                     "value" : [ "/*\n  FOBT within 1 year\n    or FIT DNA within 3 years\n    or CT Colonography within 5 years\n    or Flexible Sigmoidoscopy within 5 years\n    or Colonoscopy within 10 years\n*/\n","define ","\"Has Appropriate Colorectal Cancer Screening\"",":\n  " ]
+                  }, {
+                     "r" : "290",
+                     "s" : [ {
+                        "r" : "287",
+                        "s" : [ {
+                           "r" : "284",
+                           "s" : [ {
+                              "r" : "281",
+                              "s" : [ {
+                                 "r" : "278",
+                                 "s" : [ {
+                                    "value" : [ "exists " ]
+                                 }, {
+                                    "r" : "277",
+                                    "s" : [ {
+                                       "value" : [ "\"Fecal Occult Blood Test Result Within 1 Year\"" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ "\n    or " ]
+                              }, {
+                                 "r" : "280",
+                                 "s" : [ {
+                                    "value" : [ "exists " ]
+                                 }, {
+                                    "r" : "279",
+                                    "s" : [ {
+                                       "value" : [ "\"Fecal Immunochemical Test DNA Result Within 3 Years\"" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ "\n    or " ]
+                           }, {
+                              "r" : "283",
+                              "s" : [ {
+                                 "value" : [ "exists " ]
+                              }, {
+                                 "r" : "282",
+                                 "s" : [ {
+                                    "value" : [ "\"CT Colonography Performed Within 5 Years\"" ]
+                                 } ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    or " ]
+                        }, {
+                           "r" : "286",
+                           "s" : [ {
+                              "value" : [ "exists " ]
+                           }, {
+                              "r" : "285",
+                              "s" : [ {
+                                 "value" : [ "\"Flexible Sigmoidoscopy Performed Within 5 Years\"" ]
+                              } ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n    or " ]
+                     }, {
+                        "r" : "289",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "288",
+                           "s" : [ {
+                              "value" : [ "\"Colonoscopy Performed Within 10 Years\"" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "290",
+               "locator" : "138:3-142:53",
+               "type" : "Or",
+               "operand" : [ {
+                  "localId" : "287",
+                  "locator" : "138:3-141:63",
+                  "type" : "Or",
+                  "operand" : [ {
+                     "localId" : "284",
+                     "locator" : "138:3-140:56",
+                     "type" : "Or",
+                     "operand" : [ {
+                        "localId" : "281",
+                        "locator" : "138:3-139:67",
+                        "type" : "Or",
+                        "operand" : [ {
+                           "localId" : "278",
+                           "locator" : "138:3-138:55",
+                           "type" : "Exists",
+                           "operand" : {
+                              "localId" : "277",
+                              "locator" : "138:10-138:55",
+                              "name" : "Fecal Occult Blood Test Result Within 1 Year",
+                              "type" : "ExpressionRef"
+                           }
+                        }, {
+                           "localId" : "280",
+                           "locator" : "139:8-139:67",
+                           "type" : "Exists",
+                           "operand" : {
+                              "localId" : "279",
+                              "locator" : "139:15-139:67",
+                              "name" : "Fecal Immunochemical Test DNA Result Within 3 Years",
+                              "type" : "ExpressionRef"
+                           }
+                        } ]
+                     }, {
+                        "localId" : "283",
+                        "locator" : "140:8-140:56",
+                        "type" : "Exists",
+                        "operand" : {
+                           "localId" : "282",
+                           "locator" : "140:15-140:56",
+                           "name" : "CT Colonography Performed Within 5 Years",
+                           "type" : "ExpressionRef"
+                        }
+                     } ]
+                  }, {
+                     "localId" : "286",
+                     "locator" : "141:8-141:63",
+                     "type" : "Exists",
+                     "operand" : {
+                        "localId" : "285",
+                        "locator" : "141:15-141:63",
+                        "name" : "Flexible Sigmoidoscopy Performed Within 5 Years",
+                        "type" : "ExpressionRef"
+                     }
+                  } ]
+               }, {
+                  "localId" : "289",
+                  "locator" : "142:8-142:53",
+                  "type" : "Exists",
+                  "operand" : {
+                     "localId" : "288",
+                     "locator" : "142:15-142:53",
+                     "name" : "Colonoscopy Performed Within 10 Years",
+                     "type" : "ExpressionRef"
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "315",
+            "locator" : "145:1-151:99",
+            "name" : "Has History of Appropriate Colorectal Cancer Screening",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "315",
+                  "s" : [ {
+                     "value" : [ "// NOTE: For Condition options\n","define ","\"Has History of Appropriate Colorectal Cancer Screening\"",":\n  " ]
+                  }, {
+                     "r" : "314",
+                     "s" : [ {
+                        "r" : "302",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "301",
+                           "s" : [ {
+                              "value" : [ "(\n    " ]
+                           }, {
+                              "r" : "301",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "r" : "293",
+                                    "s" : [ {
+                                       "r" : "292",
+                                       "s" : [ {
+                                          "s" : [ {
+                                             "value" : [ "\"Flexible Sigmoidoscopy from Patient History\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " ","FlexSigCondition" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ "\n      " ]
+                              }, {
+                                 "r" : "300",
+                                 "s" : [ {
+                                    "value" : [ "where " ]
+                                 }, {
+                                    "r" : "300",
+                                    "s" : [ {
+                                       "r" : "296",
+                                       "s" : [ {
+                                          "r" : "294",
+                                          "s" : [ {
+                                             "value" : [ "FC" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "296",
+                                          "s" : [ {
+                                             "value" : [ "ToPrevalenceInterval","(" ]
+                                          }, {
+                                             "r" : "295",
+                                             "s" : [ {
+                                                "value" : [ "FlexSigCondition" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ ")" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "r" : "300",
+                                       "value" : [ " ","starts on or after day of"," " ]
+                                    }, {
+                                       "r" : "299",
+                                       "s" : [ {
+                                          "r" : "297",
+                                          "s" : [ {
+                                             "value" : [ "AsOf" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ " - " ]
+                                       }, {
+                                          "r" : "298",
+                                          "s" : [ {
+                                             "value" : [ "5 ","years" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     }, {
+                        "value" : [ "\n  or " ]
+                     }, {
+                        "r" : "313",
+                        "s" : [ {
+                           "value" : [ "exists " ]
+                        }, {
+                           "r" : "312",
+                           "s" : [ {
+                              "value" : [ "(\n    " ]
+                           }, {
+                              "r" : "312",
+                              "s" : [ {
+                                 "s" : [ {
+                                    "r" : "304",
+                                    "s" : [ {
+                                       "r" : "303",
+                                       "s" : [ {
+                                          "s" : [ {
+                                             "value" : [ "\"Colonoscopy from Patient History\"" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "value" : [ " ","ColonscopyCondition" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ "\n      " ]
+                              }, {
+                                 "r" : "311",
+                                 "s" : [ {
+                                    "value" : [ "where " ]
+                                 }, {
+                                    "r" : "311",
+                                    "s" : [ {
+                                       "r" : "307",
+                                       "s" : [ {
+                                          "r" : "305",
+                                          "s" : [ {
+                                             "value" : [ "FC" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ "." ]
+                                       }, {
+                                          "r" : "307",
+                                          "s" : [ {
+                                             "value" : [ "ToPrevalenceInterval","(" ]
+                                          }, {
+                                             "r" : "306",
+                                             "s" : [ {
+                                                "value" : [ "ColonscopyCondition" ]
+                                             } ]
+                                          }, {
+                                             "value" : [ ")" ]
+                                          } ]
+                                       } ]
+                                    }, {
+                                       "r" : "311",
+                                       "value" : [ " ","starts on or after day of"," " ]
+                                    }, {
+                                       "r" : "310",
+                                       "s" : [ {
+                                          "r" : "308",
+                                          "s" : [ {
+                                             "value" : [ "AsOf" ]
+                                          } ]
+                                       }, {
+                                          "value" : [ " - " ]
+                                       }, {
+                                          "r" : "309",
+                                          "s" : [ {
+                                             "value" : [ "10 ","years" ]
+                                          } ]
+                                       } ]
+                                    } ]
+                                 } ]
+                              } ]
+                           }, {
+                              "value" : [ ")" ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "314",
+               "locator" : "146:3-151:99",
+               "type" : "Or",
+               "operand" : [ {
+                  "localId" : "302",
+                  "locator" : "146:3-148:95",
+                  "type" : "Exists",
+                  "operand" : {
+                     "localId" : "301",
+                     "locator" : "146:10-148:95",
+                     "type" : "Query",
+                     "source" : [ {
+                        "localId" : "293",
+                        "locator" : "147:5-147:66",
+                        "alias" : "FlexSigCondition",
+                        "expression" : {
+                           "localId" : "292",
+                           "locator" : "147:5-147:49",
+                           "name" : "Flexible Sigmoidoscopy from Patient History",
+                           "type" : "ExpressionRef"
+                        }
+                     } ],
+                     "relationship" : [ ],
+                     "where" : {
+                        "localId" : "300",
+                        "locator" : "148:7-148:94",
+                        "precision" : "Day",
+                        "type" : "SameOrAfter",
+                        "operand" : [ {
+                           "locator" : "148:55-148:60",
+                           "type" : "Start",
+                           "operand" : {
+                              "localId" : "296",
+                              "locator" : "148:13-148:53",
+                              "name" : "ToPrevalenceInterval",
+                              "libraryName" : "FC",
+                              "type" : "FunctionRef",
+                              "operand" : [ {
+                                 "localId" : "295",
+                                 "locator" : "148:37-148:52",
+                                 "name" : "FlexSigCondition",
+                                 "type" : "AliasRef"
+                              } ]
+                           }
+                        }, {
+                           "localId" : "299",
+                           "locator" : "148:81-148:94",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "297",
+                              "locator" : "148:81-148:84",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "298",
+                              "locator" : "148:88-148:94",
+                              "value" : 5,
+                              "unit" : "years",
+                              "type" : "Quantity"
+                           } ]
+                        } ]
+                     }
+                  }
+               }, {
+                  "localId" : "313",
+                  "locator" : "149:6-151:99",
+                  "type" : "Exists",
+                  "operand" : {
+                     "localId" : "312",
+                     "locator" : "149:13-151:99",
+                     "type" : "Query",
+                     "source" : [ {
+                        "localId" : "304",
+                        "locator" : "150:5-150:58",
+                        "alias" : "ColonscopyCondition",
+                        "expression" : {
+                           "localId" : "303",
+                           "locator" : "150:5-150:38",
+                           "name" : "Colonoscopy from Patient History",
+                           "type" : "ExpressionRef"
+                        }
+                     } ],
+                     "relationship" : [ ],
+                     "where" : {
+                        "localId" : "311",
+                        "locator" : "151:7-151:98",
+                        "precision" : "Day",
+                        "type" : "SameOrAfter",
+                        "operand" : [ {
+                           "locator" : "151:58-151:63",
+                           "type" : "Start",
+                           "operand" : {
+                              "localId" : "307",
+                              "locator" : "151:13-151:56",
+                              "name" : "ToPrevalenceInterval",
+                              "libraryName" : "FC",
+                              "type" : "FunctionRef",
+                              "operand" : [ {
+                                 "localId" : "306",
+                                 "locator" : "151:37-151:55",
+                                 "name" : "ColonscopyCondition",
+                                 "type" : "AliasRef"
+                              } ]
+                           }
+                        }, {
+                           "localId" : "310",
+                           "locator" : "151:84-151:98",
+                           "type" : "Subtract",
+                           "operand" : [ {
+                              "localId" : "308",
+                              "locator" : "151:84-151:87",
+                              "name" : "AsOf",
+                              "type" : "ExpressionRef"
+                           }, {
+                              "localId" : "309",
+                              "locator" : "151:91-151:98",
+                              "value" : 10,
+                              "unit" : "years",
+                              "type" : "Quantity"
+                           } ]
+                        } ]
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "localId" : "336",
+            "locator" : "165:1-167:53",
+            "name" : "IssuedWithin",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "type" : "FunctionDef",
+            "annotation" : [ {
+               "type" : "Annotation",
+               "s" : {
+                  "r" : "336",
+                  "s" : [ {
+                     "value" : [ "","define function ","IssuedWithin","(","observations"," " ]
+                  }, {
+                     "r" : "325",
+                     "s" : [ {
+                        "value" : [ "List<" ]
+                     }, {
+                        "r" : "324",
+                        "s" : [ {
+                           "value" : [ "Observation" ]
+                        } ]
+                     }, {
+                        "value" : [ ">" ]
+                     } ]
+                  }, {
+                     "value" : [ ", ","lookback"," " ]
+                  }, {
+                     "r" : "326",
+                     "s" : [ {
+                        "value" : [ "System",".","Quantity" ]
+                     } ]
+                  }, {
+                     "value" : [ "):\n  " ]
+                  }, {
+                     "r" : "335",
+                     "s" : [ {
+                        "r" : "335",
+                        "s" : [ {
+                           "s" : [ {
+                              "r" : "328",
+                              "s" : [ {
+                                 "r" : "327",
+                                 "s" : [ {
+                                    "s" : [ {
+                                       "value" : [ "observations" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "value" : [ " ","O" ]
+                              } ]
+                           } ]
+                        }, {
+                           "value" : [ "\n    " ]
+                        }, {
+                           "r" : "334",
+                           "s" : [ {
+                              "value" : [ "where " ]
+                           }, {
+                              "r" : "334",
+                              "s" : [ {
+                                 "r" : "330",
+                                 "s" : [ {
+                                    "r" : "329",
+                                    "s" : [ {
+                                       "value" : [ "O" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ "." ]
+                                 }, {
+                                    "r" : "330",
+                                    "s" : [ {
+                                       "value" : [ "issued" ]
+                                    } ]
+                                 } ]
+                              }, {
+                                 "r" : "334",
+                                 "value" : [ " ","on or after day of"," " ]
+                              }, {
+                                 "r" : "333",
+                                 "s" : [ {
+                                    "r" : "331",
+                                    "s" : [ {
+                                       "value" : [ "AsOf" ]
+                                    } ]
+                                 }, {
+                                    "value" : [ " - " ]
+                                 }, {
+                                    "r" : "332",
+                                    "s" : [ {
+                                       "value" : [ "lookback" ]
+                                    } ]
+                                 } ]
+                              } ]
+                           } ]
+                        } ]
+                     } ]
+                  } ]
+               }
+            } ],
+            "expression" : {
+               "localId" : "335",
+               "locator" : "166:3-167:53",
+               "type" : "Query",
+               "source" : [ {
+                  "localId" : "328",
+                  "locator" : "166:3-166:16",
+                  "alias" : "O",
+                  "expression" : {
+                     "localId" : "327",
+                     "locator" : "166:3-166:14",
+                     "name" : "observations",
+                     "type" : "OperandRef"
+                  }
+               } ],
+               "relationship" : [ ],
+               "where" : {
+                  "localId" : "334",
+                  "locator" : "167:5-167:53",
+                  "precision" : "Day",
+                  "type" : "SameOrAfter",
+                  "operand" : [ {
+                     "name" : "ToDateTime",
+                     "libraryName" : "FHIRHelpers",
+                     "type" : "FunctionRef",
+                     "operand" : [ {
+                        "localId" : "330",
+                        "locator" : "167:11-167:18",
+                        "path" : "issued",
+                        "scope" : "O",
+                        "type" : "Property"
+                     } ]
+                  }, {
+                     "localId" : "333",
+                     "locator" : "167:39-167:53",
+                     "type" : "Subtract",
+                     "operand" : [ {
+                        "localId" : "331",
+                        "locator" : "167:39-167:42",
+                        "name" : "AsOf",
+                        "type" : "ExpressionRef"
+                     }, {
+                        "localId" : "332",
+                        "locator" : "167:46-167:53",
+                        "name" : "lookback",
+                        "type" : "OperandRef"
+                     } ]
+                  } ]
+               }
+            },
+            "operand" : [ {
+               "name" : "observations",
+               "operandTypeSpecifier" : {
+                  "localId" : "325",
+                  "locator" : "165:43-165:59",
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "localId" : "324",
+                     "locator" : "165:48-165:58",
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }, {
+               "name" : "lookback",
+               "operandTypeSpecifier" : {
+                  "localId" : "326",
+                  "locator" : "165:71-165:85",
+                  "name" : "{urn:hl7-org:elm-types:r1}Quantity",
+                  "type" : "NamedTypeSpecifier"
+               }
+            } ]
+         } ]
+      }
+   }
+}
